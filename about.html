@@ -3,173 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#2C1810">
 <title>关于我们 - 段位视觉锤</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','HanHei SC','Helvetica Neue','Microsoft Yahei',sans-serif;color:#333;background:#fff;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F5DC;--white:#fff;--gray:#f8f6f3}
+body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--white);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
-/* ===== Nav (固定显示) ===== */
-.nav{position:fixed;top:0;left:0;width:100%;height:60px;background:#fff;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:0 40px;border-bottom:1px solid #f0f0f0}
-.nav-logo{font-size:18px;font-weight:700;color:#222;letter-spacing:1px}
-.nav-logo span{font-weight:400;color:#999;font-size:14px;margin-left:4px}
-.nav-links{display:flex;gap:0}
-.nav-links a{color:#333;font-size:15px;padding:0 20px;height:60px;display:flex;align-items:center;transition:color .3s;font-weight:400}
-.nav-links a:hover{color:#C5A258}
-.nav-links a.active{color:#C5A258}
+/* ===== Header (白底深色字) ===== */
+.header{background:var(--white);position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(44,24,16,.08);box-shadow:0 1px 10px rgba(0,0,0,.04)}
+.header .container{display:flex;justify-content:space-between;align-items:center;height:70px}
+.logo{display:flex;align-items:center;gap:.8rem}
+.logo-img{height:40px;width:auto}
+.logo-text{color:var(--brown);font-size:1.3rem;font-weight:700;letter-spacing:1px}
+.logo-sub{color:var(--gold);font-size:.7rem;letter-spacing:2px;display:block;margin-top:2px}
+.nav{display:flex;align-items:center;gap:0}
+.nav a{color:var(--brown);font-size:.9rem;padding:0 1.5rem;height:70px;display:flex;align-items:center;transition:color .3s}
+.nav a:hover{color:var(--gold)}
+.nav-cta{background:var(--brown);color:var(--gold)!important;padding:.6rem 1.5rem;border-radius:4px;height:auto!important;margin-left:1rem;font-size:.85rem!important}
 
-/* ===== Page Title ===== */
-.page-title{margin-top:60px;padding:60px 40px 40px;text-align:center}
-.page-title h1{font-size:32px;font-weight:400;color:#222;letter-spacing:2px;margin-bottom:15px}
-.page-title p{font-size:15px;color:#999;max-width:600px;margin:0 auto;line-height:1.8}
+/* ===== Page Hero ===== */
+.page-hero{margin-top:70px;padding:5rem 0;background:var(--gray);text-align:center}
+.page-hero .en{font-size:.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:.5rem;display:block}
+.page-hero h1{font-size:2.5rem;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:1rem}
+.page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 1.5rem}
+.page-hero p{font-size:1rem;color:var(--brown3);max-width:600px;margin:0 auto;line-height:1.8}
 
 /* ===== About Content ===== */
-.about-content{padding:40px 40px 80px;max-width:1000px;margin:0 auto}
-.about-text{margin-bottom:60px}
-.about-text h2{font-size:24px;font-weight:400;color:#222;line-height:1.8;margin-bottom:20px;letter-spacing:1px}
-.about-text p{font-size:15px;color:#666;line-height:2;margin-bottom:15px}
-
-/* ===== Stats ===== */
-.stats-section{padding:60px 40px;background:#fafafa}
-.stats-inner{max-width:800px;margin:0 auto;display:flex;justify-content:center;gap:80px;text-align:center}
-.stat-num{font-size:42px;font-weight:300;color:#222}
-.stat-label{font-size:13px;color:#999;margin-top:5px}
+.about-section{padding:5rem 0}
+.about-grid{display:flex;gap:4rem;align-items:center}
+.about-text{flex:1}
+.about-text h3{font-size:1.6rem;color:var(--brown);margin-bottom:1.5rem;font-weight:700;letter-spacing:1px}
+.about-text p{color:var(--brown3);line-height:2;margin-bottom:1.5rem;font-size:1.05rem}
+.about-stats{display:flex;gap:3rem;margin-top:2rem}
+.stat-num{font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:.85rem;color:var(--brown3);margin-top:.3rem}
+.about-visual{flex:1;display:flex;justify-content:center}
+.visual-card{background:linear-gradient(135deg,var(--brown),var(--brown2));width:100%;max-width:380px;aspect-ratio:1;border-radius:8px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.5rem;box-shadow:0 20px 60px rgba(44,24,16,.2)}
+.visual-card .icon{font-size:4.5rem}
+.visual-card .text{color:var(--gold);font-size:1rem;letter-spacing:3px;font-weight:300}
 
 /* ===== Methodology ===== */
-.method-section{padding:80px 40px;max-width:1000px;margin:0 auto}
-.method-header{text-align:center;margin-bottom:50px}
-.method-header h2{font-size:28px;font-weight:400;color:#222;margin-bottom:15px;letter-spacing:2px}
-.method-header p{font-size:15px;color:#999;line-height:1.8}
-.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.method-card{padding:35px 25px;text-align:center;border:1px solid #f0f0f0;transition:all .3s}
-.method-card:hover{border-color:#ddd;box-shadow:0 4px 20px rgba(0,0,0,.04)}
-.method-card .icon{font-size:36px;margin-bottom:15px}
-.method-card h3{font-size:18px;font-weight:400;color:#222;margin-bottom:10px;letter-spacing:1px}
-.method-card p{font-size:14px;color:#999;line-height:1.6}
-
-/* ===== Contact ===== */
-.contact{padding:60px 40px;background:#f5f5f5}
-.contact-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start}
-.contact-left h3{font-size:14px;color:#999;letter-spacing:2px;margin-bottom:20px;font-weight:400}
-.contact-left p{font-size:16px;color:#333;margin-bottom:15px;line-height:1.8}
-.contact-right{text-align:right}
-.contact-right .qr{width:100px;height:100px;background:#ddd;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#999;margin-bottom:10px}
-.contact-right p{font-size:12px;color:#999}
+.method-section{padding:5rem 0;background:var(--gray)}
+.method-header{text-align:center;margin-bottom:4rem}
+.method-header .en{font-size:.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:.5rem;display:block}
+.method-header h2{font-size:2rem;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:.8rem}
+.method-header .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 1.5rem}
+.method-header p{color:var(--brown3);line-height:1.8;max-width:600px;margin:0 auto}
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.method-card{background:var(--white);padding:2.5rem 2rem;border-radius:4px;text-align:center;transition:all .4s;border:1px solid rgba(44,24,16,.05)}
+.method-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(44,24,16,.1);border-color:var(--gold)}
+.method-icon{font-size:2.8rem;margin-bottom:1.2rem}
+.method-card h3{font-size:1.2rem;color:var(--brown);margin-bottom:.8rem;font-weight:600;letter-spacing:1px}
+.method-card p{color:var(--brown3);font-size:.9rem;line-height:1.6}
 
 /* ===== Footer ===== */
-.footer{background:#f5f5f5;padding:20px 40px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-.footer-links{display:flex;gap:20px}
-.footer-links a{font-size:12px;color:#999;transition:color .3s}
-.footer-links a:hover{color:#333}
-.footer-copy{font-size:11px;color:#bbb}
+.footer{background:#1a0f0a;color:rgba(255,255,255,.5);padding:2rem 0}
+.footer .container{display:flex;justify-content:space-between;align-items:center}
+.footer-brand span{color:var(--gold);font-size:1rem;letter-spacing:2px}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:rgba(255,255,255,.4);font-size:.8rem}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-size:.75rem;opacity:.5}
 
 /* ===== Mobile ===== */
 @media(max-width:768px){
-.nav{height:50px;padding:0 16px}
-.nav-logo{font-size:15px}
-.nav-logo span{font-size:12px}
-.nav-links a{padding:0 12px;font-size:13px;height:50px}
-.page-title{margin-top:50px;padding:40px 16px 30px}
-.page-title h1{font-size:24px}
-.page-title p{font-size:14px}
-.about-content{padding:30px 16px 50px}
-.about-text h2{font-size:20px}
-.about-text p{font-size:14px}
-.stats-section{padding:40px 16px}
-.stats-inner{gap:30px}
-.stat-num{font-size:30px}
-.method-section{padding:50px 16px}
-.method-header h2{font-size:22px}
-.method-grid{grid-template-columns:1fr;gap:15px}
-.method-card{padding:25px 20px}
-.contact{padding:40px 16px}
-.contact-inner{flex-direction:column;gap:30px}
-.contact-right{text-align:left}
-.footer{padding:15px 16px;flex-direction:column;gap:10px;text-align:center}
+.header .container{height:56px;padding:0 1rem}
+.logo-text{font-size:1.1rem}
+.logo-sub{display:none}
+.logo-img{height:32px}
+.nav a{padding:0 .8rem;font-size:.75rem;height:56px}
+.nav-cta{display:none}
+.page-hero{margin-top:56px;padding:3rem 0}
+.page-hero h1{font-size:1.6rem}
+.about-section{padding:3rem 0}
+.about-grid{flex-direction:column;gap:2rem}
+.about-stats{gap:1.5rem}
+.stat-num{font-size:1.8rem}
+.visual-card{max-width:220px}
+.method-section{padding:3rem 0}
+.method-grid{grid-template-columns:1fr;gap:1rem}
+.method-card{padding:1.5rem}
+.footer .container{flex-direction:column;gap:1rem;text-align:center}
+.footer-links{flex-wrap:wrap;justify-content:center}
 }
 </style>
 </head>
 <body>
 
-<!-- Nav (固定显示) -->
+<!-- Header (白底深色字) -->
+<header class="header">
+<div class="container">
+<div class="logo">
+<img src="/images/logo.png" alt="段位视觉锤" class="logo-img" onerror="this.style.display='none'">
+<div><span class="logo-text">段位视觉锤</span><span class="logo-sub">VISUAL HAMMER</span></div>
+</div>
 <nav class="nav">
-<div class="nav-logo">段位视觉锤<span>VISUAL HAMMER</span></div>
-<div class="nav-links">
 <a href="/">首页</a>
 <a href="/cases/index.html">视觉锤案例</a>
-<a href="/about.html" class="active">关于我们</a>
-<a href="/#contact">联系我们</a>
-</div>
+<a href="/about.html">关于我们</a>
+<a href="/#contact" class="nav-cta">联系我们</a>
 </nav>
+</div>
+</header>
 
-<!-- Page Title -->
-<div class="page-title">
+<!-- Page Hero -->
+<div class="page-hero">
+<span class="en">About Us</span>
 <h1>关于段位视觉锤</h1>
+<div class="divider"></div>
 <p>专注于品牌视觉战略咨询的专业机构，致力于为企业打造有定位的品牌视觉，帮助企业攻占心智、致胜市场</p>
 </div>
 
 <!-- About Content -->
-<div class="about-content">
+<section class="about-section">
+<div class="container">
+<div class="about-grid">
 <div class="about-text">
-<h2>视觉锤 — 品牌定位的战略工具</h2>
+<h3>视觉锤 — 品牌定位的战略工具</h3>
 <p>我们相信，在视觉时代，一个优秀的视觉不仅仅是美观的表现，更应该突显产品或服务的定位，从而影响消费者的购买决策。</p>
 <p>我们深耕品牌视觉战略领域，以"视觉锤"理论为核心方法论，已为超过100个品牌打造了独特的视觉识别系统，覆盖农业、健康、畜牧、养生、饲料、珠宝等10+行业领域。</p>
-<p>段位视觉锤能做好品牌的唯一路径就是：成就客户的品牌才能铸就成功案例。只有成功案例才能证明我们的价值。</p>
-</div>
-</div>
-
-<!-- Stats -->
-<div class="stats-section">
-<div class="stats-inner">
+<div class="about-stats">
 <div><div class="stat-num">100+</div><div class="stat-label">服务品牌</div></div>
 <div><div class="stat-num">10+</div><div class="stat-label">覆盖行业</div></div>
 <div><div class="stat-num">50+</div><div class="stat-label">成功案例</div></div>
 </div>
 </div>
+<div class="about-visual">
+<div class="visual-card">
+<div class="icon">🔨</div>
+<div class="text">VISUAL HAMMER</div>
+<div class="icon" style="font-size:3rem">📌</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
 <!-- Methodology -->
-<div class="method-section">
+<section class="method-section">
+<div class="container">
 <div class="method-header">
+<span class="en">Our Methodology</span>
 <h2>视觉锤方法论</h2>
+<div class="divider"></div>
 <p>一个优秀的视觉不仅仅是美观的表现，更应该突显产品或服务的定位，从而影响消费者的购买决策</p>
 </div>
 <div class="method-grid">
-<div class="method-card"><div class="icon">🎨</div><h3>颜色锤</h3><p>用独特的颜色建立品牌识别，如王老吉的红罐</p></div>
-<div class="method-card"><div class="icon">⭐</div><h3>符号锤</h3><p>创造专属符号，让品牌一秒触发消费者记忆</p></div>
-<div class="method-card"><div class="icon">📦</div><h3>包装锤</h3><p>通过创新的包装设计，在货架上脱颖而出</p></div>
-<div class="method-card"><div class="icon">🐾</div><h3>动物锤</h3><p>借助动物形象强化品牌个性和记忆点</p></div>
-<div class="method-card"><div class="icon">🔄</div><h3>形状锤</h3><p>独特的产品形状，建立差异化认知</p></div>
-<div class="method-card"><div class="icon"></div><h3>动态锤</h3><p>通过动态视觉增强品牌的感染力</p></div>
-</div>
-</div>
-
-<!-- Contact -->
-<section class="contact" id="contact">
-<div class="contact-inner">
-<div class="contact-left">
-<h3>联系我们</h3>
-<p>邮箱：contact@duanweivh.com</p>
-<p>电话：400-888-8888</p>
-<p>地址：中国·上海</p>
-</div>
-<div class="contact-right">
-<div class="qr">二维码</div>
-<p>扫码关注</p>
+<div class="method-card"><div class="method-icon">🎨</div><h3>颜色锤</h3><p>用独特的颜色建立品牌识别，如王老吉的红罐</p></div>
+<div class="method-card"><div class="method-icon">⭐</div><h3>符号锤</h3><p>创造专属符号，让品牌一秒触发消费者记忆</p></div>
+<div class="method-card"><div class="method-icon">📦</div><h3>包装锤</h3><p>通过创新的包装设计，在货架上脱颖而出</p></div>
+<div class="method-card"><div class="method-icon">🐾</div><h3>动物锤</h3><p>借助动物形象强化品牌个性和记忆点</p></div>
+<div class="method-card"><div class="method-icon">🔄</div><h3>形状锤</h3><p>独特的产品形状，建立差异化认知</p></div>
+<div class="method-card"><div class="method-icon"></div><h3>动态锤</h3><p>通过动态视觉增强品牌的感染力</p></div>
 </div>
 </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
-<div class="footer-links">
-<a href="/">首页</a>
-<a href="/cases/index.html">视觉锤案例</a>
-<a href="/about.html">关于我们</a>
-<a href="/#contact">联系我们</a>
-</div>
+<div class="container">
+<div class="footer-brand"><span>段位视觉锤</span><span style="opacity:.4;margin:0 .5rem">|</span><span style="font-size:.8rem;opacity:.6">品牌视觉战略咨询</span></div>
+<div class="footer-links"><a href="/">首页</a><a href="/cases/index.html">视觉锤案例</a><a href="/about.html">关于我们</a><a href="/#contact">联系我们</a></div>
 <div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
+</div>
 </footer>
 
 </body>
