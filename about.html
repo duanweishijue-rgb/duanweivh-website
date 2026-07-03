@@ -7,12 +7,12 @@
 <title>关于我们 - 段位视觉锤</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F5DC;--white:#fff;--gray:#f8f6f3}
-body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--white);line-height:1.6;overflow-x:hidden}
+:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F0E8;--white:#fff;--gray:#f8f6f3}
+body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--cream);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
-/* ===== Header (白底深色字) ===== */
+/* ===== Header (白底深色字) 尺寸：宽100% 高70px ===== */
 .header{background:var(--white);position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(44,24,16,.08);box-shadow:0 1px 10px rgba(0,0,0,.04)}
 .header .container{display:flex;justify-content:space-between;align-items:center;height:70px}
 .logo{display:flex;align-items:center;gap:.8rem}
@@ -22,51 +22,69 @@ a{text-decoration:none;color:inherit}
 .nav{display:flex;align-items:center;gap:0}
 .nav a{color:var(--brown);font-size:.9rem;padding:0 1.5rem;height:70px;display:flex;align-items:center;transition:color .3s}
 .nav a:hover{color:var(--gold)}
-.nav-cta{background:var(--brown);color:var(--gold)!important;padding:.6rem 1.5rem;border-radius:4px;height:auto!important;margin-left:1rem;font-size:.85rem!important}
 
-/* ===== Page Hero ===== */
-.page-hero{margin-top:70px;padding:5rem 0;background:var(--gray);text-align:center}
-.page-hero .en{font-size:.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:.5rem;display:block}
-.page-hero h1{font-size:2.5rem;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:1rem}
-.page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 1.5rem}
-.page-hero p{font-size:1rem;color:var(--brown3);max-width:600px;margin:0 auto;line-height:1.8}
+/* ===== Page Hero 尺寸：宽100% 高350px ===== */
+.page-hero{margin-top:70px;padding:80px 0;background:var(--white);text-align:center}
+.page-hero .en{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:10px;display:block}
+.page-hero h1{font-size:32px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:15px}
+.page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 20px}
+.page-hero p{font-size:15px;color:#888;max-width:600px;margin:0 auto;line-height:1.8}
 
-/* ===== About Content ===== */
-.about-section{padding:5rem 0}
-.about-grid{display:flex;gap:4rem;align-items:center}
+/* ===== About Content 尺寸：宽100% 内边距60px 0 ===== */
+.about-section{padding:60px 0;background:var(--cream)}
+.about-grid{display:flex;gap:60px;align-items:center}
 .about-text{flex:1}
-.about-text h3{font-size:1.6rem;color:var(--brown);margin-bottom:1.5rem;font-weight:700;letter-spacing:1px}
-.about-text p{color:var(--brown3);line-height:2;margin-bottom:1.5rem;font-size:1.05rem}
-.about-stats{display:flex;gap:3rem;margin-top:2rem}
-.stat-num{font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1}
-.stat-label{font-size:.85rem;color:var(--brown3);margin-top:.3rem}
+.about-text h3{font-size:22px;color:var(--brown);margin-bottom:20px;font-weight:700;letter-spacing:1px}
+.about-text p{color:#666;line-height:2;margin-bottom:20px;font-size:15px}
+.about-stats{display:flex;gap:40px;margin-top:30px}
+.stat-num{font-size:36px;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:13px;color:#999;margin-top:5px}
 .about-visual{flex:1;display:flex;justify-content:center}
-.visual-card{background:linear-gradient(135deg,var(--brown),var(--brown2));width:100%;max-width:380px;aspect-ratio:1;border-radius:8px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.5rem;box-shadow:0 20px 60px rgba(44,24,16,.2)}
-.visual-card .icon{font-size:4.5rem}
-.visual-card .text{color:var(--gold);font-size:1rem;letter-spacing:3px;font-weight:300}
+.visual-card{background:linear-gradient(135deg,var(--brown),var(--brown2));width:100%;max-width:380px;aspect-ratio:1;border-radius:8px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;box-shadow:0 20px 60px rgba(44,24,16,.2)}
+.visual-card .icon{font-size:72px}
+.visual-card .text{color:var(--gold);font-size:16px;letter-spacing:3px;font-weight:300}
 
-/* ===== Methodology ===== */
-.method-section{padding:5rem 0;background:var(--gray)}
-.method-header{text-align:center;margin-bottom:4rem}
-.method-header .en{font-size:.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:.5rem;display:block}
-.method-header h2{font-size:2rem;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:.8rem}
-.method-header .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 1.5rem}
-.method-header p{color:var(--brown3);line-height:1.8;max-width:600px;margin:0 auto}
-.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.method-card{background:var(--white);padding:2.5rem 2rem;border-radius:4px;text-align:center;transition:all .4s;border:1px solid rgba(44,24,16,.05)}
-.method-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(44,24,16,.1);border-color:var(--gold)}
-.method-icon{font-size:2.8rem;margin-bottom:1.2rem}
-.method-card h3{font-size:1.2rem;color:var(--brown);margin-bottom:.8rem;font-weight:600;letter-spacing:1px}
-.method-card p{color:var(--brown3);font-size:.9rem;line-height:1.6}
+/* ===== Methodology 尺寸：宽100% 内边距60px 0 ===== */
+.method-section{padding:60px 0;background:var(--white)}
+.method-header{text-align:center;margin-bottom:40px}
+.method-header .en{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:10px;display:block}
+.method-header h2{font-size:28px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:10px}
+.method-header .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 15px}
+.method-header p{color:#888;line-height:1.8;max-width:600px;margin:0 auto;font-size:15px}
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.method-card{background:var(--cream);padding:30px 20px;border-radius:8px;text-align:center;transition:all .3s}
+.method-card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.method-icon{font-size:36px;margin-bottom:12px}
+.method-card h3{font-size:16px;color:var(--brown);margin-bottom:8px;font-weight:600;letter-spacing:1px}
+.method-card p{color:#888;font-size:13px;line-height:1.6}
 
-/* ===== Footer ===== */
-.footer{background:#1a0f0a;color:rgba(255,255,255,.5);padding:2rem 0}
-.footer .container{display:flex;justify-content:space-between;align-items:center}
-.footer-brand span{color:var(--gold);font-size:1rem;letter-spacing:2px}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{color:rgba(255,255,255,.4);font-size:.8rem}
-.footer-links a:hover{color:var(--gold)}
-.footer-copy{font-size:.75rem;opacity:.5}
+/* ===== Contact Section 尺寸：宽100% 内边距60px 0 ===== */
+.contact-section{padding:60px 0;background:var(--cream)}
+.contact-header{text-align:center;margin-bottom:40px}
+.contact-header h2{font-size:28px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:10px}
+.contact-header p{font-size:15px;color:#888}
+.contact-grid{display:flex;gap:60px;max-width:900px;margin:0 auto}
+.contact-info{flex:1}
+.contact-item{margin-bottom:25px}
+.contact-item .label{font-size:14px;color:var(--brown);font-weight:600;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.contact-item .value{font-size:15px;color:#666}
+.contact-form{flex:1}
+.contact-form input,.contact-form textarea{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:8px;font-size:14px;margin-bottom:15px;background:var(--white);font-family:inherit;outline:none;transition:border-color .3s}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--gold)}
+.contact-form textarea{height:120px;resize:vertical}
+.contact-form button{width:100%;padding:14px;background:var(--brown);color:var(--gold);border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;letter-spacing:2px;transition:opacity .3s}
+.contact-form button:hover{opacity:.9}
+
+/* ===== Footer 尺寸：宽100% 高约180px ===== */
+.footer{background:var(--brown);color:rgba(255,255,255,.5);padding:40px 0 20px}
+.footer .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.footer-brand{text-align:center;margin-bottom:20px}
+.footer-brand .name{color:var(--gold);font-size:22px;font-weight:700;letter-spacing:2px;display:block}
+.footer-brand .desc{color:rgba(255,255,255,.5);font-size:13px;margin-top:5px}
+.footer-nav{display:flex;justify-content:center;gap:2rem;margin-bottom:20px}
+.footer-nav a{color:rgba(255,255,255,.7);font-size:14px;transition:color .3s}
+.footer-nav a:hover{color:var(--gold)}
+.footer-copy{text-align:center;font-size:12px;opacity:.4;padding-top:15px;border-top:1px solid rgba(255,255,255,.1)}
 
 /* ===== Mobile ===== */
 @media(max-width:768px){
@@ -75,25 +93,25 @@ a{text-decoration:none;color:inherit}
 .logo-sub{display:none}
 .logo-img{height:32px}
 .nav a{padding:0 .8rem;font-size:.75rem;height:56px}
-.nav-cta{display:none}
-.page-hero{margin-top:56px;padding:3rem 0}
-.page-hero h1{font-size:1.6rem}
-.about-section{padding:3rem 0}
-.about-grid{flex-direction:column;gap:2rem}
-.about-stats{gap:1.5rem}
-.stat-num{font-size:1.8rem}
+.page-hero{margin-top:56px;padding:50px 0}
+.page-hero h1{font-size:24px}
+.about-section{padding:40px 0}
+.about-grid{flex-direction:column;gap:30px}
+.about-stats{gap:20px}
+.stat-num{font-size:28px}
 .visual-card{max-width:220px}
-.method-section{padding:3rem 0}
-.method-grid{grid-template-columns:1fr;gap:1rem}
-.method-card{padding:1.5rem}
-.footer .container{flex-direction:column;gap:1rem;text-align:center}
-.footer-links{flex-wrap:wrap;justify-content:center}
+.method-section{padding:40px 0}
+.method-grid{grid-template-columns:1fr;gap:15px}
+.method-card{padding:20px}
+.contact-section{padding:40px 0}
+.contact-grid{flex-direction:column;gap:30px}
+.footer-nav{flex-wrap:wrap;gap:1rem}
 }
 </style>
 </head>
 <body>
 
-<!-- Header (白底深色字) -->
+<!-- Header (白底深色字) 尺寸：宽100% 高70px -->
 <header class="header">
 <div class="container">
 <div class="logo">
@@ -104,12 +122,12 @@ a{text-decoration:none;color:inherit}
 <a href="/">首页</a>
 <a href="/cases/index.html">视觉锤案例</a>
 <a href="/about.html">关于我们</a>
-<a href="/#contact" class="nav-cta">联系我们</a>
+<a href="#contact">联系我们</a>
 </nav>
 </div>
 </header>
 
-<!-- Page Hero -->
+<!-- Page Hero 尺寸：宽100% 高350px -->
 <div class="page-hero">
 <span class="en">About Us</span>
 <h1>关于段位视觉锤</h1>
@@ -117,7 +135,7 @@ a{text-decoration:none;color:inherit}
 <p>专注于品牌视觉战略咨询的专业机构，致力于为企业打造有定位的品牌视觉，帮助企业攻占心智、致胜市场</p>
 </div>
 
-<!-- About Content -->
+<!-- About Content 尺寸：宽100% 内边距60px 0 -->
 <section class="about-section">
 <div class="container">
 <div class="about-grid">
@@ -135,14 +153,14 @@ a{text-decoration:none;color:inherit}
 <div class="visual-card">
 <div class="icon">🔨</div>
 <div class="text">VISUAL HAMMER</div>
-<div class="icon" style="font-size:3rem">📌</div>
+<div class="icon" style="font-size:48px">📌</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- Methodology -->
+<!-- Methodology 尺寸：宽100% 内边距60px 0 -->
 <section class="method-section">
 <div class="container">
 <div class="method-header">
@@ -162,11 +180,52 @@ a{text-decoration:none;color:inherit}
 </div>
 </section>
 
-<!-- Footer -->
+<!-- Contact Section 尺寸：宽100% 内边距60px 0 -->
+<section class="contact-section" id="contact">
+<div class="container">
+<div class="contact-header">
+<h2>联系我们</h2>
+<p>让我们一起为您的品牌打造强有力的视觉锤</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info">
+<div class="contact-item">
+<div class="label"> 邮箱</div>
+<div class="value">contact@duanweivh.com</div>
+</div>
+<div class="contact-item">
+<div class="label">📱 电话</div>
+<div class="value">400-888-8888</div>
+</div>
+<div class="contact-item">
+<div class="label">📍 地址</div>
+<div class="value">中国·上海</div>
+</div>
+</div>
+<div class="contact-form">
+<input type="text" placeholder="您的姓名">
+<input type="email" placeholder="您的邮箱">
+<input type="tel" placeholder="联系电话">
+<textarea placeholder="请描述您的需求..."></textarea>
+<button type="button">提交咨询</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer 尺寸：宽100% 高约180px -->
 <footer class="footer">
 <div class="container">
-<div class="footer-brand"><span>段位视觉锤</span><span style="opacity:.4;margin:0 .5rem">|</span><span style="font-size:.8rem;opacity:.6">品牌视觉战略咨询</span></div>
-<div class="footer-links"><a href="/">首页</a><a href="/cases/index.html">视觉锤案例</a><a href="/about.html">关于我们</a><a href="/#contact">联系我们</a></div>
+<div class="footer-brand">
+<span class="name">段位视觉锤</span>
+<span class="desc">品牌视觉战略咨询专家</span>
+</div>
+<div class="footer-nav">
+<a href="/">首页</a>
+<a href="/cases/index.html">视觉锤案例</a>
+<a href="/about.html">关于我们</a>
+<a href="#contact">联系我们</a>
+</div>
 <div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
 </div>
 </footer>

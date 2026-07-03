@@ -7,12 +7,12 @@
 <title>猪太子教槽料 - 段位视觉锤案例</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F5DC;--white:#fff;--gray:#f8f6f3}
-body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--white);line-height:1.6;overflow-x:hidden}
+:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F0E8;--white:#fff;--gray:#f8f6f3}
+body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--cream);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
-/* ===== Header (白底深色字) ===== */
+/* Header (白底深色字) 尺寸：宽100% 高70px */
 .header{background:var(--white);position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(44,24,16,.08);box-shadow:0 1px 10px rgba(0,0,0,.04)}
 .header .container{display:flex;justify-content:space-between;align-items:center;height:70px}
 .logo{display:flex;align-items:center;gap:.8rem}
@@ -22,79 +22,71 @@ a{text-decoration:none;color:inherit}
 .nav{display:flex;align-items:center;gap:0}
 .nav a{color:var(--brown);font-size:.9rem;padding:0 1.5rem;height:70px;display:flex;align-items:center;transition:color .3s}
 .nav a:hover{color:var(--gold)}
-.nav-cta{background:var(--brown);color:var(--gold)!important;padding:.6rem 1.5rem;border-radius:4px;height:auto!important;margin-left:1rem;font-size:.85rem!important}
 
-/* ===== Case Hero (封面图，建议尺寸：1920×1080px) ===== */
-.case-hero{margin-top:70px;position:relative;width:100%;height:600px;background-size:cover;background-position:center;overflow:hidden}
-.case-hero-bg{width:100%;height:100%;background-size:cover;background-position:center}
-.case-hero:nth-child(1) .case-hero-bg{background:linear-gradient(135deg,#C5A258,#D4AF37)}
-.case-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%)}
-.case-hero-content{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;z-index:2}
-.case-hero-content h1{font-size:3rem;font-weight:300;letter-spacing:4px;text-shadow:0 2px 15px rgba(0,0,0,.3)}
-.case-hero-content .tag{font-size:.9rem;opacity:.85;letter-spacing:2px;margin-top:10px;display:block}
+/* Page Hero 尺寸：宽100% 高250px */
+.page-hero{margin-top:70px;padding:50px 0;background:var(--white);text-align:center}
+.page-hero .en{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:10px;display:block}
+.page-hero h1{font-size:32px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:8px}
+.page-hero .subtitle{font-size:15px;color:var(--gold);margin-bottom:15px}
+.page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto}
 
-/* ===== Case Content ===== */
-.case-content{padding:5rem 0}
-.case-intro{text-align:center;margin-bottom:4rem}
-.case-intro h2{font-size:1.8rem;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:1.5rem;line-height:1.6}
-.case-intro p{font-size:1rem;color:var(--brown3);line-height:2;max-width:700px;margin:0 auto}
+/* Case Hero Image 尺寸：宽100% 高500px */
+.case-hero{width:100%;height:500px;background-size:cover;background-position:center;position:relative;margin-bottom:0}
+.case-hero-zhutaizi{background:linear-gradient(135deg,#C5A258,#D4AF37)}
+.case-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.1)}
+.size-label{position:absolute;bottom:10px;right:10px;font-size:11px;color:#fff;background:rgba(0,0,0,.5);padding:3px 8px;border-radius:3px}
 
-/* ===== Image Section (标注尺寸) ===== */
-.image-section{margin:4rem 0}
-.image-label{font-size:.85rem;color:var(--brown3);text-align:center;margin-bottom:1rem;letter-spacing:1px}
-.image-container{width:100%;background:var(--gray);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--brown3);position:relative;border-radius:4px}
-.image-container::after{content:attr(data-size);position:absolute;bottom:15px;right:15px;font-size:.75rem;color:var(--brown3);background:rgba(255,255,255,.9);padding:5px 12px;border-radius:3px}
+/* Case Content 尺寸：宽100% 内边距60px 0 */
+.case-content{padding:60px 0;background:var(--cream)}
+.case-content .container{max-width:900px}
+.case-content h2{font-size:22px;color:var(--brown);font-weight:700;margin-bottom:20px;letter-spacing:1px}
+.case-content p{font-size:15px;color:#666;line-height:2;margin-bottom:20px}
 
-/* Logo图 800×600px */
-.logo-img{width:100%;height:450px}
-/* 包装图 1920×1080px */
-.package-img{width:100%;height:600px}
-/* 应用图 1920×1080px */
-.application-img{width:100%;height:600px}
-/* 效果图 1920×1080px */
-.effect-img{width:100%;height:600px}
+/* Image Gallery 尺寸：宽100% 内边距0 0 60px */
+.case-gallery{padding:0 0 60px;background:var(--cream)}
+.case-gallery .container{max-width:1200px}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.gallery-item{position:relative;border-radius:8px;overflow:hidden;background:var(--white);box-shadow:0 2px 15px rgba(0,0,0,.06)}
+.gallery-img{width:100%;height:300px;background-size:cover;background-position:center}
+.gallery-img-1{background:linear-gradient(135deg,#C5A258,#D4AF37)}
+.gallery-img-2{background:linear-gradient(135deg,#5D4037,#3C2415)}
+.gallery-img-3{background:linear-gradient(135deg,#FFD700,#C5A258)}
+.gallery-img-4{background:linear-gradient(135deg,#D4AF37,#5D4037)}
+.gallery-size{position:absolute;bottom:10px;right:10px;font-size:11px;color:#fff;background:rgba(0,0,0,.5);padding:3px 8px;border-radius:3px}
+.gallery-placeholder{display:flex;align-items:center;justify-content:center;height:300px;font-size:48px;opacity:.15}
 
-.case-text{text-align:center;margin:4rem 0}
-.case-text p{font-size:1rem;color:var(--brown3);line-height:2;margin-bottom:1.5rem;max-width:700px;margin-left:auto;margin-right:auto}
+/* Footer 尺寸：宽100% 高约180px */
+.footer{background:var(--brown);color:rgba(255,255,255,.5);padding:40px 0 20px}
+.footer .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.footer-brand{text-align:center;margin-bottom:20px}
+.footer-brand .name{color:var(--gold);font-size:22px;font-weight:700;letter-spacing:2px;display:block}
+.footer-brand .desc{color:rgba(255,255,255,.5);font-size:13px;margin-top:5px}
+.footer-nav{display:flex;justify-content:center;gap:2rem;margin-bottom:20px}
+.footer-nav a{color:rgba(255,255,255,.7);font-size:14px;transition:color .3s}
+.footer-nav a:hover{color:var(--gold)}
+.footer-copy{text-align:center;font-size:12px;opacity:.4;padding-top:15px;border-top:1px solid rgba(255,255,255,.1)}
 
-.images-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:4rem 0}
-.images-grid .image-container{height:400px}
-
-/* ===== Footer ===== */
-.footer{background:#1a0f0a;color:rgba(255,255,255,.5);padding:2rem 0}
-.footer .container{display:flex;justify-content:space-between;align-items:center}
-.footer-brand span{color:var(--gold);font-size:1rem;letter-spacing:2px}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{color:rgba(255,255,255,.4);font-size:.8rem}
-.footer-links a:hover{color:var(--gold)}
-.footer-copy{font-size:.75rem;opacity:.5}
-
-/* ===== Mobile ===== */
+/* Mobile */
 @media(max-width:768px){
 .header .container{height:56px;padding:0 1rem}
 .logo-text{font-size:1.1rem}
 .logo-sub{display:none}
 .logo-img{height:32px}
 .nav a{padding:0 .8rem;font-size:.75rem;height:56px}
-.nav-cta{display:none}
-.case-hero{height:350px;margin-top:56px}
-.case-hero-content h1{font-size:1.8rem}
-.case-hero-content .tag{font-size:.8rem}
-.case-content{padding:3rem 0}
-.case-intro h2{font-size:1.4rem}
-.case-intro p{font-size:.9rem}
-.logo-img{height:280px}
-.package-img,.application-img,.effect-img{height:350px}
-.images-grid{grid-template-columns:1fr;gap:1.5rem}
-.images-grid .image-container{height:250px}
-.footer .container{flex-direction:column;gap:1rem;text-align:center}
-.footer-links{flex-wrap:wrap;justify-content:center}
+.page-hero{margin-top:56px;padding:30px 0}
+.page-hero h1{font-size:24px}
+.case-hero{height:300px}
+.case-content{padding:40px 0}
+.gallery-grid{grid-template-columns:1fr}
+.gallery-img{height:200px}
+.gallery-placeholder{height:200px}
+.footer-nav{flex-wrap:wrap;gap:1rem}
 }
 </style>
 </head>
 <body>
 
-<!-- Header (白底深色字) -->
+<!-- Header (白底深色字) 尺寸：宽100% 高70px -->
 <header class="header">
 <div class="container">
 <div class="logo">
@@ -105,77 +97,76 @@ a{text-decoration:none;color:inherit}
 <a href="/">首页</a>
 <a href="/cases/index.html">视觉锤案例</a>
 <a href="/about.html">关于我们</a>
-<a href="/#contact" class="nav-cta">联系我们</a>
+<a href="/about.html#contact">联系我们</a>
 </nav>
 </div>
 </header>
 
-<!-- Case Hero (封面图，建议尺寸：1920×1080px) -->
-<div class="case-hero">
-<div class="case-hero-bg" style="background:linear-gradient(135deg,#C5A258,#D4AF37)"></div>
-<div class="case-hero-overlay"></div>
-<div class="case-hero-content">
+<!-- Page Hero 尺寸：宽100% 高250px -->
+<div class="page-hero">
+<span class="en">Case Study</span>
 <h1>猪太子教槽料</h1>
-<span class="tag">饲料行业 · 打造高端教槽料品牌的视觉形象</span>
-</div>
+<div class="subtitle">畜牧饲料品牌</div>
+<div class="divider"></div>
 </div>
 
-<!-- Case Content -->
-<div class="case-content">
+<!-- Case Hero Image 尺寸：宽100% 高500px (建议图片尺寸：1920×1080px) -->
+<div class="case-hero case-hero-zhutaizi">
+<div class="case-hero-overlay"></div>
+<span class="size-label">1920×1080px</span>
+</div>
+
+<!-- Case Content 尺寸：宽100% 内边距60px 0 -->
+<section class="case-content">
 <div class="container">
-
-<div class="case-intro">
-<h2>打造高端教槽料品牌的视觉形象，在竞争激烈的饲料市场中脱颖而出。以太子形象为核心，建立高端、专业的品牌认知。</h2>
-<p>段位视觉锤以"视觉锤"理论为核心，为该品牌打造了独特的视觉识别系统，帮助品牌在竞争激烈的市场中建立差异化认知，提升品牌价值。</p>
+<h2>案例介绍</h2>
+<p>打造高端教槽料品牌的视觉形象，在竞争激烈的饲料市场中脱颖而出。猪太子教槽料以皇家金色为视觉锤，彰显产品的高端品质定位。</p>
+<p>通过视觉锤战略，我们为猪太子教槽料打造了独特的品牌视觉识别系统，帮助品牌在竞争激烈的市场中建立差异化认知，提升品牌价值和消费者记忆度。</p>
 </div>
+</section>
 
-<!-- 封面图 1920×1080px -->
-<div class="image-section">
-<div class="image-label">品牌封面图（建议尺寸：1920×1080px）</div>
-<div class="image-container package-img" data-size="1920×1080px">品牌封面图（待上传）</div>
-</div>
+<!-- Image Gallery 尺寸：宽100% 内边距0 0 60px -->
+<section class="case-gallery">
+<div class="container">
+<div class="gallery-grid">
 
-<div class="case-text">
-<p>通过深入的品牌策略分析，我们为该品牌量身定制了视觉锤方案。从品牌定位出发，结合行业特点和目标受众，打造出具有强识别度的视觉系统。</p>
-<p>视觉锤不仅仅是一个好看的标志，更是品牌战略的视觉化表达。它帮助消费者快速识别品牌，建立品牌与品类之间的强关联。</p>
-</div>
-
-<!-- Logo图 800×600px -->
-<div class="image-section">
-<div class="image-label">Logo设计（建议尺寸：800×600px）</div>
-<div class="image-container logo-img" data-size="800×600px">Logo设计（待上传）</div>
+<div class="gallery-item">
+<div class="gallery-img gallery-img-1"><div class="gallery-placeholder"></div></div>
+<span class="gallery-size">800×600px (Logo设计)</span>
 </div>
 
-<!-- 双列图片网格 -->
-<div class="images-grid">
-<div class="image-section">
-<div class="image-label">包装设计（建议尺寸：1920×1080px）</div>
-<div class="image-container application-img" data-size="1920×1080px">包装设计（待上传）</div>
-</div>
-<div class="image-section">
-<div class="image-label">应用场景（建议尺寸：1920×1080px）</div>
-<div class="image-container effect-img" data-size="1920×1080px">应用场景（待上传）</div>
-</div>
+<div class="gallery-item">
+<div class="gallery-img gallery-img-2"><div class="gallery-placeholder">📦</div></div>
+<span class="gallery-size">1920×1080px (包装设计)</span>
 </div>
 
-<div class="case-text">
-<p>在实际应用中，该视觉锤系统帮助品牌在终端陈列、广告宣传、社交媒体等多个触点上保持一致的品牌形象，有效提升了品牌的认知度和美誉度。</p>
+<div class="gallery-item">
+<div class="gallery-img gallery-img-3"><div class="gallery-placeholder"></div></div>
+<span class="gallery-size">1920×1080px (应用场景)</span>
 </div>
 
-<!-- 效果图 1920×1080px -->
-<div class="image-section">
-<div class="image-label">效果展示（建议尺寸：1920×1080px）</div>
-<div class="image-container package-img" data-size="1920×1080px">效果展示（待上传）</div>
+<div class="gallery-item">
+<div class="gallery-img gallery-img-4"><div class="gallery-placeholder">✨</div></div>
+<span class="gallery-size">1920×1080px (效果展示)</span>
 </div>
 
 </div>
 </div>
+</section>
 
-<!-- Footer -->
+<!-- Footer 尺寸：宽100% 高约180px -->
 <footer class="footer">
 <div class="container">
-<div class="footer-brand"><span>段位视觉锤</span><span style="opacity:.4;margin:0 .5rem">|</span><span style="font-size:.8rem;opacity:.6">品牌视觉战略咨询</span></div>
-<div class="footer-links"><a href="/">首页</a><a href="/cases/index.html">视觉锤案例</a><a href="/about.html">关于我们</a><a href="/#contact">联系我们</a></div>
+<div class="footer-brand">
+<span class="name">段位视觉锤</span>
+<span class="desc">品牌视觉战略咨询专家</span>
+</div>
+<div class="footer-nav">
+<a href="/">首页</a>
+<a href="/cases/index.html">视觉锤案例</a>
+<a href="/about.html">关于我们</a>
+<a href="/about.html#contact">联系我们</a>
+</div>
 <div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
 </div>
 </footer>

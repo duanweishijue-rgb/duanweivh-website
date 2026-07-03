@@ -7,14 +7,15 @@
 <title>段位视觉锤 - 品牌视觉战略咨询</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F5DC;--white:#fff;--gray:#f8f6f3}
-body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--white);line-height:1.6;overflow-x:hidden}
+:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F0E8;--white:#fff;--gray:#f8f6f3}
+body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--cream);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
-/* ===== Nav (白底深色字) ===== */
+/* ===== Header (白底深色字) 尺寸：宽100% 高70px ===== */
 .header{background:var(--white);position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(44,24,16,.08);box-shadow:0 1px 10px rgba(0,0,0,.04)}
-.header .container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:70px}
+.header .container{display:flex;justify-content:space-between;align-items:center;height:70px}
 .logo{display:flex;align-items:center;gap:.8rem}
 .logo-img{height:40px;width:auto}
 .logo-text{color:var(--brown);font-size:1.3rem;font-weight:700;letter-spacing:1px}
@@ -22,73 +23,49 @@ img{max-width:100%;display:block}
 .nav{display:flex;align-items:center;gap:0}
 .nav a{color:var(--brown);font-size:.9rem;padding:0 1.5rem;height:70px;display:flex;align-items:center;transition:color .3s}
 .nav a:hover{color:var(--gold)}
-.nav-cta{background:var(--brown);color:var(--gold)!important;padding:.6rem 1.5rem;border-radius:4px;height:auto!important;margin-left:1rem;font-size:.85rem!important}
 
-/* ===== Hero Carousel (1920×1080px) ===== */
-.hero{position:relative;width:100%;height:calc(100vh - 70px);overflow:hidden;margin-top:70px;background:var(--gray)}
-.hero-slides{position:relative;width:100%;height:100%}
-.hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.2s ease}
-.hero-slide.active{opacity:1}
-.hero-slide-bg{width:100%;height:100%;background-size:cover;background-position:center}
-.hero-slide:nth-child(1) .hero-slide-bg{background:linear-gradient(135deg,#1a0f0a 0%,#3C2415 40%,#C5A258 100%)}
-.hero-slide:nth-child(2) .hero-slide-bg{background:linear-gradient(135deg,#2C1810 0%,#5D4037 60%,#D4AF37 100%)}
-.hero-slide:nth-child(3) .hero-slide-bg{background:linear-gradient(135deg,#3C2415 0%,#2C1810 50%,#C5A258 100%)}
-.hero-slide:nth-child(4) .hero-slide-bg{background:linear-gradient(135deg,#1a0f0a 0%,#C5A258 100%)}
-.hero-slide:nth-child(5) .hero-slide-bg{background:linear-gradient(135deg,#C5A258 0%,#3C2415 60%,#1a0f0a 100%)}
-.hero-slide-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.15)}
-.hero-slide-content{position:absolute;bottom:15%;left:8%;color:#fff;z-index:2}
-.hero-slide-content h2{font-size:42px;font-weight:300;letter-spacing:3px;margin-bottom:12px;text-shadow:0 2px 10px rgba(0,0,0,.3)}
-.hero-slide-content h2 strong{font-weight:700}
-.hero-slide-content p{font-size:16px;opacity:.85;letter-spacing:1px}
-.hero-dots{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10}
-.hero-dots span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .3s}
-.hero-dots span.active{background:#fff;transform:scale(1.2)}
-.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background .3s}
-.hero-arrow:hover{background:rgba(255,255,255,.3)}
-.hero-arrow.prev{left:15px}
-.hero-arrow.next{right:15px}
+/* ===== Hero Banner 尺寸：宽100% 高500px ===== */
+.hero{position:relative;width:100%;height:500px;margin-top:70px;overflow:hidden;background:linear-gradient(135deg,#1a0f0a 0%,#3C2415 40%,#C5A258 100%)}
+.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.2)}
+.hero-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff;z-index:2;width:90%}
+.hero-content h1{font-size:36px;font-weight:400;letter-spacing:3px;margin-bottom:15px;text-shadow:0 2px 10px rgba(0,0,0,.3)}
+.hero-content p{font-size:16px;opacity:.85;letter-spacing:1px}
 
-/* ===== Cases Section (全宽案例卡片) ===== */
-.cases{padding:0}
-.case-item{position:relative;width:100%;overflow:hidden;cursor:pointer}
-.case-item-img{width:100%;height:500px;background-size:cover;background-position:center;transition:transform .8s ease}
-.case-item:hover .case-item-img{transform:scale(1.03)}
-.case-item:nth-child(1) .case-item-img{background:linear-gradient(135deg,#C5A258,#D4AF37)}
-.case-item:nth-child(2) .case-item-img{background:linear-gradient(135deg,#5D4037,#3C2415)}
-.case-item:nth-child(3) .case-item-img{background:linear-gradient(135deg,#FFD700,#C5A258)}
-.case-item:nth-child(4) .case-item-img{background:linear-gradient(135deg,#D4AF37,#5D4037)}
-.case-item:nth-child(5) .case-item-img{background:linear-gradient(135deg,#3C2415,#C5A258)}
-.case-item:nth-child(6) .case-item-img{background:linear-gradient(135deg,#C5A258,#5D4037)}
-.case-item-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 50%)}
-.case-item-content{position:absolute;bottom:0;left:0;right:0;padding:40px 50px;color:#fff}
-.case-item-content .tag{font-size:12px;letter-spacing:3px;text-transform:uppercase;opacity:.7;margin-bottom:10px;display:block}
-.case-item-content h3{font-size:32px;font-weight:400;letter-spacing:2px;margin-bottom:10px}
-.case-item-content p{font-size:15px;opacity:.8;line-height:1.6;max-width:600px}
-.case-placeholder{display:flex;align-items:center;justify-content:center;height:500px;font-size:80px;opacity:.15}
+/* ===== Cases Section 尺寸：宽100% 内边距60px 0 ===== */
+.cases-section{padding:60px 0;background:var(--cream)}
+.cases-section .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.cases-title{text-align:center;margin-bottom:15px}
+.cases-title h2{font-size:28px;color:var(--brown);font-weight:700;letter-spacing:2px}
+.cases-subtitle{text-align:center;margin-bottom:40px}
+.cases-subtitle p{font-size:15px;color:#888;line-height:1.8}
 
-/* ===== Method Card (between cases) ===== */
-.method-card{padding:80px 50px;text-align:center;background:#fafafa}
-.method-card h3{font-size:24px;color:#222;font-weight:400;letter-spacing:2px;margin-bottom:10px}
-.method-card p{font-size:15px;color:#999;letter-spacing:1px}
+/* ===== Case Card 尺寸：宽100% 高约420px 圆角12px ===== */
+.case-card{background:var(--white);border-radius:12px;overflow:hidden;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}
+.case-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.case-card-img{width:100%;height:220px;background-size:cover;background-position:center;position:relative}
+.case-card:nth-child(1) .case-card-img{background:linear-gradient(135deg,#C5A258,#D4AF37)}
+.case-card:nth-child(2) .case-card-img{background:linear-gradient(135deg,#5D4037,#3C2415)}
+.case-card:nth-child(3) .case-card-img{background:linear-gradient(135deg,#FFD700,#C5A258)}
+.case-card:nth-child(4) .case-card-img{background:linear-gradient(135deg,#D4AF37,#5D4037)}
+.case-card:nth-child(5) .case-card-img{background:linear-gradient(135deg,#3C2415,#C5A258)}
+.case-card:nth-child(6) .case-card-img{background:linear-gradient(135deg,#C5A258,#5D4037)}
+.case-tag{position:absolute;top:15px;right:15px;background:var(--white);color:var(--brown);font-size:13px;padding:6px 16px;border-radius:20px;font-weight:500}
+.case-card-body{padding:25px 30px 30px}
+.case-card-body h3{font-size:22px;color:var(--brown);font-weight:700;margin-bottom:6px;letter-spacing:1px}
+.case-card-body .industry{font-size:14px;color:var(--gold);margin-bottom:12px;display:block}
+.case-card-body p{font-size:14px;color:#666;line-height:1.8}
+.case-placeholder{display:flex;align-items:center;justify-content:center;height:220px;font-size:60px;opacity:.2}
 
-/* ===== About Brief ===== */
-.about-brief{padding:100px 50px;background:#fff}
-.about-brief-inner{max-width:800px;margin:0 auto;text-align:center}
-.about-brief .en{font-size:12px;color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-bottom:15px;display:block}
-.about-brief h2{font-size:28px;color:#222;font-weight:400;letter-spacing:3px;margin-bottom:30px}
-.about-brief p{font-size:15px;color:#666;line-height:2;margin-bottom:20px}
-.about-brief .stats{display:flex;justify-content:center;gap:60px;margin-top:40px}
-.about-brief .stat-num{font-size:36px;font-weight:300;color:#222}
-.about-brief .stat-label{font-size:13px;color:#999;margin-top:5px}
-
-/* ===== Footer ===== */
-.footer{background:#1a0f0a;color:rgba(255,255,255,.5);padding:2rem 0}
-.footer .container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
-.footer-brand span{color:var(--gold);font-size:1rem;letter-spacing:2px}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{color:rgba(255,255,255,.4);font-size:.8rem}
-.footer-links a:hover{color:var(--gold)}
-.footer-copy{font-size:.75rem;opacity:.5}
+/* ===== Footer 尺寸：宽100% 高约180px ===== */
+.footer{background:var(--brown);color:rgba(255,255,255,.5);padding:40px 0 20px}
+.footer .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.footer-brand{text-align:center;margin-bottom:20px}
+.footer-brand .name{color:var(--gold);font-size:22px;font-weight:700;letter-spacing:2px;display:block}
+.footer-brand .desc{color:rgba(255,255,255,.5);font-size:13px;margin-top:5px}
+.footer-nav{display:flex;justify-content:center;gap:2rem;margin-bottom:20px}
+.footer-nav a{color:rgba(255,255,255,.7);font-size:14px;transition:color .3s}
+.footer-nav a:hover{color:var(--gold)}
+.footer-copy{text-align:center;font-size:12px;opacity:.4;padding-top:15px;border-top:1px solid rgba(255,255,255,.1)}
 
 /* ===== Mobile ===== */
 @media(max-width:768px){
@@ -97,31 +74,21 @@ img{max-width:100%;display:block}
 .logo-sub{display:none}
 .logo-img{height:32px}
 .nav a{padding:0 .8rem;font-size:.75rem;height:56px}
-.nav-cta{display:none}
-.hero{height:calc(100vh - 56px);min-height:300px;margin-top:56px}
-.hero-slide-content{bottom:20%;left:5%;right:5%}
-.hero-slide-content h2{font-size:24px}
-.hero-slide-content p{font-size:13px}
-.hero-arrow{display:none}
-.case-item-img{height:300px}
-.case-item-content{padding:25px 20px}
-.case-item-content h3{font-size:22px}
-.case-item-content p{font-size:13px}
-.case-placeholder{height:300px;font-size:50px}
-.method-card{padding:50px 20px}
-.method-card h3{font-size:18px}
-.about-brief{padding:60px 20px}
-.about-brief h2{font-size:22px}
-.about-brief .stats{gap:30px}
-.about-brief .stat-num{font-size:28px}
-.footer .container{flex-direction:column;gap:1rem;text-align:center}
-.footer-links{flex-wrap:wrap;justify-content:center}
+.hero{height:350px;margin-top:56px}
+.hero-content h1{font-size:24px}
+.hero-content p{font-size:14px}
+.cases-section{padding:40px 0}
+.case-card-img{height:180px}
+.case-card-body{padding:20px}
+.case-card-body h3{font-size:18px}
+.case-card-body p{font-size:13px}
+.footer-nav{flex-wrap:wrap;gap:1rem}
 }
 </style>
 </head>
 <body>
 
-<!-- Header (白底深色字) -->
+<!-- Header (白底深色字) 尺寸：宽100% 高70px -->
 <header class="header">
 <div class="container">
 <div class="logo">
@@ -132,126 +99,105 @@ img{max-width:100%;display:block}
 <a href="/">首页</a>
 <a href="/cases/index.html">视觉锤案例</a>
 <a href="/about.html">关于我们</a>
-<a href="/#contact" class="nav-cta">联系我们</a>
+<a href="/about.html#contact">联系我们</a>
 </nav>
 </div>
 </header>
 
-<!-- Hero Carousel (建议尺寸：1920×1080px) -->
+<!-- Hero Banner 尺寸：宽100% 高500px -->
 <div class="hero">
-<div class="hero-slides">
-<div class="hero-slide active"><div class="hero-slide-bg"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><h2>用<strong>视觉锤</strong>钉入消费者心智</h2><p>视觉时代，抢占心智的最佳方法并非只用"语言的钉子"，更要运用强有力的"视觉锤"</p></div></div>
-<div class="hero-slide"><div class="hero-slide-bg"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><h2>打造有定位的<strong>品牌视觉</strong></h2><p>帮助企业攻占心智、致胜市场</p></div></div>
-<div class="hero-slide"><div class="hero-slide-bg"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><h2><strong>成功案例</strong>见证实力</h2><p>已为100+品牌打造视觉锤，覆盖10+行业领域</p></div></div>
-<div class="hero-slide"><div class="hero-slide-bg"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><h2>专业团队<strong>全程陪跑</strong></h2><p>从策略到执行，一站式品牌视觉解决方案</p></div></div>
-<div class="hero-slide"><div class="hero-slide-bg"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><h2>让品牌<strong>一眼被记住</strong></h2><p>用视觉的力量，让品牌在竞争中脱颖而出</p></div></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<h1>打造有定位的品牌视觉</h1>
+<p>帮助企业攻占心智、致胜市场</p>
 </div>
-<button class="hero-arrow prev" onclick="changeSlide(-1)">‹</button>
-<button class="hero-arrow next" onclick="changeSlide(1)">›</button>
-<div class="hero-dots"><span class="active" onclick="goSlide(0)"></span><span onclick="goSlide(1)"></span><span onclick="goSlide(2)"></span><span onclick="goSlide(3)"></span><span onclick="goSlide(4)"></span></div>
 </div>
 
-<!-- Cases (全宽案例卡片，建议图片尺寸：1920×1080px) -->
-<div class="cases" id="cases">
+<!-- Cases Section 尺寸：宽100% 内边距60px 0 -->
+<section class="cases-section">
+<div class="container">
+<div class="cases-title"><h2>品牌案例</h2></div>
+<div class="cases-subtitle"><p>视觉锤理论起源于美国，但实践却发生在中国。<br>越来越多中国品牌借助视觉锤的力量，取得卓越增长</p></div>
 
-<a href="/cases/xiaolanmao.html" class="case-item">
-<div class="case-item-img"><div class="case-placeholder">🎨</div></div>
-<div class="case-item-overlay"></div>
-<div class="case-item-content">
-<span class="tag">农业领域</span>
+<!-- Case Card 1 尺寸：宽100% 高约420px -->
+<a href="/cases/xiaolanmao.html" class="case-card">
+<div class="case-card-img"><div class="case-placeholder"></div><span class="case-tag">农业领域</span></div>
+<div class="case-card-body">
 <h3>小蓝帽增产药</h3>
-<p>用视觉锤彰显品牌品类创新，助力农业增产领域品牌快速崛起</p>
+<span class="industry">农业增产品牌</span>
+<p>通过视觉锤战略，打造独特的品牌视觉识别系统，助力农业增产领域品牌快速崛起</p>
 </div>
 </a>
 
-<a href="/cases/pengshi.html" class="case-item">
-<div class="case-item-img"><div class="case-placeholder">⭐</div></div>
-<div class="case-item-overlay"></div>
-<div class="case-item-content">
-<span class="tag">健康服务</span>
+<!-- Case Card 2 尺寸：宽100% 高约420px -->
+<a href="/cases/pengshi.html" class="case-card">
+<div class="case-card-img"><div class="case-placeholder">⭐</div><span class="case-tag">健康服务</span></div>
+<div class="case-card-body">
 <h3>彭世修脚</h3>
+<span class="industry">修脚连锁品牌</span>
 <p>以传统中医理念为基础，打造专业修脚服务品牌的视觉识别体系</p>
 </div>
 </a>
 
-<div class="method-card">
-<h3>段位视觉锤 · 方法论</h3>
-<p>一个优秀的视觉不仅仅是美观的表现，更应该突显产品或服务的定位</p>
-</div>
-
-<a href="/cases/yunlian.html" class="case-item">
-<div class="case-item-img"><div class="case-placeholder">📦</div></div>
-<div class="case-item-overlay"></div>
-<div class="case-item-content">
-<span class="tag">畜牧行业</span>
+<!-- Case Card 3 尺寸：宽100% 高约420px -->
+<a href="/cases/yunlian.html" class="case-card">
+<div class="case-card-img"><div class="case-placeholder">📦</div><span class="case-tag">畜牧行业</span></div>
+<div class="case-card-body">
 <h3>云联牧场</h3>
+<span class="industry">现代畜牧品牌</span>
 <p>运用视觉锤理论，建立现代化畜牧品牌的视觉认知，提升品牌溢价能力</p>
 </div>
 </a>
 
-<a href="/cases/aihongxiang.html" class="case-item">
-<div class="case-item-img"><div class="case-placeholder"></div></div>
-<div class="case-item-overlay"></div>
-<div class="case-item-content">
-<span class="tag">养生保健</span>
+<!-- Case Card 4 尺寸：宽100% 高约420px -->
+<a href="/cases/aihongxiang.html" class="case-card">
+<div class="case-card-img"><div class="case-placeholder"></div><span class="case-tag">养生保健</span></div>
+<div class="case-card-body">
 <h3>艾红象艾灸</h3>
+<span class="industry">艾灸养生品牌</span>
 <p>以大象为视觉锤，结合艾草元素，打造艾灸品类的强势品牌识别</p>
 </div>
 </a>
 
-<a href="/cases/zhutaizi.html" class="case-item">
-<div class="case-item-img"><div class="case-placeholder"></div></div>
-<div class="case-item-overlay"></div>
-<div class="case-item-content">
-<span class="tag">饲料行业</span>
+<!-- Case Card 5 尺寸：宽100% 高约420px -->
+<a href="/cases/zhutaizi.html" class="case-card">
+<div class="case-card-img"><div class="case-placeholder"></div><span class="case-tag">饲料行业</span></div>
+<div class="case-card-body">
 <h3>猪太子教槽料</h3>
+<span class="industry">畜牧饲料品牌</span>
 <p>打造高端教槽料品牌的视觉形象，在竞争激烈的饲料市场中脱颖而出</p>
 </div>
 </a>
 
-<a href="/cases/xiangzhiniao.html" class="case-item">
-<div class="case-item-img"><div class="case-placeholder">💎</div></div>
-<div class="case-item-overlay"></div>
-<div class="case-item-content">
-<span class="tag">珠宝饰品</span>
+<!-- Case Card 6 尺寸：宽100% 高约420px -->
+<a href="/cases/xiangzhiniao.html" class="case-card">
+<div class="case-card-img"><div class="case-placeholder">💎</div><span class="case-tag">珠宝饰品</span></div>
+<div class="case-card-body">
 <h3>相知鸟精品银饰</h3>
+<span class="industry">银饰连锁品牌</span>
 <p>以鸟儿为视觉锤，打造精品银饰的高端品牌形象，强化品牌记忆点</p>
 </div>
 </a>
 
 </div>
-
-<!-- About Brief -->
-<section class="about-brief">
-<div class="about-brief-inner">
-<span class="en">About Us</span>
-<h2>关于段位视觉锤</h2>
-<p>段位视觉锤是专注于品牌视觉战略咨询的专业机构，致力于为企业打造有定位的品牌视觉，帮助企业攻占心智、致胜市场。</p>
-<p>我们深耕品牌视觉战略领域，以"视觉锤"理论为核心方法论，已为超过100个品牌打造了独特的视觉识别系统。</p>
-<div class="stats">
-<div><div class="stat-num">100+</div><div class="stat-label">服务品牌</div></div>
-<div><div class="stat-num">10+</div><div class="stat-label">覆盖行业</div></div>
-<div><div class="stat-num">50+</div><div class="stat-label">成功案例</div></div>
-</div>
-</div>
 </section>
 
-<!-- Footer -->
+<!-- Footer 尺寸：宽100% 高约180px -->
 <footer class="footer">
 <div class="container">
-<div class="footer-brand"><span>段位视觉锤</span><span style="opacity:.4;margin:0 .5rem">|</span><span style="font-size:.8rem;opacity:.6">品牌视觉战略咨询</span></div>
-<div class="footer-links"><a href="/">首页</a><a href="/cases/index.html">视觉锤案例</a><a href="/about.html">关于我们</a><a href="/#contact">联系我们</a></div>
+<div class="footer-brand">
+<span class="name">段位视觉锤</span>
+<span class="desc">品牌视觉战略咨询专家</span>
+</div>
+<div class="footer-nav">
+<a href="/">首页</a>
+<a href="/cases/index.html">视觉锤案例</a>
+<a href="/about.html">关于我们</a>
+<a href="/about.html#contact">联系我们</a>
+</div>
 <div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
 </div>
 </footer>
-
-<script>
-var slide=0,slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dots span'),total=slides.length;
-function showSlide(n){slides[slide].classList.remove('active');dots[slide].classList.remove('active');slide=(n+total)%total;slides[slide].classList.add('active');dots[slide].classList.add('active')}
-function changeSlide(d){showSlide(slide+d)}
-function goSlide(n){showSlide(n)}
-setInterval(function(){changeSlide(1)},5000);
-</script>
 
 </body>
 </html>
