@@ -3,320 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<meta name="theme-color" content="#2C1810">
-<meta name="description" content="段位视觉锤 - 专注于品牌视觉战略咨询，为企业打造有定位的品牌视觉">
+<meta name="theme-color" content="#ffffff">
 <title>段位视觉锤 - 品牌视觉战略咨询</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F5DC;--white:#fff;--gray:#f8f6f3}
-body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--white);line-height:1.6;overflow-x:hidden}
+body{font-family:'PingFang SC','HanHei SC','Helvetica Neue','Microsoft Yahei',sans-serif;color:#333;background:#fff;line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
-.container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
-/* ===== Header ===== */
-.header{background:var(--white);padding:0;position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(44,24,16,.08);box-shadow:0 1px 10px rgba(0,0,0,.04)}
-.header .container{display:flex;justify-content:space-between;align-items:center;height:70px}
-.logo{display:flex;align-items:center;gap:.8rem}
-.logo-img{height:40px;width:auto;object-fit:contain}
-.logo-text{color:var(--brown);font-size:1.3rem;font-weight:700;letter-spacing:1px}
-.logo-sub{color:var(--gold);font-size:.7rem;letter-spacing:2px;display:block;margin-top:2px}
-.nav{display:flex;align-items:center;gap:0}
-.nav a{color:var(--brown);font-size:.9rem;padding:0 1.5rem;height:70px;display:flex;align-items:center;position:relative;transition:color .3s}
-.nav a:hover{color:var(--gold)}
-.nav a::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--gold);transition:width .3s}
-.nav a:hover::after{width:60%}
-.nav-cta{background:var(--brown);color:var(--gold)!important;padding:.6rem 1.5rem!important;border-radius:4px;height:auto!important;margin-left:1rem;font-size:.85rem!important}
-.nav-cta:hover{background:var(--brown2)}
-.nav-cta::after{display:none!important}
+/* ===== Nav ===== */
+.nav{position:fixed;top:0;left:0;width:100%;height:44px;background:#fff;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:0 16px;border-bottom:1px solid #f0f0f0}
+.nav-logo{font-size:16px;font-weight:700;color:#222;letter-spacing:0.5px}
+.nav-logo span{font-weight:400;color:#999;font-size:13px;margin-left:2px}
+.nav-hamburger{width:22px;height:14px;position:relative;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between}
+.nav-hamburger span{display:block;width:100%;height:1.5px;background:#333;transition:all .3s}
+.nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.nav-overlay.open{opacity:1;pointer-events:auto}
+.nav-overlay .close-btn{position:absolute;top:12px;right:16px;font-size:26px;color:#333;cursor:pointer;background:none;border:none;line-height:1}
+.nav-overlay a{display:block;font-size:32px;color:#333;padding:14px 0;transition:color .3s;font-weight:300;letter-spacing:2px}
+.nav-overlay a:hover{color:#C5A258}
 
 /* ===== Hero Carousel ===== */
-.hero{position:relative;width:100%;height:100vh;overflow:hidden;margin-top:70px;background:var(--brown)}
-.slides{position:relative;width:100%;height:100%}
-.slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;opacity:0;animation:fade 25s infinite}
-.slide:nth-child(1){animation-delay:0s}
-.slide:nth-child(2){animation-delay:5s}
-.slide:nth-child(3){animation-delay:10s}
-.slide:nth-child(4){animation-delay:15s}
-.slide:nth-child(5){animation-delay:20s}
-@keyframes fade{0%,6%{opacity:0}8%,28%{opacity:1}32%,100%{opacity:0}}
-.slide-bg{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center}
-.slide:nth-child(1) .slide-bg{background:linear-gradient(135deg,#1a0f0a 0%,#3C2415 40%,#C5A258 100%)}
-.slide:nth-child(2) .slide-bg{background:linear-gradient(135deg,#2C1810 0%,#5D4037 60%,#D4AF37 100%)}
-.slide:nth-child(3) .slide-bg{background:linear-gradient(135deg,#3C2415 0%,#2C1810 50%,#C5A258 100%)}
-.slide:nth-child(4) .slide-bg{background:linear-gradient(135deg,#1a0f0a 0%,#C5A258 100%)}
-.slide:nth-child(5) .slide-bg{background:linear-gradient(135deg,#C5A258 0%,#3C2415 60%,#1a0f0a 100%)}
-.slide-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(44,24,16,.35)}
-.slide-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:0 2rem;max-width:900px}
-.slide-content h2{font-size:3.2rem;margin-bottom:1.2rem;font-weight:300;letter-spacing:4px;text-shadow:0 2px 20px rgba(0,0,0,.3)}
-.slide-content h2 strong{font-weight:700;color:var(--gold2)}
-.slide-content p{font-size:1.1rem;line-height:1.8;opacity:.9;letter-spacing:1px}
-.slide-dots{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;gap:.8rem;z-index:10}
-.slide-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .3s}
-.slide-dots span.active{background:var(--gold);width:24px;border-radius:4px}
+.hero{position:relative;width:100%;height:100vh;overflow:hidden;margin-top:44px;background:#f5f5f5}
+.hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.5s ease}
+.hero-slide.active{opacity:1}
+.hero-slide-img{width:100%;height:100%;object-fit:cover}
+.hero-slide-bg{width:100%;height:100%;background-size:cover;background-position:center}
+.hero-slide:nth-child(1) .hero-slide-bg{background:linear-gradient(135deg,#2C1810 0%,#5D4037 50%,#C5A258 100%)}
+.hero-slide:nth-child(2) .hero-slide-bg{background:linear-gradient(135deg,#3C2415 0%,#C5A258 50%,#D4AF37 100%)}
+.hero-slide:nth-child(3) .hero-slide-bg{background:linear-gradient(135deg,#1a0f0a 0%,#3C2415 50%,#C5A258 100%)}
+.hero-slide:nth-child(4) .hero-slide-bg{background:linear-gradient(135deg,#C5A258 0%,#5D4037 50%,#2C1810 100%)}
+.hero-slide:nth-child(5) .hero-slide-bg{background:linear-gradient(135deg,#5D4037 0%,#C5A258 50%,#1a0f0a 100%)}
+.hero-brand{position:absolute;bottom:12%;left:50%;transform:translateX(-50%);color:#fff;text-align:center;z-index:2}
+.hero-brand h2{font-size:48px;font-weight:300;letter-spacing:6px;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero-brand p{font-size:14px;opacity:.8;letter-spacing:2px;margin-top:8px}
+.hero-dots{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.hero-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .3s}
+.hero-dots span.active{background:#fff;transform:scale(1.3)}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:18px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background .3s}
+.hero-arrow:hover{background:rgba(255,255,255,.25)}
+.hero-arrow.prev{left:12px}
+.hero-arrow.next{right:12px}
+.scroll-down{position:absolute;bottom:55px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.5);font-size:20px;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-/* ===== Section Common ===== */
-.section{padding:6rem 0}
-.section-header{text-align:center;margin-bottom:4rem}
-.section-header h2{font-size:2.2rem;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:.8rem}
-.section-header .en{font-size:.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:.5rem;display:block}
-.section-header p{font-size:1rem;color:var(--brown3);line-height:1.8;max-width:600px;margin:0 auto}
-.divider{width:40px;height:2px;background:var(--gold);margin:1rem auto}
+/* ===== Manifesto ===== */
+.manifesto{padding:100px 20px;text-align:center;max-width:800px;margin:0 auto}
+.manifesto h2{font-size:28px;font-weight:400;color:#222;line-height:1.8;letter-spacing:1px;margin-bottom:20px}
+.manifesto p{font-size:16px;color:#999;line-height:2;letter-spacing:0.5px}
 
-/* ===== Cases Section ===== */
-.cases{background:var(--white)}
-.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.case-card{position:relative;overflow:hidden;border-radius:4px;cursor:pointer;transition:transform .4s}
-.case-card:hover{transform:translateY(-6px)}
-.case-thumb{position:relative;height:280px;overflow:hidden}
-.case-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.case-card:hover .case-thumb img{transform:scale(1.05)}
-.case-thumb .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(44,24,16,.8) 0%,transparent 60%)}
-.case-thumb .tag{position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--brown);padding:.3rem .8rem;border-radius:2px;font-size:.75rem;font-weight:600;letter-spacing:1px}
-.case-info{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;color:var(--white);z-index:2}
-.case-info h3{font-size:1.2rem;font-weight:600;margin-bottom:.4rem;letter-spacing:1px}
-.case-info p{font-size:.85rem;opacity:.8;line-height:1.5}
-.case-placeholder{height:280px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--gold);opacity:.3}
+/* ===== Cases ===== */
+.cases{padding:0}
+.case-block{position:relative;width:100%;overflow:hidden;cursor:pointer}
+.case-block-img{width:100%;height:520px;background-size:cover;background-position:center;transition:transform .8s ease}
+.case-block:hover .case-block-img{transform:scale(1.02)}
+.case-block:nth-child(1) .case-block-img{background:linear-gradient(135deg,#C5A258,#D4AF37)}
+.case-block:nth-child(2) .case-block-img{background:linear-gradient(135deg,#5D4037,#3C2415)}
+.case-block:nth-child(3) .case-block-img{background:linear-gradient(135deg,#FFD700,#C5A258)}
+.case-block:nth-child(4) .case-block-img{background:linear-gradient(135deg,#D4AF37,#5D4037)}
+.case-block:nth-child(5) .case-block-img{background:linear-gradient(135deg,#3C2415,#C5A258)}
+.case-block:nth-child(6) .case-block-img{background:linear-gradient(135deg,#C5A258,#5D4037)}
+.case-placeholder{display:flex;align-items:center;justify-content:center;height:520px;font-size:72px;opacity:.12}
+.case-block-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 55%)}
+.case-block-info{position:absolute;bottom:0;left:0;right:0;padding:35px 40px;color:#fff}
+.case-block-info .tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:.65;margin-bottom:8px;display:block}
+.case-block-info h3{font-size:28px;font-weight:400;letter-spacing:2px;margin-bottom:8px}
+.case-block-info p{font-size:14px;opacity:.75;line-height:1.6;max-width:500px}
+
+/* ===== Method Insert ===== */
+.method-insert{padding:80px 20px;text-align:center;background:#fafafa}
+.method-insert h3{font-size:22px;color:#222;font-weight:400;letter-spacing:2px;margin-bottom:12px}
+.method-insert p{font-size:14px;color:#999;letter-spacing:1px;line-height:1.8}
 
 /* ===== About Brief ===== */
-.about-brief{background:var(--gray)}
-.about-grid{display:flex;gap:4rem;align-items:center}
-.about-text{flex:1}
-.about-text h3{font-size:1.8rem;color:var(--brown);margin-bottom:1rem;font-weight:700;letter-spacing:1px}
-.about-text p{color:var(--brown3);line-height:2;margin-bottom:1.5rem}
-.about-stats{display:flex;gap:3rem;margin-top:2rem}
-.stat-num{font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1}
-.stat-label{font-size:.85rem;color:var(--brown3);margin-top:.3rem}
-.about-visual{flex:1;display:flex;justify-content:center}
-.visual-card{background:linear-gradient(135deg,var(--brown),var(--brown2));width:100%;max-width:400px;aspect-ratio:1;border-radius:8px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.5rem;box-shadow:0 20px 60px rgba(44,24,16,.2)}
-.visual-card .icon{font-size:5rem}
-.visual-card .text{color:var(--gold);font-size:1.2rem;letter-spacing:3px;font-weight:300}
+.about-brief{padding:100px 20px;background:#fff}
+.about-brief-inner{max-width:700px;margin:0 auto;text-align:center}
+.about-brief .en{font-size:11px;color:#C5A258;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px;display:block}
+.about-brief h2{font-size:26px;color:#222;font-weight:400;letter-spacing:2px;margin-bottom:25px}
+.about-brief p{font-size:15px;color:#666;line-height:2;margin-bottom:18px}
+.about-brief .stats{display:flex;justify-content:center;gap:50px;margin-top:35px}
+.about-brief .stat-num{font-size:32px;font-weight:300;color:#222}
+.about-brief .stat-label{font-size:12px;color:#999;margin-top:4px}
 
 /* ===== Contact ===== */
-.contact{background:var(--brown);color:var(--white)}
-.contact .section-header h2{color:var(--white)}
-.contact .section-header p{color:rgba(255,255,255,.6)}
-.contact-grid{display:flex;gap:3rem}
-.contact-left{flex:1}
-.contact-item{margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.contact-item:last-child{border:none}
-.contact-item h4{color:var(--gold);font-size:.85rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;font-weight:400}
-.contact-item p{font-size:1rem;opacity:.8}
-.contact-form{flex:1;display:flex;flex-direction:column;gap:1rem}
-.contact-form input,.contact-form textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:1rem;color:var(--white);font-size:.95rem;font-family:inherit;border-radius:4px;transition:border-color .3s}
-.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(255,255,255,.3)}
-.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--gold)}
-.submit-btn{background:var(--gold);color:var(--brown);border:none;padding:1rem;font-size:.95rem;font-weight:600;border-radius:4px;cursor:pointer;letter-spacing:2px;transition:all .3s}
-.submit-btn:hover{background:var(--gold2);transform:translateY(-2px)}
+.contact{padding:70px 20px;background:#f5f5f5}
+.contact-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start}
+.contact-left h3{font-size:13px;color:#999;letter-spacing:2px;margin-bottom:18px;font-weight:400}
+.contact-left p{font-size:15px;color:#333;margin-bottom:12px;line-height:1.8}
+.contact-right{text-align:right}
+.contact-right .qr{width:90px;height:90px;background:#ddd;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;margin-bottom:8px}
+.contact-right p{font-size:11px;color:#999}
 
 /* ===== Footer ===== */
-.footer{background:#1a0f0a;color:rgba(255,255,255,.5);padding:2rem 0}
-.footer .container{display:flex;justify-content:space-between;align-items:center}
-.footer-brand{display:flex;align-items:center;gap:1rem}
-.footer-brand span{color:var(--gold);font-size:1rem;letter-spacing:2px}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{color:rgba(255,255,255,.4);font-size:.8rem;transition:color .3s}
-.footer-links a:hover{color:var(--gold)}
-.footer-copy{font-size:.75rem;opacity:.5}
+.footer{background:#f5f5f5;padding:18px 20px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+.footer-links{display:flex;gap:18px}
+.footer-links a{font-size:11px;color:#999;transition:color .3s}
+.footer-links a:hover{color:#333}
+.footer-copy{font-size:10px;color:#bbb}
 
 /* ===== Mobile ===== */
 @media(max-width:768px){
-.header .container{height:56px;padding:0 1rem}
-.logo-text{font-size:1.1rem}
-.logo-sub{display:none}
-.logo-img{height:32px}
-.nav{gap:0}
-.nav a{padding:0 .8rem;font-size:.75rem;height:56px}
-.nav-cta{display:none}
-.hero{height:55vh;min-height:280px;margin-top:56px}
-.slide-content h2{font-size:1.5rem;letter-spacing:2px}
-.slide-content p{font-size:.85rem}
-.slide-dots{bottom:1.5rem}
-.section{padding:3rem 0}
-.section-header{margin-bottom:2rem}
-.section-header h2{font-size:1.5rem}
-.cases-grid{grid-template-columns:1fr;gap:1rem}
-.case-thumb{height:220px}
-.about-grid{flex-direction:column;gap:2rem}
-.about-stats{gap:1.5rem}
-.stat-num{font-size:1.8rem}
-.visual-card{max-width:250px}
-.contact-grid{flex-direction:column;gap:2rem}
-.footer .container{flex-direction:column;gap:1rem;text-align:center}
-.footer-links{flex-wrap:wrap;justify-content:center;gap:.8rem}
+.nav{height:40px;padding:0 14px}
+.nav-logo{font-size:14px}
+.nav-logo span{font-size:11px}
+.hero{height:65vh;min-height:280px;margin-top:40px}
+.hero-brand h2{font-size:28px;letter-spacing:3px}
+.hero-brand p{font-size:12px}
+.hero-arrow{display:none}
+.case-block-img,.case-placeholder{height:320px}
+.case-block-info{padding:22px 18px}
+.case-block-info h3{font-size:20px}
+.case-block-info p{font-size:12px}
+.manifesto{padding:60px 18px}
+.manifesto h2{font-size:20px}
+.manifesto p{font-size:14px}
+.method-insert{padding:50px 18px}
+.method-insert h3{font-size:18px}
+.about-brief{padding:60px 18px}
+.about-brief h2{font-size:20px}
+.about-brief .stats{gap:25px}
+.about-brief .stat-num{font-size:24px}
+.contact{padding:50px 18px}
+.contact-inner{flex-direction:column;gap:25px}
+.contact-right{text-align:left}
+.footer{padding:14px 18px;flex-direction:column;gap:8px;text-align:center}
+.nav-overlay a{font-size:26px}
 }
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<header class="header">
-<div class="container">
-<div class="logo">
-<img src="/images/logo.png" alt="段位视觉锤" class="logo-img" onerror="this.style.display='none'">
-<div>
-<span class="logo-text">段位视觉锤</span>
-<span class="logo-sub">VISUAL HAMMER</span>
-</div>
-</div>
+<!-- Nav -->
 <nav class="nav">
-<a href="/">首页</a>
-<a href="#cases">视觉锤案例</a>
-<a href="/about.html">关于我们</a>
-<a href="#contact" class="nav-cta">联系我们</a>
+<div class="nav-logo">段位视觉锤<span> VISUAL HAMMER</span></div>
+<div class="nav-hamburger" onclick="document.querySelector('.nav-overlay').classList.add('open')">
+<span></span><span></span><span></span>
+</div>
 </nav>
-</div>
-</header>
 
-<!-- Hero -->
-<div class="hero">
-<div class="slides">
-<div class="slide"><div class="slide-bg"></div><div class="slide-overlay"></div><div class="slide-content"><h2>用<strong>视觉锤</strong>钉入消费者心智</h2><p>视觉时代，抢占心智的最佳方法并非只用"语言的钉子"，更要运用强有力的"视觉锤"</p></div></div>
-<div class="slide"><div class="slide-bg"></div><div class="slide-overlay"></div><div class="slide-content"><h2>打造有定位的<strong>品牌视觉</strong></h2><p>帮助企业攻占心智、致胜市场</p></div></div>
-<div class="slide"><div class="slide-bg"></div><div class="slide-overlay"></div><div class="slide-content"><h2><strong>成功案例</strong>见证实力</h2><p>已为100+品牌打造视觉锤，覆盖10+行业领域</p></div></div>
-<div class="slide"><div class="slide-bg"></div><div class="slide-overlay"></div><div class="slide-content"><h2>专业团队<strong>全程陪跑</strong></h2><p>从策略到执行，一站式品牌视觉解决方案</p></div></div>
-<div class="slide"><div class="slide-bg"></div><div class="slide-overlay"></div><div class="slide-content"><h2>让品牌<strong>一眼被记住</strong></h2><p>用视觉的力量，让品牌在竞争中脱颖而出</p></div></div>
+<!-- Nav Overlay -->
+<div class="nav-overlay">
+<button class="close-btn" onclick="this.parentElement.classList.remove('open')">&times;</button>
+<a href="/" onclick="this.parentElement.classList.remove('open')">首页</a>
+<a href="/cases/index.html" onclick="this.parentElement.classList.remove('open')">视觉锤案例</a>
+<a href="/about.html" onclick="this.parentElement.classList.remove('open')">关于我们</a>
+<a href="#contact" onclick="this.parentElement.classList.remove('open')">联系我们</a>
 </div>
-<div class="slide-dots"><span class="active"></span><span></span><span></span><span></span><span></span></div>
+
+<!-- Hero Carousel -->
+<div class="hero">
+<div class="hero-slide active"><div class="hero-slide-bg"></div><div class="hero-brand"><h2>视觉锤</h2><p>用视觉的力量钉入消费者心智</p></div></div>
+<div class="hero-slide"><div class="hero-slide-bg"></div><div class="hero-brand"><h2>品牌定位</h2><p>打造有定位的品牌视觉</p></div></div>
+<div class="hero-slide"><div class="hero-slide-bg"></div><div class="hero-brand"><h2>成功案例</h2><p>已为100+品牌打造视觉锤</p></div></div>
+<div class="hero-slide"><div class="hero-slide-bg"></div><div class="hero-brand"><h2>全程陪跑</h2><p>从策略到执行一站式解决</p></div></div>
+<div class="hero-slide"><div class="hero-slide-bg"></div><div class="hero-brand"><h2>一眼被记住</h2><p>让品牌在竞争中脱颖而出</p></div></div>
+<button class="hero-arrow prev" onclick="changeSlide(-1)">‹</button>
+<button class="hero-arrow next" onclick="changeSlide(1)">›</button>
+<div class="hero-dots"><span class="active" onclick="goSlide(0)"></span><span onclick="goSlide(1)"></span><span onclick="goSlide(2)"></span><span onclick="goSlide(3)"></span><span onclick="goSlide(4)"></span></div>
+<div class="scroll-down">▾</div>
+</div>
+
+<!-- Manifesto -->
+<div class="manifesto">
+<h2>段位视觉锤能做好品牌的唯一路径就是：<br>成就客户的品牌才能铸就成功案例</h2>
+<p>视觉时代，抢占心智的最佳方法并非只用"语言的钉子"，更要运用强有力的"视觉锤"</p>
 </div>
 
 <!-- Cases -->
-<section class="section cases" id="cases">
-<div class="container">
-<div class="section-header">
-<span class="en">Visual Hammer Cases</span>
-<h2>视觉锤案例</h2>
-<div class="divider"></div>
-<p>视觉锤理论起源于美国，但实践却发生在中国<br>越来越多中国品牌借助视觉锤的力量，取得卓越增长</p>
-</div>
+<div class="cases">
 
-<div class="cases-grid">
-<a href="/cases/xiaolanmao.html" class="case-card">
-<div class="case-thumb" style="background:linear-gradient(135deg,#C5A258,#D4AF37)">
-<div class="case-placeholder">🎨</div>
-<div class="overlay"></div>
+<a href="/cases/xiaolanmao.html" class="case-block">
+<div class="case-block-img"><div class="case-placeholder">🎨</div></div>
+<div class="case-block-overlay"></div>
+<div class="case-block-info">
 <span class="tag">农业领域</span>
-<div class="case-info"><h3>小蓝帽增产药</h3><p>用视觉锤彰显品牌品类创新</p></div>
+<h3>小蓝帽增产药</h3>
+<p>用视觉锤彰显品牌品类创新，助力农业增产领域品牌快速崛起</p>
 </div>
 </a>
 
-<a href="/cases/pengshi.html" class="case-card">
-<div class="case-thumb" style="background:linear-gradient(135deg,#5D4037,#3C2415)">
-<div class="case-placeholder">⭐</div>
-<div class="overlay"></div>
+<a href="/cases/pengshi.html" class="case-block">
+<div class="case-block-img"><div class="case-placeholder">⭐</div></div>
+<div class="case-block-overlay"></div>
+<div class="case-block-info">
 <span class="tag">健康服务</span>
-<div class="case-info"><h3>彭世修脚</h3><p>以传统中医理念打造专业视觉识别</p></div>
+<h3>彭世修脚</h3>
+<p>以传统中医理念为基础，打造专业修脚服务品牌的视觉识别体系</p>
 </div>
 </a>
 
-<a href="/cases/yunlian.html" class="case-card">
-<div class="case-thumb" style="background:linear-gradient(135deg,#FFD700,#C5A258)">
-<div class="case-placeholder">📦</div>
-<div class="overlay"></div>
+<div class="method-insert">
+<h3>段位视觉锤 · 方法论</h3>
+<p>一个优秀的视觉不仅仅是美观的表现，更应该突显产品或服务的定位</p>
+</div>
+
+<a href="/cases/yunlian.html" class="case-block">
+<div class="case-block-img"><div class="case-placeholder">📦</div></div>
+<div class="case-block-overlay"></div>
+<div class="case-block-info">
 <span class="tag">畜牧行业</span>
-<div class="case-info"><h3>云联牧场</h3><p>建立现代化畜牧品牌视觉认知</p></div>
+<h3>云联牧场</h3>
+<p>运用视觉锤理论，建立现代化畜牧品牌的视觉认知</p>
 </div>
 </a>
 
-<a href="/cases/aihongxiang.html" class="case-card">
-<div class="case-thumb" style="background:linear-gradient(135deg,#D4AF37,#5D4037)">
-<div class="case-placeholder">🐾</div>
-<div class="overlay"></div>
+<a href="/cases/aihongxiang.html" class="case-block">
+<div class="case-block-img"><div class="case-placeholder">🐾</div></div>
+<div class="case-block-overlay"></div>
+<div class="case-block-info">
 <span class="tag">养生保健</span>
-<div class="case-info"><h3>艾红象艾灸</h3><p>以大象为视觉锤打造艾灸品牌识别</p></div>
+<h3>艾红象艾灸</h3>
+<p>以大象为视觉锤，结合艾草元素，打造艾灸品类的强势品牌识别</p>
 </div>
 </a>
 
-<a href="/cases/zhutaizi.html" class="case-card">
-<div class="case-thumb" style="background:linear-gradient(135deg,#3C2415,#C5A258)">
-<div class="case-placeholder">🔄</div>
-<div class="overlay"></div>
+<a href="/cases/zhutaizi.html" class="case-block">
+<div class="case-block-img"><div class="case-placeholder"></div></div>
+<div class="case-block-overlay"></div>
+<div class="case-block-info">
 <span class="tag">饲料行业</span>
-<div class="case-info"><h3>猪太子教槽料</h3><p>打造高端教槽料品牌视觉形象</p></div>
+<h3>猪太子教槽料</h3>
+<p>打造高端教槽料品牌的视觉形象，在竞争激烈的市场中脱颖而出</p>
 </div>
 </a>
 
-<a href="/cases/xiangzhiniao.html" class="case-card">
-<div class="case-thumb" style="background:linear-gradient(135deg,#C5A258,#5D4037)">
-<div class="case-placeholder">💎</div>
-<div class="overlay"></div>
+<a href="/cases/xiangzhiniao.html" class="case-block">
+<div class="case-block-img"><div class="case-placeholder"></div></div>
+<div class="case-block-overlay"></div>
+<div class="case-block-info">
 <span class="tag">珠宝饰品</span>
-<div class="case-info"><h3>相知鸟精品银饰</h3><p>以鸟儿为视觉锤强化品牌记忆点</p></div>
+<h3>相知鸟精品银饰</h3>
+<p>以鸟儿为视觉锤，打造精品银饰的高端品牌形象</p>
 </div>
 </a>
+
 </div>
-</div>
-</section>
 
 <!-- About Brief -->
-<section class="section about-brief">
-<div class="container">
-<div class="about-grid">
-<div class="about-text">
-<span class="en" style="color:var(--gold);font-size:.8rem;letter-spacing:4px;display:block;margin-bottom:.5rem">ABOUT US</span>
-<h3>关于段位视觉锤</h3>
-<p>我们相信，在视觉时代，一个优秀的视觉不仅仅是美观的表现，更应该突显产品或服务的定位，从而影响消费者的购买决策。</p>
-<p>视觉锤是将品牌定位钉入消费者心智的战略工具。我们深耕品牌视觉战略领域，已为超过100个品牌打造了独特的视觉识别系统。</p>
-<div class="about-stats">
+<section class="about-brief">
+<div class="about-brief-inner">
+<span class="en">About Us</span>
+<h2>关于段位视觉锤</h2>
+<p>段位视觉锤是专注于品牌视觉战略咨询的专业机构，致力于为企业打造有定位的品牌视觉，帮助企业攻占心智、致胜市场。</p>
+<p>我们深耕品牌视觉战略领域，以"视觉锤"理论为核心方法论，已为超过100个品牌打造了独特的视觉识别系统。</p>
+<div class="stats">
 <div><div class="stat-num">100+</div><div class="stat-label">服务品牌</div></div>
 <div><div class="stat-num">10+</div><div class="stat-label">覆盖行业</div></div>
 <div><div class="stat-num">50+</div><div class="stat-label">成功案例</div></div>
 </div>
 </div>
-<div class="about-visual">
-<div class="visual-card">
-<div class="icon">🔨</div>
-<div class="text">VISUAL HAMMER</div>
-<div class="icon" style="font-size:3rem">📌</div>
-</div>
-</div>
-</div>
-</div>
 </section>
 
 <!-- Contact -->
-<section class="section contact" id="contact">
-<div class="container">
-<div class="section-header">
-<span class="en" style="color:var(--gold)">Contact Us</span>
-<h2>联系我们</h2>
-<div class="divider"></div>
-<p>让我们一起为您的品牌打造强有力的视觉锤</p>
-</div>
-<div class="contact-grid">
+<section class="contact" id="contact">
+<div class="contact-inner">
 <div class="contact-left">
-<div class="contact-item"><h4>邮箱</h4><p>contact@duanweivh.com</p></div>
-<div class="contact-item"><h4>电话</h4><p>400-888-8888</p></div>
-<div class="contact-item"><h4>地址</h4><p>中国·上海</p></div>
+<h3>联系我们</h3>
+<p>邮箱：contact@duanweivh.com</p>
+<p>电话：400-888-8888</p>
+<p>地址：中国·上海</p>
 </div>
-<div class="contact-form">
-<input type="text" placeholder="您的姓名">
-<input type="email" placeholder="您的邮箱">
-<input type="tel" placeholder="联系电话">
-<textarea placeholder="请描述您的需求..." rows="4"></textarea>
-<button class="submit-btn">提交咨询</button>
-</div>
+<div class="contact-right">
+<div class="qr">二维码</div>
+<p>扫码关注</p>
 </div>
 </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
-<div class="container">
-<div class="footer-brand">
-<span>段位视觉锤</span>
-<span style="opacity:.4">|</span>
-<span style="font-size:.8rem;opacity:.6">品牌视觉战略咨询</span>
-</div>
 <div class="footer-links">
 <a href="/">首页</a>
-<a href="#cases">视觉锤案例</a>
+<a href="/cases/index.html">视觉锤案例</a>
 <a href="/about.html">关于我们</a>
 <a href="#contact">联系我们</a>
 </div>
 <div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
-</div>
 </footer>
+
+<script>
+var slide=0,slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dots span'),total=slides.length;
+function showSlide(n){slides[slide].classList.remove('active');dots[slide].classList.remove('active');slide=(n+total)%total;slides[slide].classList.add('active');dots[slide].classList.add('active')}
+function changeSlide(d){showSlide(slide+d)}
+function goSlide(n){showSlide(n)}
+setInterval(function(){changeSlide(1)},5000);
+</script>
 
 </body>
 </html>

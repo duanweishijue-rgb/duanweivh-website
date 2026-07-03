@@ -3,149 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<meta name="theme-color" content="#2C1810">
+<meta name="theme-color" content="#ffffff">
 <title>艾红象艾灸 - 段位视觉锤案例</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F5DC;--white:#fff;--gray:#f8f6f3}
-body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--white);line-height:1.6;overflow-x:hidden}
+body{font-family:'PingFang SC','HanHei SC','Helvetica Neue','Microsoft Yahei',sans-serif;color:#333;background:#fff;line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 
-/* Header */
-.header{background:var(--white);position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(44,24,16,.08);box-shadow:0 1px 10px rgba(0,0,0,.04)}
-.header .container{display:flex;justify-content:space-between;align-items:center;height:70px;max-width:1200px;margin:0 auto;padding:0 2rem}
-.logo{display:flex;align-items:center;gap:.8rem}
-.logo-img{height:40px;width:auto}
-.logo-text{color:var(--brown);font-size:1.3rem;font-weight:700;letter-spacing:1px}
-.logo-sub{color:var(--gold);font-size:.7rem;letter-spacing:2px;display:block;margin-top:2px}
-.nav{display:flex;align-items:center}
-.nav a{color:var(--brown);font-size:.9rem;padding:0 1.5rem;height:70px;display:flex;align-items:center;transition:color .3s}
-.nav a:hover{color:var(--gold)}
-.nav-cta{background:var(--brown);color:var(--gold)!important;padding:.6rem 1.5rem;border-radius:4px;height:auto!important;margin-left:1rem;font-size:.85rem!important}
+.nav{position:fixed;top:0;left:0;width:100%;height:44px;background:#fff;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:0 16px;border-bottom:1px solid #f0f0f0}
+.nav-logo{font-size:16px;font-weight:700;color:#222;letter-spacing:0.5px}
+.nav-logo span{font-weight:400;color:#999;font-size:13px;margin-left:2px}
+.nav-hamburger{width:22px;height:14px;position:relative;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between}
+.nav-hamburger span{display:block;width:100%;height:1.5px;background:#333;transition:all .3s}
+.nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.nav-overlay.open{opacity:1;pointer-events:auto}
+.nav-overlay .close-btn{position:absolute;top:12px;right:16px;font-size:26px;color:#333;cursor:pointer;background:none;border:none;line-height:1}
+.nav-overlay a{display:block;font-size:32px;color:#333;padding:14px 0;transition:color .3s;font-weight:300;letter-spacing:2px}
+.nav-overlay a:hover{color:#C5A258}
 
-/* Case Hero */
-.case-hero{position:relative;width:100%;height:100vh;overflow:hidden;margin-top:70px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#D4AF37,#5D4037)}
-.case-hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
-.case-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(44,24,16,.2),rgba(44,24,16,.7))}
-.case-hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:2rem;max-width:800px}
-.case-tag{display:inline-block;background:var(--gold);color:var(--brown);padding:.4rem 1.2rem;border-radius:2px;font-size:.8rem;font-weight:600;letter-spacing:2px;margin-bottom:1.5rem}
-.case-hero-content h1{font-size:3rem;margin-bottom:1rem;font-weight:300;letter-spacing:4px}
-.case-hero-content h1 strong{font-weight:700}
-.case-label{font-size:1.1rem;color:var(--gold2);font-weight:400;letter-spacing:2px;margin-bottom:1.5rem}
-.case-desc{font-size:1rem;color:rgba(255,255,255,.8);line-height:1.8;max-width:600px;margin:0 auto}
+.page-title{margin-top:44px;padding:50px 20px 20px}
+.page-title h1{font-size:22px;font-weight:400;color:#222;letter-spacing:1px}
+.page-title h1::before{content:'> 成功案例 / ';color:#999;font-size:16px}
+.page-title .subtitle{font-size:14px;color:#999;margin-top:8px;letter-spacing:0.5px}
 
-/* Case Images */
-.case-gallery{padding:0}
-.case-gallery img{width:100%;display:block;height:auto}
-.case-gallery .placeholder{width:100%;padding:5rem 2rem;text-align:center;background:var(--gray);color:var(--brown3);font-size:1rem;letter-spacing:1px}
+.case-hero{width:100%;height:500px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.case-hero-bg{width:100%;height:100%;background-size:cover;background-position:center}
+.case-hero:nth-child(1) .case-hero-bg{background:linear-gradient(135deg,#C5A258,#D4AF37)}
+.case-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,0,0,.4) 0%,transparent 60%)}
+.case-hero-text{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:#fff;text-align:center}
+.case-hero-text h2{font-size:36px;font-weight:300;letter-spacing:4px;text-shadow:0 2px 15px rgba(0,0,0,.3)}
+.case-hero-text p{font-size:14px;opacity:.8;margin-top:8px;letter-spacing:1px}
 
-/* Case Info */
-.case-info{padding:5rem 0;background:var(--white)}
-.case-info .container{max-width:1200px;margin:0 auto;padding:0 2rem}
-.case-info-grid{display:flex;gap:4rem;align-items:flex-start}
-.case-info-left{flex:1}
-.case-info-left .en{font-size:.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:.5rem;display:block}
-.case-info-left h2{font-size:2rem;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:1.5rem}
-.case-info-left .divider{width:40px;height:2px;background:var(--gold);margin-bottom:1.5rem}
-.case-meta-list{list-style:none;padding:0}
-.case-meta-list li{padding:1rem 0;border-bottom:1px solid rgba(44,24,16,.06);display:flex;gap:1rem}
-.case-meta-list li:last-child{border:none}
-.case-meta-list .label{color:var(--brown);font-weight:600;min-width:80px;font-size:.9rem}
-.case-meta-list .value{color:var(--brown3);font-size:.9rem}
-.case-info-right{flex:1}
-.case-info-right p{color:var(--brown3);line-height:2;margin-bottom:1.5rem;font-size:1rem}
-.back-btn{display:inline-block;background:var(--brown);color:var(--gold);padding:.8rem 2rem;border-radius:4px;font-size:.9rem;font-weight:600;letter-spacing:2px;transition:all .3s;margin-top:1rem}
-.back-btn:hover{background:var(--brown2);transform:translateY(-2px)}
+.case-content{max-width:700px;margin:0 auto;padding:50px 20px}
+.case-content .intro{text-align:center;margin-bottom:50px}
+.case-content .intro h3{font-size:20px;font-weight:400;color:#222;line-height:1.8;margin-bottom:15px}
+.case-content .intro p{font-size:15px;color:#666;line-height:2}
 
-/* Footer */
-.footer{background:#1a0f0a;color:rgba(255,255,255,.5);padding:2rem 0}
-.footer .container{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 2rem}
-.footer-brand span{color:var(--gold);font-size:1rem;letter-spacing:2px}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{color:rgba(255,255,255,.4);font-size:.8rem}
-.footer-links a:hover{color:var(--gold)}
-.footer-copy{font-size:.75rem;opacity:.5}
+.case-image{width:100%;margin:30px 0}
+.case-image img{width:100%;height:auto;display:block}
+.case-image .placeholder{width:100%;height:400px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:14px;color:#999}
+
+.case-text{text-align:center;margin:40px 0}
+.case-text p{font-size:15px;color:#666;line-height:2;margin-bottom:15px}
+
+.case-images-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:30px 0}
+.case-images-grid .placeholder{width:100%;height:300px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:13px;color:#999}
+
+.footer{background:#f5f5f5;padding:18px 20px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+.footer-links{display:flex;gap:18px}
+.footer-links a{font-size:11px;color:#999;transition:color .3s}
+.footer-links a:hover{color:#333}
+.footer-copy{font-size:10px;color:#bbb}
 
 @media(max-width:768px){
-.header .container{height:56px;padding:0 1rem}
-.logo-text{font-size:1.1rem}.logo-sub{display:none}.logo-img{height:32px}
-.nav a{padding:0 .8rem;font-size:.75rem;height:56px}.nav-cta{display:none}
-.case-hero{height:60vh;min-height:300px;margin-top:56px}
-.case-hero-content h1{font-size:1.8rem;letter-spacing:2px}
-.case-hero-content .case-label{font-size:.9rem}
-.case-hero-content .case-desc{font-size:.9rem}
-.case-info{padding:3rem 0}
-.case-info-grid{flex-direction:column;gap:2rem}
-.footer .container{flex-direction:column;gap:1rem;text-align:center}
-.footer-links{flex-wrap:wrap;justify-content:center}
+.nav{height:40px;padding:0 14px}
+.nav-logo{font-size:14px}
+.nav-logo span{font-size:11px}
+.page-title{margin-top:40px;padding:35px 16px 15px}
+.page-title h1{font-size:17px}
+.page-title h1::before{font-size:13px}
+.case-hero{height:300px}
+.case-hero-text h2{font-size:24px}
+.case-content{padding:35px 16px}
+.case-content .intro h3{font-size:17px}
+.case-content .intro p{font-size:14px}
+.case-image .placeholder{height:250px}
+.case-images-grid{grid-template-columns:1fr;gap:10px}
+.case-images-grid .placeholder{height:200px}
+.footer{padding:14px 16px;flex-direction:column;gap:8px;text-align:center}
+.nav-overlay a{font-size:26px}
 }
 </style>
 </head>
 <body>
 
-<header class="header">
-<div class="container">
-<div class="logo">
-<img src="/images/logo.png" alt="段位视觉锤" class="logo-img" onerror="this.style.display='none'">
-<div><span class="logo-text">段位视觉锤</span><span class="logo-sub">VISUAL HAMMER</span></div>
-</div>
 <nav class="nav">
-<a href="/">首页</a>
-<a href="/#cases">视觉锤案例</a>
-<a href="/about.html">关于我们</a>
-<a href="/#contact" class="nav-cta">联系我们</a>
-</nav>
+<div class="nav-logo">段位视觉锤<span> VISUAL HAMMER</span></div>
+<div class="nav-hamburger" onclick="document.querySelector('.nav-overlay').classList.add('open')">
+<span></span><span></span><span></span>
 </div>
-</header>
+</nav>
+
+<div class="nav-overlay">
+<button class="close-btn" onclick="this.parentElement.classList.remove('open')">&times;</button>
+<a href="/" onclick="this.parentElement.classList.remove('open')">首页</a>
+<a href="/cases/index.html" onclick="this.parentElement.classList.remove('open')">视觉锤案例</a>
+<a href="/about.html" onclick="this.parentElement.classList.remove('open')">关于我们</a>
+<a href="/#contact" onclick="this.parentElement.classList.remove('open')">联系我们</a>
+</div>
+
+<div class="page-title">
+<h1>艾红象艾灸</h1>
+<div class="subtitle">养生保健 · 以大象为视觉锤打造艾灸品牌识别</div>
+</div>
 
 <div class="case-hero">
-<img src="/images/cases/aihongxiang/cover.jpg" alt="艾红象艾灸" class="case-hero-img" onerror="this.style.display='none'">
+<div class="case-hero-bg" style="background:linear-gradient(135deg,#C5A258,#D4AF37)"></div>
 <div class="case-hero-overlay"></div>
-<div class="case-hero-content">
-<span class="case-tag">养生保健</span>
-<h1><strong>艾红象艾灸</strong></h1>
-<p class="case-label">艾灸养生品牌</p>
-<p class="case-desc">以大象为视觉锤，结合艾草元素，打造艾灸品类的强势品牌识别</p>
+<div class="case-hero-text">
+<h2>艾红象艾灸</h2>
+<p>以大象为视觉锤打造艾灸品牌识别</p>
 </div>
 </div>
 
-<div class="case-gallery">
-<img src="/images/cases/aihongxiang/1.jpg" alt="艾红象艾灸 - Logo设计" onerror="this.outerHTML='<div class=placeholder>图片待上传：Logo设计</div>'">
-<img src="/images/cases/aihongxiang/2.jpg" alt="艾红象艾灸 - 包装设计" onerror="this.outerHTML='<div class=placeholder>图片待上传：包装设计</div>'">
-<img src="/images/cases/aihongxiang/3.jpg" alt="艾红象艾灸 - 应用场景" onerror="this.outerHTML='<div class=placeholder>图片待上传：应用场景</div>'">
-<img src="/images/cases/aihongxiang/4.jpg" alt="艾红象艾灸 - 效果展示" onerror="this.outerHTML='<div class=placeholder>图片待上传：效果展示</div>'">
+<div class="case-content">
+<div class="intro">
+<h3>以大象为视觉锤，结合艾草元素，打造艾灸品类的强势品牌识别。红色与金色的搭配，传递出温暖、专业的品牌调性。</h3>
+<p>段位视觉锤以"视觉锤"理论为核心，为该品牌打造了独特的视觉识别系统，帮助品牌在竞争激烈的市场中建立差异化认知，提升品牌价值。</p>
 </div>
 
-<section class="case-info">
-<div class="container">
-<div class="case-info-grid">
-<div class="case-info-left">
-<span class="en">Case Details</span>
-<h2>项目信息</h2>
-<div class="divider"></div>
-<ul class="case-meta-list">
-<li><span class="label">品牌名称</span><span class="value">艾红象艾灸</span></li>
-<li><span class="label">所属行业</span><span class="value">养生保健</span></li>
-<li><span class="label">品牌定位</span><span class="value">艾灸养生品牌</span></li>
-<li><span class="label">服务项目</span><span class="value">品牌视觉锤战略</span></li>
-</ul>
+<div class="case-image">
+<div class="placeholder">品牌封面图（待上传）</div>
 </div>
-<div class="case-info-right">
-<p>以大象为视觉锤，结合艾草元素，打造艾灸品类的强势品牌识别</p>
-<p>我们通过视觉锤战略，为该品牌打造了独特的视觉识别系统，从Logo设计、包装视觉、终端展示到传播物料，形成完整的品牌视觉锤体系，帮助品牌在消费者心智中建立清晰的认知。</p>
-<a href="/" class="back-btn">← 查看更多案例</a>
+
+<div class="case-text">
+<p>通过深入的品牌策略分析，我们为该品牌量身定制了视觉锤方案。从品牌定位出发，结合行业特点和目标受众，打造出具有强识别度的视觉系统。</p>
+<p>视觉锤不仅仅是一个好看的标志，更是品牌战略的视觉化表达。它帮助消费者快速识别品牌，建立品牌与品类之间的强关联。</p>
+</div>
+
+<div class="case-images-grid">
+<div class="placeholder">Logo设计（待上传）</div>
+<div class="placeholder">包装设计（待上传）</div>
+</div>
+
+<div class="case-text">
+<p>在实际应用中，该视觉锤系统帮助品牌在终端陈列、广告宣传、社交媒体等多个触点上保持一致的品牌形象，有效提升了品牌的认知度和美誉度。</p>
+</div>
+
+<div class="case-images-grid">
+<div class="placeholder">应用场景（待上传）</div>
+<div class="placeholder">效果展示（待上传）</div>
 </div>
 </div>
-</div>
-</section>
 
 <footer class="footer">
-<div class="container">
-<div class="footer-brand"><span>段位视觉锤</span></div>
-<div class="footer-links"><a href="/">首页</a><a href="/#cases">视觉锤案例</a><a href="/about.html">关于我们</a><a href="/#contact">联系我们</a></div>
-<div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
+<div class="footer-links">
+<a href="/">首页</a>
+<a href="/cases/index.html">视觉锤案例</a>
+<a href="/about.html">关于我们</a>
+<a href="/#contact">联系我们</a>
 </div>
+<div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
 </footer>
 
 </body>
