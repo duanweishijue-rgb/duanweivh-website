@@ -7,124 +7,145 @@
 <title>相知鸟精品银饰 - 段位视觉锤案例</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--cream:#F5F5DC;--white:#fff}
-body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--cream);line-height:1.6;overflow-x:hidden}
+:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F5DC;--white:#fff;--gray:#f8f6f3}
+body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--white);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-.header{background:var(--brown);padding:1rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 15px rgba(0,0,0,.3)}
-.header .container{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 2rem}
-.logo-text{color:var(--gold);font-size:1.5rem;font-weight:700}
-.tagline{color:var(--cream);font-size:.8rem;opacity:.8;display:block}
-.nav{display:flex;gap:2rem}
-.nav a{color:var(--cream);font-size:.95rem}
-.case-nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(44,24,16,.95);border-bottom:1px solid rgba(197,162,88,.3)}
-.case-nav-inner{max-width:1400px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
-.back-link{background:none;border:none;color:var(--gold);font-size:1rem;cursor:pointer;font-weight:600}
-.nav-title{color:var(--cream);font-size:1.2rem;font-weight:700}
-.nav-industry{color:var(--gold);font-size:.9rem;background:rgba(197,162,88,.15);padding:.4rem 1rem;border-radius:20px}
-.case-hero{position:relative;width:100%;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#C5A258,#5D4037)}
+img{max-width:100%;display:block}
+
+/* Header */
+.header{background:var(--white);position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(44,24,16,.08);box-shadow:0 1px 10px rgba(0,0,0,.04)}
+.header .container{display:flex;justify-content:space-between;align-items:center;height:70px;max-width:1200px;margin:0 auto;padding:0 2rem}
+.logo{display:flex;align-items:center;gap:.8rem}
+.logo-img{height:40px;width:auto}
+.logo-text{color:var(--brown);font-size:1.3rem;font-weight:700;letter-spacing:1px}
+.logo-sub{color:var(--gold);font-size:.7rem;letter-spacing:2px;display:block;margin-top:2px}
+.nav{display:flex;align-items:center}
+.nav a{color:var(--brown);font-size:.9rem;padding:0 1.5rem;height:70px;display:flex;align-items:center;transition:color .3s}
+.nav a:hover{color:var(--gold)}
+.nav-cta{background:var(--brown);color:var(--gold)!important;padding:.6rem 1.5rem;border-radius:4px;height:auto!important;margin-left:1rem;font-size:.85rem!important}
+
+/* Case Hero */
+.case-hero{position:relative;width:100%;height:100vh;overflow:hidden;margin-top:70px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#C5A258,#5D4037)}
 .case-hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
-.case-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(44,24,16,.3),rgba(44,24,16,.7))}
-.case-hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:2rem}
-.case-industry{display:inline-block;background:var(--gold);color:var(--brown);padding:.5rem 1.5rem;border-radius:20px;font-size:.9rem;font-weight:600;margin-bottom:1.5rem}
-.case-hero-content h1{font-size:3.5rem;margin-bottom:1rem;font-weight:700;text-shadow:2px 2px 8px rgba(0,0,0,.3)}
-.case-label-large{font-size:1.3rem;color:var(--gold);font-weight:600;margin-bottom:1.5rem}
-.case-brief{font-size:1.1rem;color:rgba(255,255,255,.85);max-width:600px;margin:0 auto;line-height:1.8}
-.case-images{width:100%}
-.case-images img{width:100%;display:block;height:auto}
-.case-images .placeholder{width:100%;padding:4rem 2rem;text-align:center;background:#f8f8f8;color:var(--brown3);font-size:1.1rem}
-.case-footer{background:var(--brown);padding:4rem 0}
-.case-footer-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;gap:2rem}
-.case-info h2{font-size:1.8rem;color:var(--gold);margin-bottom:.8rem;font-weight:700}
-.case-meta{display:flex;gap:1.5rem;margin-bottom:.8rem}
-.case-meta span{color:var(--cream);font-size:.95rem;opacity:.8}
-.case-desc{color:var(--cream);font-size:1rem;line-height:1.8;opacity:.7;max-width:600px}
-.back-btn{display:inline-block;background:var(--gold);color:var(--brown);padding:.8rem 2rem;border-radius:8px;font-size:1rem;font-weight:600;transition:all .3s}
-.back-btn:hover{background:#d4af37;transform:translateY(-2px)}
-.footer{background:var(--brown);color:var(--cream);padding:2rem 0 1.5rem;border-top:1px solid rgba(245,245,220,.1)}
-.footer-content{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 2rem}
+.case-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(44,24,16,.2),rgba(44,24,16,.7))}
+.case-hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:2rem;max-width:800px}
+.case-tag{display:inline-block;background:var(--gold);color:var(--brown);padding:.4rem 1.2rem;border-radius:2px;font-size:.8rem;font-weight:600;letter-spacing:2px;margin-bottom:1.5rem}
+.case-hero-content h1{font-size:3rem;margin-bottom:1rem;font-weight:300;letter-spacing:4px}
+.case-hero-content h1 strong{font-weight:700}
+.case-label{font-size:1.1rem;color:var(--gold2);font-weight:400;letter-spacing:2px;margin-bottom:1.5rem}
+.case-desc{font-size:1rem;color:rgba(255,255,255,.8);line-height:1.8;max-width:600px;margin:0 auto}
+
+/* Case Images */
+.case-gallery{padding:0}
+.case-gallery img{width:100%;display:block;height:auto}
+.case-gallery .placeholder{width:100%;padding:5rem 2rem;text-align:center;background:var(--gray);color:var(--brown3);font-size:1rem;letter-spacing:1px}
+
+/* Case Info */
+.case-info{padding:5rem 0;background:var(--white)}
+.case-info .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.case-info-grid{display:flex;gap:4rem;align-items:flex-start}
+.case-info-left{flex:1}
+.case-info-left .en{font-size:.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:.5rem;display:block}
+.case-info-left h2{font-size:2rem;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:1.5rem}
+.case-info-left .divider{width:40px;height:2px;background:var(--gold);margin-bottom:1.5rem}
+.case-meta-list{list-style:none;padding:0}
+.case-meta-list li{padding:1rem 0;border-bottom:1px solid rgba(44,24,16,.06);display:flex;gap:1rem}
+.case-meta-list li:last-child{border:none}
+.case-meta-list .label{color:var(--brown);font-weight:600;min-width:80px;font-size:.9rem}
+.case-meta-list .value{color:var(--brown3);font-size:.9rem}
+.case-info-right{flex:1}
+.case-info-right p{color:var(--brown3);line-height:2;margin-bottom:1.5rem;font-size:1rem}
+.back-btn{display:inline-block;background:var(--brown);color:var(--gold);padding:.8rem 2rem;border-radius:4px;font-size:.9rem;font-weight:600;letter-spacing:2px;transition:all .3s;margin-top:1rem}
+.back-btn:hover{background:var(--brown2);transform:translateY(-2px)}
+
+/* Footer */
+.footer{background:#1a0f0a;color:rgba(255,255,255,.5);padding:2rem 0}
+.footer .container{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 2rem}
+.footer-brand span{color:var(--gold);font-size:1rem;letter-spacing:2px}
 .footer-links{display:flex;gap:1.5rem}
-.footer-links a{color:var(--cream);font-size:.9rem}
-.footer-bottom{text-align:center;padding-top:1rem;opacity:.6;font-size:.85rem}
+.footer-links a{color:rgba(255,255,255,.4);font-size:.8rem}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-size:.75rem;opacity:.5}
+
 @media(max-width:768px){
-.header .container{padding:0 1rem}
-.logo-text{font-size:1.2rem}
-.tagline{display:none}
-.nav{gap:.8rem}
-.nav a{font-size:.8rem}
-.case-nav-inner{padding:.6rem 1rem}
-.nav-title{display:none}
-.case-hero{height:60vh;min-height:280px}
-.case-hero-content h1{font-size:2rem}
-.case-hero-content .case-label-large{font-size:1rem}
-.case-hero-content .case-brief{font-size:.9rem}
-.case-footer{padding:2.5rem 0}
-.case-footer-inner{flex-direction:column;text-align:center;gap:1.5rem}
-.case-meta{flex-direction:column;gap:.5rem}
-.case-desc{margin:0 auto}
-.footer-content{flex-direction:column;gap:1rem;text-align:center}
+.header .container{height:56px;padding:0 1rem}
+.logo-text{font-size:1.1rem}.logo-sub{display:none}.logo-img{height:32px}
+.nav a{padding:0 .8rem;font-size:.75rem;height:56px}.nav-cta{display:none}
+.case-hero{height:60vh;min-height:300px;margin-top:56px}
+.case-hero-content h1{font-size:1.8rem;letter-spacing:2px}
+.case-hero-content .case-label{font-size:.9rem}
+.case-hero-content .case-desc{font-size:.9rem}
+.case-info{padding:3rem 0}
+.case-info-grid{flex-direction:column;gap:2rem}
+.footer .container{flex-direction:column;gap:1rem;text-align:center}
 .footer-links{flex-wrap:wrap;justify-content:center}
 }
 </style>
 </head>
 <body>
 
-<!-- Case Nav -->
-<div class="case-nav">
-<div class="case-nav-inner">
-<a href="/" class="back-link">← 返回案例列表</a>
-<span class="nav-title">相知鸟精品银饰</span>
-<span class="nav-industry">珠宝饰品</span>
+<header class="header">
+<div class="container">
+<div class="logo">
+<img src="/images/logo.png" alt="段位视觉锤" class="logo-img" onerror="this.style.display='none'">
+<div><span class="logo-text">段位视觉锤</span><span class="logo-sub">VISUAL HAMMER</span></div>
 </div>
+<nav class="nav">
+<a href="/">首页</a>
+<a href="/#cases">视觉锤案例</a>
+<a href="/about.html">关于我们</a>
+<a href="/#contact" class="nav-cta">联系我们</a>
+</nav>
 </div>
+</header>
 
-<!-- Hero -->
-<div class="case-hero" style="margin-top:0">
+<div class="case-hero">
 <img src="/images/cases/xiangzhiniao/cover.jpg" alt="相知鸟精品银饰" class="case-hero-img" onerror="this.style.display='none'">
 <div class="case-hero-overlay"></div>
 <div class="case-hero-content">
-<span class="case-industry">珠宝饰品</span>
-<h1>相知鸟精品银饰</h1>
-<p class="case-label-large">银饰连锁品牌</p>
-<p class="case-brief">以鸟儿为视觉锤，打造精品银饰的高端品牌形象，强化品牌记忆点</p>
-</div>
-</div>
-
-<!-- Images -->
-<div class="case-images">
-<img src="/images/cases/xiangzhiniao/1.jpg" alt="相知鸟精品银饰 - 1" onerror="this.outerHTML='<div class=placeholder>图片待上传：Logo设计</div>'">
-<img src="/images/cases/xiangzhiniao/2.jpg" alt="相知鸟精品银饰 - 2" onerror="this.outerHTML='<div class=placeholder>图片待上传：包装设计</div>'">
-<img src="/images/cases/xiangzhiniao/3.jpg" alt="相知鸟精品银饰 - 3" onerror="this.outerHTML='<div class=placeholder>图片待上传：应用场景</div>'">
-<img src="/images/cases/xiangzhiniao/4.jpg" alt="相知鸟精品银饰 - 4" onerror="this.outerHTML='<div class=placeholder>图片待上传：效果展示</div>'">
-</div>
-
-<!-- Footer Info -->
-<div class="case-footer">
-<div class="case-footer-inner">
-<div class="case-info">
-<h2>相知鸟精品银饰</h2>
-<div class="case-meta">
-<span>行业：珠宝饰品</span>
-<span>品牌定位：银饰连锁品牌</span>
-</div>
+<span class="case-tag">珠宝饰品</span>
+<h1><strong>相知鸟精品银饰</strong></h1>
+<p class="case-label">银饰连锁品牌</p>
 <p class="case-desc">以鸟儿为视觉锤，打造精品银饰的高端品牌形象，强化品牌记忆点</p>
 </div>
-<div>
+</div>
+
+<div class="case-gallery">
+<img src="/images/cases/xiangzhiniao/1.jpg" alt="相知鸟精品银饰 - Logo设计" onerror="this.outerHTML='<div class=placeholder>图片待上传：Logo设计</div>'">
+<img src="/images/cases/xiangzhiniao/2.jpg" alt="相知鸟精品银饰 - 包装设计" onerror="this.outerHTML='<div class=placeholder>图片待上传：包装设计</div>'">
+<img src="/images/cases/xiangzhiniao/3.jpg" alt="相知鸟精品银饰 - 应用场景" onerror="this.outerHTML='<div class=placeholder>图片待上传：应用场景</div>'">
+<img src="/images/cases/xiangzhiniao/4.jpg" alt="相知鸟精品银饰 - 效果展示" onerror="this.outerHTML='<div class=placeholder>图片待上传：效果展示</div>'">
+</div>
+
+<section class="case-info">
+<div class="container">
+<div class="case-info-grid">
+<div class="case-info-left">
+<span class="en">Case Details</span>
+<h2>项目信息</h2>
+<div class="divider"></div>
+<ul class="case-meta-list">
+<li><span class="label">品牌名称</span><span class="value">相知鸟精品银饰</span></li>
+<li><span class="label">所属行业</span><span class="value">珠宝饰品</span></li>
+<li><span class="label">品牌定位</span><span class="value">银饰连锁品牌</span></li>
+<li><span class="label">服务项目</span><span class="value">品牌视觉锤战略</span></li>
+</ul>
+</div>
+<div class="case-info-right">
+<p>以鸟儿为视觉锤，打造精品银饰的高端品牌形象，强化品牌记忆点</p>
+<p>我们通过视觉锤战略，为该品牌打造了独特的视觉识别系统，从Logo设计、包装视觉、终端展示到传播物料，形成完整的品牌视觉锤体系，帮助品牌在消费者心智中建立清晰的认知。</p>
 <a href="/" class="back-btn">← 查看更多案例</a>
 </div>
 </div>
 </div>
+</section>
 
-<!-- Footer -->
 <footer class="footer">
-<div class="footer-content">
-<div class="footer-links">
-<a href="/">首页</a>
-<a href="/#cases">视觉锤案例</a>
-<a href="/about.html">关于我们</a>
-<a href="/#contact">联系我们</a>
+<div class="container">
+<div class="footer-brand"><span>段位视觉锤</span></div>
+<div class="footer-links"><a href="/">首页</a><a href="/#cases">视觉锤案例</a><a href="/about.html">关于我们</a><a href="/#contact">联系我们</a></div>
+<div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2024 段位视觉锤 版权所有</p></div>
 </footer>
 
 </body>
