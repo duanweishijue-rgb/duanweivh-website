@@ -7,97 +7,109 @@
 <title>彭世修脚 - 段位视觉锤案例</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','HanHei SC','Helvetica Neue','Microsoft Yahei',sans-serif;color:#333;background:#fff;line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'PingFang SC','HanHei SC','Helvetica Neue','Microsoft Yahei',sans-serif;color:#333;background:#fff;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 
-.nav{position:fixed;top:0;left:0;width:100%;height:44px;background:#fff;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:0 16px;border-bottom:1px solid #f0f0f0}
-.nav-logo{font-size:16px;font-weight:700;color:#222;letter-spacing:0.5px}
-.nav-logo span{font-weight:400;color:#999;font-size:13px;margin-left:2px}
-.nav-hamburger{width:22px;height:14px;position:relative;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between}
-.nav-hamburger span{display:block;width:100%;height:1.5px;background:#333;transition:all .3s}
-.nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
-.nav-overlay.open{opacity:1;pointer-events:auto}
-.nav-overlay .close-btn{position:absolute;top:12px;right:16px;font-size:26px;color:#333;cursor:pointer;background:none;border:none;line-height:1}
-.nav-overlay a{display:block;font-size:32px;color:#333;padding:14px 0;transition:color .3s;font-weight:300;letter-spacing:2px}
-.nav-overlay a:hover{color:#C5A258}
+/* ===== Nav (固定显示) ===== */
+.nav{position:fixed;top:0;left:0;width:100%;height:60px;background:#fff;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:0 40px;border-bottom:1px solid #f0f0f0}
+.nav-logo{font-size:18px;font-weight:700;color:#222;letter-spacing:1px}
+.nav-logo span{font-weight:400;color:#999;font-size:14px;margin-left:4px}
+.nav-links{display:flex;gap:0}
+.nav-links a{color:#333;font-size:15px;padding:0 20px;height:60px;display:flex;align-items:center;transition:color .3s;font-weight:400}
+.nav-links a:hover{color:#C5A258}
 
-.page-title{margin-top:44px;padding:50px 20px 20px}
-.page-title h1{font-size:22px;font-weight:400;color:#222;letter-spacing:1px}
-.page-title h1::before{content:'> 成功案例 / ';color:#999;font-size:16px}
-.page-title .subtitle{font-size:14px;color:#999;margin-top:8px;letter-spacing:0.5px}
+/* ===== Page Title ===== */
+.page-title{margin-top:60px;padding:40px 40px 20px;text-align:center}
+.page-title h1{font-size:28px;font-weight:400;color:#222;letter-spacing:2px;margin-bottom:10px}
+.page-title .subtitle{font-size:14px;color:#999;letter-spacing:1px}
 
-.case-hero{width:100%;height:500px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+/* ===== Case Hero (封面图 1920×1080px) ===== */
+.case-hero{width:100%;height:600px;background-size:cover;background-position:center;position:relative;overflow:hidden}
 .case-hero-bg{width:100%;height:100%;background-size:cover;background-position:center}
 .case-hero:nth-child(1) .case-hero-bg{background:linear-gradient(135deg,#C5A258,#D4AF37)}
 .case-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,0,0,.4) 0%,transparent 60%)}
-.case-hero-text{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:#fff;text-align:center}
-.case-hero-text h2{font-size:36px;font-weight:300;letter-spacing:4px;text-shadow:0 2px 15px rgba(0,0,0,.3)}
-.case-hero-text p{font-size:14px;opacity:.8;margin-top:8px;letter-spacing:1px}
+.case-hero-text{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);color:#fff;text-align:center}
+.case-hero-text h2{font-size:42px;font-weight:300;letter-spacing:6px;text-shadow:0 2px 15px rgba(0,0,0,.3)}
+.case-hero-text p{font-size:16px;opacity:.85;margin-top:10px;letter-spacing:2px}
 
-.case-content{max-width:700px;margin:0 auto;padding:50px 20px}
-.case-content .intro{text-align:center;margin-bottom:50px}
-.case-content .intro h3{font-size:20px;font-weight:400;color:#222;line-height:1.8;margin-bottom:15px}
-.case-content .intro p{font-size:15px;color:#666;line-height:2}
+/* ===== Case Content ===== */
+.case-content{max-width:900px;margin:0 auto;padding:60px 40px}
+.case-intro{text-align:center;margin-bottom:60px}
+.case-intro h3{font-size:22px;font-weight:400;color:#222;line-height:1.8;margin-bottom:20px}
+.case-intro p{font-size:15px;color:#666;line-height:2}
 
-.case-image{width:100%;margin:30px 0}
-.case-image img{width:100%;height:auto;display:block}
-.case-image .placeholder{width:100%;height:400px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:14px;color:#999}
+/* ===== Image Section (标注尺寸) ===== */
+.image-section{margin:50px 0}
+.image-label{font-size:12px;color:#999;text-align:center;margin-bottom:10px;letter-spacing:1px}
+.image-container{width:100%;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:14px;color:#999;position:relative}
+.image-container::after{content:attr(data-size);position:absolute;bottom:10px;right:10px;font-size:11px;color:#bbb;background:rgba(255,255,255,.8);padding:3px 8px;border-radius:2px}
 
-.case-text{text-align:center;margin:40px 0}
+/* Logo图 800×600px */
+.logo-img{width:100%;height:450px}
+/* 包装图 1920×1080px */
+.package-img{width:100%;height:600px}
+/* 应用图 1920×1080px */
+.application-img{width:100%;height:600px}
+/* 效果图 1920×1080px */
+.effect-img{width:100%;height:600px}
+
+.case-text{text-align:center;margin:50px 0}
 .case-text p{font-size:15px;color:#666;line-height:2;margin-bottom:15px}
 
-.case-images-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:30px 0}
-.case-images-grid .placeholder{width:100%;height:300px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:13px;color:#999}
+.images-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:40px 0}
+.images-grid .image-container{height:400px}
 
-.footer{background:#f5f5f5;padding:18px 20px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-.footer-links{display:flex;gap:18px}
-.footer-links a{font-size:11px;color:#999;transition:color .3s}
+/* ===== Footer ===== */
+.footer{background:#f5f5f5;padding:20px 40px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12px;color:#999;transition:color .3s}
 .footer-links a:hover{color:#333}
-.footer-copy{font-size:10px;color:#bbb}
+.footer-copy{font-size:11px;color:#bbb}
 
+/* ===== Mobile ===== */
 @media(max-width:768px){
-.nav{height:40px;padding:0 14px}
-.nav-logo{font-size:14px}
-.nav-logo span{font-size:11px}
-.page-title{margin-top:40px;padding:35px 16px 15px}
-.page-title h1{font-size:17px}
-.page-title h1::before{font-size:13px}
-.case-hero{height:300px}
-.case-hero-text h2{font-size:24px}
-.case-content{padding:35px 16px}
-.case-content .intro h3{font-size:17px}
-.case-content .intro p{font-size:14px}
-.case-image .placeholder{height:250px}
-.case-images-grid{grid-template-columns:1fr;gap:10px}
-.case-images-grid .placeholder{height:200px}
-.footer{padding:14px 16px;flex-direction:column;gap:8px;text-align:center}
-.nav-overlay a{font-size:26px}
+.nav{height:50px;padding:0 16px}
+.nav-logo{font-size:15px}
+.nav-logo span{font-size:12px}
+.nav-links a{padding:0 12px;font-size:13px;height:50px}
+.page-title{margin-top:50px;padding:30px 16px 15px}
+.page-title h1{font-size:22px}
+.page-title .subtitle{font-size:13px}
+.case-hero{height:350px}
+.case-hero-text h2{font-size:28px;letter-spacing:3px}
+.case-hero-text p{font-size:14px}
+.case-content{padding:40px 16px}
+.case-intro h3{font-size:18px}
+.case-intro p{font-size:14px}
+.logo-img{height:280px}
+.package-img,.application-img,.effect-img{height:350px}
+.images-grid{grid-template-columns:1fr;gap:15px}
+.images-grid .image-container{height:250px}
+.footer{padding:15px 16px;flex-direction:column;gap:10px;text-align:center}
 }
 </style>
 </head>
 <body>
 
+<!-- Nav (固定显示) -->
 <nav class="nav">
-<div class="nav-logo">段位视觉锤<span> VISUAL HAMMER</span></div>
-<div class="nav-hamburger" onclick="document.querySelector('.nav-overlay').classList.add('open')">
-<span></span><span></span><span></span>
+<div class="nav-logo">段位视觉锤<span>VISUAL HAMMER</span></div>
+<div class="nav-links">
+<a href="/">首页</a>
+<a href="/cases/index.html">视觉锤案例</a>
+<a href="/about.html">关于我们</a>
+<a href="/#contact">联系我们</a>
 </div>
 </nav>
 
-<div class="nav-overlay">
-<button class="close-btn" onclick="this.parentElement.classList.remove('open')">&times;</button>
-<a href="/" onclick="this.parentElement.classList.remove('open')">首页</a>
-<a href="/cases/index.html" onclick="this.parentElement.classList.remove('open')">视觉锤案例</a>
-<a href="/about.html" onclick="this.parentElement.classList.remove('open')">关于我们</a>
-<a href="/#contact" onclick="this.parentElement.classList.remove('open')">联系我们</a>
-</div>
-
+<!-- Page Title -->
 <div class="page-title">
 <h1>彭世修脚</h1>
 <div class="subtitle">健康服务 · 打造专业修脚服务品牌的视觉识别体系</div>
 </div>
 
+<!-- Case Hero (封面图 1920×1080px) -->
 <div class="case-hero">
 <div class="case-hero-bg" style="background:linear-gradient(135deg,#C5A258,#D4AF37)"></div>
 <div class="case-hero-overlay"></div>
@@ -107,14 +119,18 @@ img{max-width:100%;display:block}
 </div>
 </div>
 
+<!-- Case Content -->
 <div class="case-content">
-<div class="intro">
+
+<div class="case-intro">
 <h3>以传统中医理念为基础，打造专业修脚服务品牌的视觉识别体系。通过独特的视觉锤设计，将传统技艺与现代品牌形象完美融合。</h3>
 <p>段位视觉锤以"视觉锤"理论为核心，为该品牌打造了独特的视觉识别系统，帮助品牌在竞争激烈的市场中建立差异化认知，提升品牌价值。</p>
 </div>
 
-<div class="case-image">
-<div class="placeholder">品牌封面图（待上传）</div>
+<!-- 封面图 1920×1080px -->
+<div class="image-section">
+<div class="image-label">品牌封面图（建议尺寸：1920×1080px）</div>
+<div class="image-container package-img" data-size="1920×1080px">品牌封面图（待上传）</div>
 </div>
 
 <div class="case-text">
@@ -122,21 +138,37 @@ img{max-width:100%;display:block}
 <p>视觉锤不仅仅是一个好看的标志，更是品牌战略的视觉化表达。它帮助消费者快速识别品牌，建立品牌与品类之间的强关联。</p>
 </div>
 
-<div class="case-images-grid">
-<div class="placeholder">Logo设计（待上传）</div>
-<div class="placeholder">包装设计（待上传）</div>
+<!-- Logo图 800×600px -->
+<div class="image-section">
+<div class="image-label">Logo设计（建议尺寸：800×600px）</div>
+<div class="image-container logo-img" data-size="800×600px">Logo设计（待上传）</div>
+</div>
+
+<!-- 双列图片网格 -->
+<div class="images-grid">
+<div class="image-section">
+<div class="image-label">包装设计（建议尺寸：1920×1080px）</div>
+<div class="image-container application-img" data-size="1920×1080px">包装设计（待上传）</div>
+</div>
+<div class="image-section">
+<div class="image-label">应用场景（建议尺寸：1920×1080px）</div>
+<div class="image-container effect-img" data-size="1920×1080px">应用场景（待上传）</div>
+</div>
 </div>
 
 <div class="case-text">
 <p>在实际应用中，该视觉锤系统帮助品牌在终端陈列、广告宣传、社交媒体等多个触点上保持一致的品牌形象，有效提升了品牌的认知度和美誉度。</p>
 </div>
 
-<div class="case-images-grid">
-<div class="placeholder">应用场景（待上传）</div>
-<div class="placeholder">效果展示（待上传）</div>
-</div>
+<!-- 效果图 1920×1080px -->
+<div class="image-section">
+<div class="image-label">效果展示（建议尺寸：1920×1080px）</div>
+<div class="image-container package-img" data-size="1920×1080px">效果展示（待上传）</div>
 </div>
 
+</div>
+
+<!-- Footer -->
 <footer class="footer">
 <div class="footer-links">
 <a href="/">首页</a>
