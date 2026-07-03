@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="theme-color" content="#2C1810">
+<title>艾红象艾灸 - 段位视觉锤案例</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--cream:#F5F5DC;--white:#fff}
+body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--cream);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.header{background:var(--brown);padding:1rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 15px rgba(0,0,0,.3)}
+.header .container{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 2rem}
+.logo-text{color:var(--gold);font-size:1.5rem;font-weight:700}
+.tagline{color:var(--cream);font-size:.8rem;opacity:.8;display:block}
+.nav{display:flex;gap:2rem}
+.nav a{color:var(--cream);font-size:.95rem}
+.case-nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(44,24,16,.95);border-bottom:1px solid rgba(197,162,88,.3)}
+.case-nav-inner{max-width:1400px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.back-link{background:none;border:none;color:var(--gold);font-size:1rem;cursor:pointer;font-weight:600}
+.nav-title{color:var(--cream);font-size:1.2rem;font-weight:700}
+.nav-industry{color:var(--gold);font-size:.9rem;background:rgba(197,162,88,.15);padding:.4rem 1rem;border-radius:20px}
+.case-hero{position:relative;width:100%;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#D4AF37,#5D4037)}
+.case-hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+.case-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(44,24,16,.3),rgba(44,24,16,.7))}
+.case-hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:2rem}
+.case-industry{display:inline-block;background:var(--gold);color:var(--brown);padding:.5rem 1.5rem;border-radius:20px;font-size:.9rem;font-weight:600;margin-bottom:1.5rem}
+.case-hero-content h1{font-size:3.5rem;margin-bottom:1rem;font-weight:700;text-shadow:2px 2px 8px rgba(0,0,0,.3)}
+.case-label-large{font-size:1.3rem;color:var(--gold);font-weight:600;margin-bottom:1.5rem}
+.case-brief{font-size:1.1rem;color:rgba(255,255,255,.85);max-width:600px;margin:0 auto;line-height:1.8}
+.case-images{width:100%}
+.case-images img{width:100%;display:block;height:auto}
+.case-images .placeholder{width:100%;padding:4rem 2rem;text-align:center;background:#f8f8f8;color:var(--brown3);font-size:1.1rem}
+.case-footer{background:var(--brown);padding:4rem 0}
+.case-footer-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;gap:2rem}
+.case-info h2{font-size:1.8rem;color:var(--gold);margin-bottom:.8rem;font-weight:700}
+.case-meta{display:flex;gap:1.5rem;margin-bottom:.8rem}
+.case-meta span{color:var(--cream);font-size:.95rem;opacity:.8}
+.case-desc{color:var(--cream);font-size:1rem;line-height:1.8;opacity:.7;max-width:600px}
+.back-btn{display:inline-block;background:var(--gold);color:var(--brown);padding:.8rem 2rem;border-radius:8px;font-size:1rem;font-weight:600;transition:all .3s}
+.back-btn:hover{background:#d4af37;transform:translateY(-2px)}
+.footer{background:var(--brown);color:var(--cream);padding:2rem 0 1.5rem;border-top:1px solid rgba(245,245,220,.1)}
+.footer-content{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 2rem}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:var(--cream);font-size:.9rem}
+.footer-bottom{text-align:center;padding-top:1rem;opacity:.6;font-size:.85rem}
+@media(max-width:768px){
+.header .container{padding:0 1rem}
+.logo-text{font-size:1.2rem}
+.tagline{display:none}
+.nav{gap:.8rem}
+.nav a{font-size:.8rem}
+.case-nav-inner{padding:.6rem 1rem}
+.nav-title{display:none}
+.case-hero{height:60vh;min-height:280px}
+.case-hero-content h1{font-size:2rem}
+.case-hero-content .case-label-large{font-size:1rem}
+.case-hero-content .case-brief{font-size:.9rem}
+.case-footer{padding:2.5rem 0}
+.case-footer-inner{flex-direction:column;text-align:center;gap:1.5rem}
+.case-meta{flex-direction:column;gap:.5rem}
+.case-desc{margin:0 auto}
+.footer-content{flex-direction:column;gap:1rem;text-align:center}
+.footer-links{flex-wrap:wrap;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Case Nav -->
+<div class="case-nav">
+<div class="case-nav-inner">
+<a href="/" class="back-link">← 返回案例列表</a>
+<span class="nav-title">艾红象艾灸</span>
+<span class="nav-industry">养生保健</span>
+</div>
+</div>
+
+<!-- Hero -->
+<div class="case-hero" style="margin-top:0">
+<img src="/images/cases/aihongxiang/cover.jpg" alt="艾红象艾灸" class="case-hero-img" onerror="this.style.display='none'">
+<div class="case-hero-overlay"></div>
+<div class="case-hero-content">
+<span class="case-industry">养生保健</span>
+<h1>艾红象艾灸</h1>
+<p class="case-label-large">艾灸养生品牌</p>
+<p class="case-brief">以大象为视觉锤，结合艾草元素，打造艾灸品类的强势品牌识别</p>
+</div>
+</div>
+
+<!-- Images -->
+<div class="case-images">
+<img src="/images/cases/aihongxiang/1.jpg" alt="艾红象艾灸 - 1" onerror="this.outerHTML='<div class=placeholder>图片待上传：Logo设计</div>'">
+<img src="/images/cases/aihongxiang/2.jpg" alt="艾红象艾灸 - 2" onerror="this.outerHTML='<div class=placeholder>图片待上传：包装设计</div>'">
+<img src="/images/cases/aihongxiang/3.jpg" alt="艾红象艾灸 - 3" onerror="this.outerHTML='<div class=placeholder>图片待上传：应用场景</div>'">
+<img src="/images/cases/aihongxiang/4.jpg" alt="艾红象艾灸 - 4" onerror="this.outerHTML='<div class=placeholder>图片待上传：效果展示</div>'">
+</div>
+
+<!-- Footer Info -->
+<div class="case-footer">
+<div class="case-footer-inner">
+<div class="case-info">
+<h2>艾红象艾灸</h2>
+<div class="case-meta">
+<span>行业：养生保健</span>
+<span>品牌定位：艾灸养生品牌</span>
+</div>
+<p class="case-desc">以大象为视觉锤，结合艾草元素，打造艾灸品类的强势品牌识别</p>
+</div>
+<div>
+<a href="/" class="back-btn">← 查看更多案例</a>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-links">
+<a href="/">首页</a>
+<a href="/#cases">视觉锤案例</a>
+<a href="/about.html">关于我们</a>
+<a href="/#contact">联系我们</a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2024 段位视觉锤 版权所有</p></div>
+</footer>
+
+</body>
+</html>
