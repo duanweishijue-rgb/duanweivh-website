@@ -27,6 +27,11 @@ a{text-decoration:none;color:inherit}
 .page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 20px}
 .page-hero p{font-size:15px;color:#888;max-width:600px;margin:0 auto;line-height:1.8}
 
+/* Full Screen Poster - 全屏海报 */
+.full-poster{width:100%;height:calc(100vh - 60px);min-height:500px;background:linear-gradient(135deg,var(--brown) 0%,var(--brown2) 40%,var(--gold) 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.full-poster::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%232C1810" width="1920" height="1080"/><text x="960" y="540" font-family="Arial" font-size="200" fill="%23C5A258" opacity="0.1" text-anchor="middle" dominant-baseline="middle">CASE STUDIES</text></svg>') center/cover no-repeat}
+.poster-content{color:var(--white);font-size:72px;font-weight:900;letter-spacing:12px;text-shadow:0 4px 30px rgba(0,0,0,.4);z-index:1}
+
 /* Cases Section */
 .cases-section{padding:60px 0;background:var(--cream)}
 
@@ -66,10 +71,6 @@ a{text-decoration:none;color:inherit}
 .footer-nav a:hover{color:var(--gold)}
 .footer-copy{text-align:center;font-size:12px;opacity:.4;padding-top:15px;border-top:1px solid rgba(255,255,255,.1)}
 
-/* Poster Banner - 海报图 */
-.poster-banner{width:100%;padding:40px 0;background:var(--cream);display:flex;justify-content:center}
-.poster-placeholder{width:100%;max-width:1400px;height:400px;background:linear-gradient(135deg,var(--brown) 0%,var(--brown2) 50%,var(--gold) 100%);border-radius:16px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:48px;font-weight:900;letter-spacing:8px;text-shadow:0 4px 20px rgba(0,0,0,.3);box-shadow:0 8px 40px rgba(0,0,0,.1)}
-
 /* Mobile */
 @media(max-width:768px){
 .header .container{height:50px;padding:0 1rem}
@@ -85,7 +86,8 @@ a{text-decoration:none;color:inherit}
 .case-card-body h3{font-size:18px}
 .case-card-body p{font-size:13px}
 .footer-nav{flex-wrap:wrap;gap:1rem}
-.poster-placeholder{height:250px;font-size:28px;letter-spacing:4px;border-radius:12px}
+.full-poster{min-height:350px;height:calc(100vh - 50px)}
+.poster-content{font-size:36px;letter-spacing:6px}
 }
 </style>
 </head>
@@ -104,17 +106,9 @@ a{text-decoration:none;color:inherit}
 </div>
 </header>
 
-<!-- Page Hero -->
-<div class="page-hero">
-<span class="en">Case Studies</span>
-<h1>品牌案例</h1>
-<div class="divider"></div>
-<p>视觉锤理论起源于美国，但实践却发生在中国。<br>越来越多中国品牌借助视觉锤的力量，取得卓越增长</p>
-</div>
-
-<!-- Poster Banner - 海报图 -->
-<div class="poster-banner">
-<div class="poster-placeholder">品牌案例展示</div>
+<!-- Full Screen Poster - 全屏海报 -->
+<div class="full-poster">
+<div class="poster-content">品牌案例展示</div>
 </div>
 
 <!-- Cases Section -->
