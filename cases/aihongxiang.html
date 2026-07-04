@@ -22,38 +22,35 @@ img{max-width:100%;display:block}
 .nav a:hover{color:var(--gold)}
 
 /* Page Hero */
-.page-hero{margin-top:60px;padding:60px 0;background:var(--white);text-align:center}
-.page-hero .tag{display:inline-block;background:var(--gold);color:var(--white);font-size:13px;padding:4px 16px;border-radius:20px;margin-bottom:15px}
-.page-hero h1{font-size:32px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:10px}
-.page-hero .industry{font-size:16px;color:var(--gold);letter-spacing:1px}
+.page-hero{margin-top:60px;padding:80px 0;background:linear-gradient(135deg,var(--cream) 0%,var(--white) 100%);text-align:center}
+.page-hero .tag{display:inline-block;background:var(--gold);color:var(--white);font-size:14px;padding:6px 20px;border-radius:20px;margin-bottom:20px;font-weight:500}
+.page-hero h1{font-size:42px;color:var(--brown);font-weight:700;letter-spacing:3px;margin-bottom:15px}
+.page-hero .industry{font-size:18px;color:var(--brown3);letter-spacing:1px}
 
-/* Case Cover */
-.case-cover{width:100%;height:400px;background:linear-gradient(135deg,#D4AF37,#5D4037);display:flex;align-items:center;justify-content:center;position:relative}
-.case-cover-text{color:var(--white);font-size:48px;font-weight:700;opacity:.3;letter-spacing:5px}
+/* Case Cover - 全宽封面图 */
+.case-cover{width:100%;height:500px;background:linear-gradient(135deg,#D4AF37,#5D4037);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.case-cover::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23C5A258" width="1200" height="600"/><text x="600" y="300" font-family="Arial" font-size="120" fill="%23fff" opacity="0.15" text-anchor="middle" dominant-baseline="middle">小蓝帽增产药</text></svg>') center/cover no-repeat}
+.case-cover-text{color:var(--white);font-size:72px;font-weight:900;opacity:.4;letter-spacing:8px;text-shadow:0 4px 20px rgba(0,0,0,.2)}
 
 /* Case Info */
-.case-info{padding:60px 0}
-.case-info-grid{display:flex;gap:40px;margin-bottom:40px}
+.case-info{padding:80px 0;background:var(--white)}
+.case-info-grid{display:flex;gap:60px;margin-bottom:40px}
 .case-info-main{flex:2}
 .case-info-side{flex:1}
-.case-info h2{font-size:24px;color:var(--brown);font-weight:700;margin-bottom:20px;padding-bottom:15px;border-bottom:2px solid var(--gold)}
-.case-info p{font-size:15px;color:#666;line-height:2;margin-bottom:15px}
-.case-info .info-card{background:var(--white);border-radius:12px;padding:25px;box-shadow:0 2px 15px rgba(0,0,0,.05);margin-bottom:20px}
-.case-info .info-card h4{font-size:16px;color:var(--brown);font-weight:600;margin-bottom:10px}
-.case-info .info-card .value{font-size:14px;color:#888}
+.case-info h2{font-size:28px;color:var(--brown);font-weight:700;margin-bottom:25px;padding-bottom:15px;border-bottom:3px solid var(--gold);display:inline-block}
+.case-info p{font-size:16px;color:#555;line-height:2.2;margin-bottom:20px}
+.case-info .info-card{background:var(--cream);border-radius:12px;padding:25px 30px;box-shadow:0 2px 15px rgba(0,0,0,.05);margin-bottom:20px;border-left:4px solid var(--gold)}
+.case-info .info-card h4{font-size:16px;color:var(--brown);font-weight:600;margin-bottom:8px}
+.case-info .info-card .value{font-size:15px;color:var(--brown3);font-weight:500}
 
-/* Gallery */
-.gallery{padding:40px 0 60px}
-.gallery h2{font-size:24px;color:var(--brown);font-weight:700;margin-bottom:30px;text-align:center}
-.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.gallery-item{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,.05)}
-.gallery-item-img{width:100%;height:280px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#aaa}
-.gallery-item-img:nth-child(1){background:linear-gradient(135deg,#f5f0e8,#e8dfd0)}
-.gallery-item:nth-child(1) .gallery-item-img{background:linear-gradient(135deg,#f5f0e8,#e8dfd0)}
-.gallery-item:nth-child(2) .gallery-item-img{background:linear-gradient(135deg,#e8dfd0,#d4c5a9)}
-.gallery-item:nth-child(3) .gallery-item-img{background:linear-gradient(135deg,#d4c5a9,#c5b899)}
-.gallery-item:nth-child(4) .gallery-item-img{background:linear-gradient(135deg,#f0ebe0,#e0d5c0)}
-.gallery-item-label{padding:15px 20px;font-size:14px;color:var(--brown);font-weight:500}
+/* Gallery - 图片展示区 */
+.gallery{padding:60px 0 80px;background:var(--cream)}
+.gallery h2{font-size:28px;color:var(--brown);font-weight:700;margin-bottom:40px;text-align:center;letter-spacing:2px}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.gallery-item{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s}
+.gallery-item:hover{transform:translateY(-5px);box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.gallery-item-img{width:100%;height:320px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#999;background:linear-gradient(135deg,#f5f0e8,#e8dfd0)}
+.gallery-item-label{padding:20px 25px;font-size:16px;color:var(--brown);font-weight:600;border-top:2px solid var(--cream)}
 
 /* Footer */
 .footer{background:var(--brown);color:rgba(255,255,255,.5);padding:40px 0 20px}
@@ -70,13 +67,20 @@ img{max-width:100%;display:block}
 .logo{font-size:1.2rem}
 .nav{gap:1rem}
 .nav a{font-size:.75rem}
-.page-hero{padding:40px 0}
-.page-hero h1{font-size:24px}
-.case-cover{height:250px}
-.case-cover-text{font-size:28px}
-.case-info-grid{flex-direction:column;gap:20px}
-.gallery-grid{grid-template-columns:1fr}
-.gallery-item-img{height:200px}
+.page-hero{padding:50px 0}
+.page-hero h1{font-size:28px;letter-spacing:2px}
+.page-hero .industry{font-size:16px}
+.case-cover{height:300px}
+.case-cover-text{font-size:42px;letter-spacing:4px}
+.case-info{padding:50px 0}
+.case-info-grid{flex-direction:column;gap:30px}
+.case-info h2{font-size:24px}
+.case-info p{font-size:15px}
+.gallery{padding:40px 0 60px}
+.gallery h2{font-size:24px;margin-bottom:30px}
+.gallery-grid{grid-template-columns:1fr;gap:20px}
+.gallery-item-img{height:250px}
+.gallery-item-label{padding:15px 20px;font-size:15px}
 }
 </style>
 </head>
