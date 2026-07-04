@@ -7,30 +7,27 @@
 <title>关于我们 - 段位视觉锤</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F0E8;--white:#fff;--gray:#f8f6f3}
+:root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F0E8;--white:#fff}
 body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--cream);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
-/* ===== Header (白底深色字) 尺寸：宽100% 高70px ===== */
-.header{background:var(--white);position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(44,24,16,.08);box-shadow:0 1px 10px rgba(0,0,0,.04)}
-.header .container{display:flex;justify-content:space-between;align-items:center;height:70px}
-.logo{display:flex;align-items:center;gap:.8rem}
-.logo-img{height:40px;width:auto}
-.logo-text{color:var(--brown);font-size:1.3rem;font-weight:700;letter-spacing:1px}
-.logo-sub{color:var(--gold);font-size:.7rem;letter-spacing:2px;display:block;margin-top:2px}
-.nav{display:flex;align-items:center;gap:0}
-.nav a{color:var(--brown);font-size:.9rem;padding:0 1.5rem;height:70px;display:flex;align-items:center;transition:color .3s}
+/* Header */
+.header{background:var(--brown);position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.header .container{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{color:var(--gold);font-size:1.5rem;font-weight:700;letter-spacing:2px}
+.nav{display:flex;gap:1.5rem}
+.nav a{color:var(--white);font-size:.9rem;padding:.5rem 0;transition:color .3s}
 .nav a:hover{color:var(--gold)}
 
-/* ===== Page Hero 尺寸：宽100% 高350px ===== */
-.page-hero{margin-top:70px;padding:80px 0;background:var(--white);text-align:center}
+/* Page Hero */
+.page-hero{margin-top:60px;padding:80px 0;background:var(--white);text-align:center}
 .page-hero .en{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:10px;display:block}
 .page-hero h1{font-size:32px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:15px}
 .page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 20px}
 .page-hero p{font-size:15px;color:#888;max-width:600px;margin:0 auto;line-height:1.8}
 
-/* ===== About Content 尺寸：宽100% 内边距60px 0 ===== */
+/* About Content */
 .about-section{padding:60px 0;background:var(--cream)}
 .about-grid{display:flex;gap:60px;align-items:center}
 .about-text{flex:1}
@@ -44,7 +41,7 @@ a{text-decoration:none;color:inherit}
 .visual-card .icon{font-size:72px}
 .visual-card .text{color:var(--gold);font-size:16px;letter-spacing:3px;font-weight:300}
 
-/* ===== Methodology 尺寸：宽100% 内边距60px 0 ===== */
+/* Methodology */
 .method-section{padding:60px 0;background:var(--white)}
 .method-header{text-align:center;margin-bottom:40px}
 .method-header .en{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:10px;display:block}
@@ -58,7 +55,7 @@ a{text-decoration:none;color:inherit}
 .method-card h3{font-size:16px;color:var(--brown);margin-bottom:8px;font-weight:600;letter-spacing:1px}
 .method-card p{color:#888;font-size:13px;line-height:1.6}
 
-/* ===== Footer 尺寸：宽100% 高约180px ===== */
+/* Footer */
 .footer{background:var(--brown);color:rgba(255,255,255,.5);padding:40px 0 20px}
 .footer .container{max-width:1200px;margin:0 auto;padding:0 2rem}
 .footer-brand{text-align:center;margin-bottom:20px}
@@ -69,14 +66,13 @@ a{text-decoration:none;color:inherit}
 .footer-nav a:hover{color:var(--gold)}
 .footer-copy{text-align:center;font-size:12px;opacity:.4;padding-top:15px;border-top:1px solid rgba(255,255,255,.1)}
 
-/* ===== Mobile ===== */
+/* Mobile */
 @media(max-width:768px){
-.header .container{height:56px;padding:0 1rem}
-.logo-text{font-size:1.1rem}
-.logo-sub{display:none}
-.logo-img{height:32px}
-.nav a{padding:0 .8rem;font-size:.75rem;height:56px}
-.page-hero{margin-top:56px;padding:50px 0}
+.header .container{height:50px;padding:0 1rem}
+.logo{font-size:1.2rem}
+.nav{gap:1rem}
+.nav a{font-size:.75rem}
+.page-hero{margin-top:50px;padding:50px 0}
 .page-hero h1{font-size:24px}
 .about-section{padding:40px 0}
 .about-grid{flex-direction:column;gap:30px}
@@ -92,13 +88,10 @@ a{text-decoration:none;color:inherit}
 </head>
 <body>
 
-<!-- Header (白底深色字) 尺寸：宽100% 高70px -->
+<!-- Header -->
 <header class="header">
 <div class="container">
-<div class="logo">
-<img src="/images/logo.png" alt="段位视觉锤" class="logo-img" onerror="this.style.display='none'">
-<div><span class="logo-text">段位视觉锤</span><span class="logo-sub">VISUAL HAMMER</span></div>
-</div>
+<div class="logo">段位视觉锤</div>
 <nav class="nav">
 <a href="/">首页</a>
 <a href="/cases/index.html">视觉锤案例</a>
@@ -108,7 +101,7 @@ a{text-decoration:none;color:inherit}
 </div>
 </header>
 
-<!-- Page Hero 尺寸：宽100% 高350px -->
+<!-- Page Hero -->
 <div class="page-hero">
 <span class="en">About Us</span>
 <h1>关于段位视觉锤</h1>
@@ -116,7 +109,7 @@ a{text-decoration:none;color:inherit}
 <p>专注于品牌视觉战略咨询的专业机构，致力于为企业打造有定位的品牌视觉，帮助企业攻占心智、致胜市场</p>
 </div>
 
-<!-- About Content 尺寸：宽100% 内边距60px 0 -->
+<!-- About Content -->
 <section class="about-section">
 <div class="container">
 <div class="about-grid">
@@ -132,7 +125,7 @@ a{text-decoration:none;color:inherit}
 </div>
 <div class="about-visual">
 <div class="visual-card">
-<div class="icon">🔨</div>
+<div class="icon"></div>
 <div class="text">VISUAL HAMMER</div>
 <div class="icon" style="font-size:48px">📌</div>
 </div>
@@ -141,7 +134,7 @@ a{text-decoration:none;color:inherit}
 </div>
 </section>
 
-<!-- Methodology 尺寸：宽100% 内边距60px 0 -->
+<!-- Methodology -->
 <section class="method-section">
 <div class="container">
 <div class="method-header">
@@ -154,26 +147,18 @@ a{text-decoration:none;color:inherit}
 <div class="method-card"><div class="method-icon">🎨</div><h3>颜色锤</h3><p>用独特的颜色建立品牌识别，如王老吉的红罐</p></div>
 <div class="method-card"><div class="method-icon">⭐</div><h3>符号锤</h3><p>创造专属符号，让品牌一秒触发消费者记忆</p></div>
 <div class="method-card"><div class="method-icon">📦</div><h3>包装锤</h3><p>通过创新的包装设计，在货架上脱颖而出</p></div>
-<div class="method-card"><div class="method-icon">🐾</div><h3>动物锤</h3><p>借助动物形象强化品牌个性和记忆点</p></div>
+<div class="method-card"><div class="method-icon"></div><h3>动物锤</h3><p>借助动物形象强化品牌个性和记忆点</p></div>
 <div class="method-card"><div class="method-icon">🔄</div><h3>形状锤</h3><p>独特的产品形状，建立差异化认知</p></div>
 <div class="method-card"><div class="method-icon"></div><h3>动态锤</h3><p>通过动态视觉增强品牌的感染力</p></div>
 </div>
 </div>
 </section>
 
-<!-- Footer 尺寸：宽100% 高约180px -->
+<!-- Footer -->
 <footer class="footer">
 <div class="container">
-<div class="footer-brand">
-<span class="name">段位视觉锤</span>
-<span class="desc">品牌视觉战略咨询专家</span>
-</div>
-<div class="footer-nav">
-<a href="/">首页</a>
-<a href="/cases/index.html">视觉锤案例</a>
-<a href="/about.html">关于我们</a>
-<a href="/contact.html">联系我们</a>
-</div>
+<div class="footer-brand"><span class="name">段位视觉锤</span><span class="desc">品牌视觉战略咨询专家</span></div>
+<div class="footer-nav"><a href="/">首页</a><a href="/cases/index.html">视觉锤案例</a><a href="/about.html">关于我们</a><a href="/contact.html">联系我们</a></div>
 <div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
 </div>
 </footer>
