@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <meta name="theme-color" content="#2C1810">
-<title>猪太子教槽料 - 段位视觉锤案例</title>
+<title>联系我们 - 段位视觉锤</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F0E8;--white:#fff;--gray:#f8f6f3}
@@ -23,37 +23,32 @@ a{text-decoration:none;color:inherit}
 .nav a{color:var(--brown);font-size:.9rem;padding:0 1.5rem;height:70px;display:flex;align-items:center;transition:color .3s}
 .nav a:hover{color:var(--gold)}
 
-/* Page Hero 尺寸：宽100% 高250px */
-.page-hero{margin-top:70px;padding:50px 0;background:var(--white);text-align:center}
+/* Page Hero 尺寸：宽100% 高300px */
+.page-hero{margin-top:70px;padding:60px 0;background:var(--white);text-align:center}
 .page-hero .en{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:10px;display:block}
-.page-hero h1{font-size:32px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:8px}
-.page-hero .subtitle{font-size:15px;color:var(--gold);margin-bottom:15px}
-.page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto}
+.page-hero h1{font-size:32px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:15px}
+.page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 20px}
+.page-hero p{font-size:15px;color:#888;max-width:600px;margin:0 auto;line-height:1.8}
 
-/* Case Hero Image 尺寸：宽100% 高500px */
-.case-hero{width:100%;height:500px;background-size:cover;background-position:center;position:relative;margin-bottom:0}
-.case-hero-zhutaizi{background:linear-gradient(135deg,#C5A258,#D4AF37)}
-.case-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.1)}
-.size-label{position:absolute;bottom:10px;right:10px;font-size:11px;color:#fff;background:rgba(0,0,0,.5);padding:3px 8px;border-radius:3px}
+/* Contact Section 尺寸：宽100% 内边距60px 0 */
+.contact-section{padding:60px 0;background:var(--cream)}
+.contact-grid{display:flex;gap:60px;max-width:1000px;margin:0 auto}
+.contact-info{flex:1}
+.contact-item{margin-bottom:30px}
+.contact-item .label{font-size:16px;color:var(--brown);font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.contact-item .value{font-size:15px;color:#666;line-height:1.8}
+.contact-form{flex:1.2}
+.contact-form input,.contact-form textarea{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:8px;font-size:14px;margin-bottom:15px;background:var(--white);font-family:inherit;outline:none;transition:border-color .3s}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--gold)}
+.contact-form textarea{height:120px;resize:vertical}
+.contact-form button{width:100%;padding:14px;background:var(--brown);color:var(--gold);border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;letter-spacing:2px;transition:opacity .3s}
+.contact-form button:hover{opacity:.9}
 
-/* Case Content 尺寸：宽100% 内边距60px 0 */
-.case-content{padding:60px 0;background:var(--cream)}
-.case-content .container{max-width:900px}
-.case-content h2{font-size:22px;color:var(--brown);font-weight:700;margin-bottom:20px;letter-spacing:1px}
-.case-content p{font-size:15px;color:#666;line-height:2;margin-bottom:20px}
-
-/* Image Gallery 尺寸：宽100% 内边距0 0 60px */
-.case-gallery{padding:0 0 60px;background:var(--cream)}
-.case-gallery .container{max-width:1200px}
-.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.gallery-item{position:relative;border-radius:8px;overflow:hidden;background:var(--white);box-shadow:0 2px 15px rgba(0,0,0,.06)}
-.gallery-img{width:100%;height:300px;background-size:cover;background-position:center}
-.gallery-img-1{background:linear-gradient(135deg,#C5A258,#D4AF37)}
-.gallery-img-2{background:linear-gradient(135deg,#5D4037,#3C2415)}
-.gallery-img-3{background:linear-gradient(135deg,#FFD700,#C5A258)}
-.gallery-img-4{background:linear-gradient(135deg,#D4AF37,#5D4037)}
-.gallery-size{position:absolute;bottom:10px;right:10px;font-size:11px;color:#fff;background:rgba(0,0,0,.5);padding:3px 8px;border-radius:3px}
-.gallery-placeholder{display:flex;align-items:center;justify-content:center;height:300px;font-size:48px;opacity:.15}
+/* QR Code Section 尺寸：宽100% 内边距40px 0 */
+.qr-section{padding:40px 0;background:var(--white);text-align:center}
+.qr-code{width:180px;height:180px;background:var(--cream);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:2px solid var(--gold)}
+.qr-code span{font-size:48px;opacity:.3}
+.qr-text{font-size:14px;color:#888}
 
 /* Footer 尺寸：宽100% 高约180px */
 .footer{background:var(--brown);color:rgba(255,255,255,.5);padding:40px 0 20px}
@@ -73,13 +68,11 @@ a{text-decoration:none;color:inherit}
 .logo-sub{display:none}
 .logo-img{height:32px}
 .nav a{padding:0 .8rem;font-size:.75rem;height:56px}
-.page-hero{margin-top:56px;padding:30px 0}
+.page-hero{margin-top:56px;padding:40px 0}
 .page-hero h1{font-size:24px}
-.case-hero{height:300px}
-.case-content{padding:40px 0}
-.gallery-grid{grid-template-columns:1fr}
-.gallery-img{height:200px}
-.gallery-placeholder{height:200px}
+.contact-section{padding:40px 0}
+.contact-grid{flex-direction:column;gap:30px}
+.qr-section{padding:30px 0}
 .footer-nav{flex-wrap:wrap;gap:1rem}
 }
 </style>
@@ -102,55 +95,52 @@ a{text-decoration:none;color:inherit}
 </div>
 </header>
 
-<!-- Page Hero 尺寸：宽100% 高250px -->
+<!-- Page Hero 尺寸：宽100% 高300px -->
 <div class="page-hero">
-<span class="en">Case Study</span>
-<h1>猪太子教槽料</h1>
-<div class="subtitle">畜牧饲料品牌</div>
+<span class="en">Contact Us</span>
+<h1>联系我们</h1>
 <div class="divider"></div>
+<p>让我们一起为您的品牌打造强有力的视觉锤，助力品牌在竞争中脱颖而出</p>
 </div>
 
-<!-- Case Hero Image 尺寸：宽100% 高500px (建议图片尺寸：1920×1080px) -->
-<div class="case-hero case-hero-zhutaizi">
-<div class="case-hero-overlay"></div>
-<span class="size-label">1920×1080px</span>
-</div>
-
-<!-- Case Content 尺寸：宽100% 内边距60px 0 -->
-<section class="case-content">
+<!-- Contact Section 尺寸：宽100% 内边距60px 0 -->
+<section class="contact-section">
 <div class="container">
-<h2>案例介绍</h2>
-<p>打造高端教槽料品牌的视觉形象，在竞争激烈的饲料市场中脱颖而出。猪太子教槽料以皇家金色为视觉锤，彰显产品的高端品质定位。</p>
-<p>通过视觉锤战略，我们为猪太子教槽料打造了独特的品牌视觉识别系统，帮助品牌在竞争激烈的市场中建立差异化认知，提升品牌价值和消费者记忆度。</p>
+<div class="contact-grid">
+<div class="contact-info">
+<div class="contact-item">
+<div class="label">📧 邮箱</div>
+<div class="value">contact@duanweivh.com<br>business@duanweivh.com</div>
+</div>
+<div class="contact-item">
+<div class="label">📱 电话</div>
+<div class="value">400-888-8888<br>+86 138-0000-0000</div>
+</div>
+<div class="contact-item">
+<div class="label">📍 地址</div>
+<div class="value">中国·上海<br>上海市浦东新区XXX路XXX号</div>
+</div>
+<div class="contact-item">
+<div class="label">🕒 工作时间</div>
+<div class="value">周一至周五 9:00-18:00<br>周末及节假日休息</div>
+</div>
+</div>
+<div class="contact-form">
+<input type="text" placeholder="您的姓名 *">
+<input type="email" placeholder="您的邮箱 *">
+<input type="tel" placeholder="联系电话 *">
+<textarea placeholder="请描述您的需求...（品牌名称、所属行业、当前痛点、期望目标等）"></textarea>
+<button type="button">提交咨询</button>
+</div>
+</div>
 </div>
 </section>
 
-<!-- Image Gallery 尺寸：宽100% 内边距0 0 60px -->
-<section class="case-gallery">
+<!-- QR Code Section 尺寸：宽100% 内边距40px 0 -->
+<section class="qr-section">
 <div class="container">
-<div class="gallery-grid">
-
-<div class="gallery-item">
-<div class="gallery-img gallery-img-1"><div class="gallery-placeholder"></div></div>
-<span class="gallery-size">800×600px (Logo设计)</span>
-</div>
-
-<div class="gallery-item">
-<div class="gallery-img gallery-img-2"><div class="gallery-placeholder">📦</div></div>
-<span class="gallery-size">1920×1080px (包装设计)</span>
-</div>
-
-<div class="gallery-item">
-<div class="gallery-img gallery-img-3"><div class="gallery-placeholder"></div></div>
-<span class="gallery-size">1920×1080px (应用场景)</span>
-</div>
-
-<div class="gallery-item">
-<div class="gallery-img gallery-img-4"><div class="gallery-placeholder">✨</div></div>
-<span class="gallery-size">1920×1080px (效果展示)</span>
-</div>
-
-</div>
+<div class="qr-code"><span></span></div>
+<div class="qr-text">扫码添加微信，获取更多品牌资讯</div>
 </div>
 </section>
 
@@ -169,10 +159,6 @@ a{text-decoration:none;color:inherit}
 </div>
 <div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
 </div>
-</footer>
-
-</body>
-</html>
 </footer>
 
 <!-- 微信浏览器跳转提示 -->

@@ -99,7 +99,7 @@ img{max-width:100%;display:block}
 <a href="/">首页</a>
 <a href="/cases/index.html">视觉锤案例</a>
 <a href="/about.html">关于我们</a>
-<a href="/about.html#contact">联系我们</a>
+<a href="/contact.html">联系我们</a>
 </nav>
 </div>
 </header>
@@ -193,11 +193,25 @@ img{max-width:100%;display:block}
 <a href="/">首页</a>
 <a href="/cases/index.html">视觉锤案例</a>
 <a href="/about.html">关于我们</a>
-<a href="/about.html#contact">联系我们</a>
+<a href="/contact.html">联系我们</a>
 </div>
 <div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
 </div>
 </footer>
+
+<!-- 微信浏览器跳转提示 -->
+<script>
+(function(){
+var ua=navigator.userAgent.toLowerCase();
+if(ua.indexOf('micromessenger')!==-1){
+var tip=document.createElement('div');
+tip.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px';
+tip.innerHTML='<div style="font-size:20px;margin-bottom:20px;font-weight:bold">请在浏览器中打开</div><div style="font-size:14px;opacity:.8;line-height:1.8">点击右上角菜单<br>选择"在浏览器中打开"</div><div style="margin-top:30px;font-size:12px;opacity:.5">点击任意位置关闭此提示</div>';
+tip.onclick=function(){this.style.display='none'};
+document.body.appendChild(tip);
+}
+})();
+</script>
 
 </body>
 </html>

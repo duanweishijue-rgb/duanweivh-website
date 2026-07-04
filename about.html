@@ -58,23 +58,6 @@ a{text-decoration:none;color:inherit}
 .method-card h3{font-size:16px;color:var(--brown);margin-bottom:8px;font-weight:600;letter-spacing:1px}
 .method-card p{color:#888;font-size:13px;line-height:1.6}
 
-/* ===== Contact Section 尺寸：宽100% 内边距60px 0 ===== */
-.contact-section{padding:60px 0;background:var(--cream)}
-.contact-header{text-align:center;margin-bottom:40px}
-.contact-header h2{font-size:28px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:10px}
-.contact-header p{font-size:15px;color:#888}
-.contact-grid{display:flex;gap:60px;max-width:900px;margin:0 auto}
-.contact-info{flex:1}
-.contact-item{margin-bottom:25px}
-.contact-item .label{font-size:14px;color:var(--brown);font-weight:600;margin-bottom:5px;display:flex;align-items:center;gap:8px}
-.contact-item .value{font-size:15px;color:#666}
-.contact-form{flex:1}
-.contact-form input,.contact-form textarea{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:8px;font-size:14px;margin-bottom:15px;background:var(--white);font-family:inherit;outline:none;transition:border-color .3s}
-.contact-form input:focus,.contact-form textarea:focus{border-color:var(--gold)}
-.contact-form textarea{height:120px;resize:vertical}
-.contact-form button{width:100%;padding:14px;background:var(--brown);color:var(--gold);border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;letter-spacing:2px;transition:opacity .3s}
-.contact-form button:hover{opacity:.9}
-
 /* ===== Footer 尺寸：宽100% 高约180px ===== */
 .footer{background:var(--brown);color:rgba(255,255,255,.5);padding:40px 0 20px}
 .footer .container{max-width:1200px;margin:0 auto;padding:0 2rem}
@@ -103,8 +86,6 @@ a{text-decoration:none;color:inherit}
 .method-section{padding:40px 0}
 .method-grid{grid-template-columns:1fr;gap:15px}
 .method-card{padding:20px}
-.contact-section{padding:40px 0}
-.contact-grid{flex-direction:column;gap:30px}
 .footer-nav{flex-wrap:wrap;gap:1rem}
 }
 </style>
@@ -122,7 +103,7 @@ a{text-decoration:none;color:inherit}
 <a href="/">首页</a>
 <a href="/cases/index.html">视觉锤案例</a>
 <a href="/about.html">关于我们</a>
-<a href="#contact">联系我们</a>
+<a href="/contact.html">联系我们</a>
 </nav>
 </div>
 </header>
@@ -180,39 +161,6 @@ a{text-decoration:none;color:inherit}
 </div>
 </section>
 
-<!-- Contact Section 尺寸：宽100% 内边距60px 0 -->
-<section class="contact-section" id="contact">
-<div class="container">
-<div class="contact-header">
-<h2>联系我们</h2>
-<p>让我们一起为您的品牌打造强有力的视觉锤</p>
-</div>
-<div class="contact-grid">
-<div class="contact-info">
-<div class="contact-item">
-<div class="label"> 邮箱</div>
-<div class="value">contact@duanweivh.com</div>
-</div>
-<div class="contact-item">
-<div class="label">📱 电话</div>
-<div class="value">400-888-8888</div>
-</div>
-<div class="contact-item">
-<div class="label">📍 地址</div>
-<div class="value">中国·上海</div>
-</div>
-</div>
-<div class="contact-form">
-<input type="text" placeholder="您的姓名">
-<input type="email" placeholder="您的邮箱">
-<input type="tel" placeholder="联系电话">
-<textarea placeholder="请描述您的需求..."></textarea>
-<button type="button">提交咨询</button>
-</div>
-</div>
-</div>
-</section>
-
 <!-- Footer 尺寸：宽100% 高约180px -->
 <footer class="footer">
 <div class="container">
@@ -224,11 +172,25 @@ a{text-decoration:none;color:inherit}
 <a href="/">首页</a>
 <a href="/cases/index.html">视觉锤案例</a>
 <a href="/about.html">关于我们</a>
-<a href="#contact">联系我们</a>
+<a href="/contact.html">联系我们</a>
 </div>
 <div class="footer-copy">&copy; 2024 段位视觉锤 版权所有</div>
 </div>
 </footer>
+
+<!-- 微信浏览器跳转提示 -->
+<script>
+(function(){
+var ua=navigator.userAgent.toLowerCase();
+if(ua.indexOf('micromessenger')!==-1){
+var tip=document.createElement('div');
+tip.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px';
+tip.innerHTML='<div style="font-size:20px;margin-bottom:20px;font-weight:bold">请在浏览器中打开</div><div style="font-size:14px;opacity:.8;line-height:1.8">点击右上角菜单<br>选择"在浏览器中打开"</div><div style="margin-top:30px;font-size:12px;opacity:.5">点击任意位置关闭此提示</div>';
+tip.onclick=function(){this.style.display='none'};
+document.body.appendChild(tip);
+}
+})();
+</script>
 
 </body>
 </html>
