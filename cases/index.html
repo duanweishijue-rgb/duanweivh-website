@@ -66,6 +66,10 @@ a{text-decoration:none;color:inherit}
 .footer-nav a:hover{color:var(--gold)}
 .footer-copy{text-align:center;font-size:12px;opacity:.4;padding-top:15px;border-top:1px solid rgba(255,255,255,.1)}
 
+/* Poster Banner - 海报图 */
+.poster-banner{width:100%;padding:40px 0;background:var(--cream);display:flex;justify-content:center}
+.poster-placeholder{width:100%;max-width:1400px;height:400px;background:linear-gradient(135deg,var(--brown) 0%,var(--brown2) 50%,var(--gold) 100%);border-radius:16px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:48px;font-weight:900;letter-spacing:8px;text-shadow:0 4px 20px rgba(0,0,0,.3);box-shadow:0 8px 40px rgba(0,0,0,.1)}
+
 /* Mobile */
 @media(max-width:768px){
 .header .container{height:50px;padding:0 1rem}
@@ -81,6 +85,7 @@ a{text-decoration:none;color:inherit}
 .case-card-body h3{font-size:18px}
 .case-card-body p{font-size:13px}
 .footer-nav{flex-wrap:wrap;gap:1rem}
+.poster-placeholder{height:250px;font-size:28px;letter-spacing:4px;border-radius:12px}
 }
 </style>
 </head>
@@ -107,9 +112,14 @@ a{text-decoration:none;color:inherit}
 <p>视觉锤理论起源于美国，但实践却发生在中国。<br>越来越多中国品牌借助视觉锤的力量，取得卓越增长</p>
 </div>
 
+<!-- Poster Banner - 海报图 -->
+<div class="poster-banner">
+<div class="poster-placeholder">品牌案例展示</div>
+</div>
+
 <!-- Cases Section -->
 <section class="cases-section">
-<div class="container">
+<div class="container" style="max-width:1400px;padding:0 2rem;">
 
 <div class="cases-grid">
 <a href="./xiaolanmao.html" class="case-card">
