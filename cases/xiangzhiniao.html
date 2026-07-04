@@ -21,36 +21,11 @@ img{max-width:100%;display:block}
 .nav a{color:var(--white);font-size:.9rem;padding:.5rem 0;transition:color .3s}
 .nav a:hover{color:var(--gold)}
 
-/* Page Hero */
-.page-hero{margin-top:60px;padding:80px 0;background:linear-gradient(135deg,var(--cream) 0%,var(--white) 100%);text-align:center}
-.page-hero .tag{display:inline-block;background:var(--gold);color:var(--white);font-size:14px;padding:6px 20px;border-radius:20px;margin-bottom:20px;font-weight:500}
-.page-hero h1{font-size:42px;color:var(--brown);font-weight:700;letter-spacing:3px;margin-bottom:15px}
-.page-hero .industry{font-size:18px;color:var(--brown3);letter-spacing:1px}
-
-/* Case Cover - 全宽封面图 */
-.case-cover{width:100%;height:500px;background:linear-gradient(135deg,#C5A258,#5D4037);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.case-cover::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23C5A258" width="1200" height="600"/><text x="600" y="300" font-family="Arial" font-size="120" fill="%23fff" opacity="0.15" text-anchor="middle" dominant-baseline="middle">小蓝帽增产药</text></svg>') center/cover no-repeat}
-.case-cover-text{color:var(--white);font-size:72px;font-weight:900;opacity:.4;letter-spacing:8px;text-shadow:0 4px 20px rgba(0,0,0,.2)}
-
-/* Case Info */
-.case-info{padding:80px 0;background:var(--white)}
-.case-info-grid{display:flex;gap:60px;margin-bottom:40px}
-.case-info-main{flex:2}
-.case-info-side{flex:1}
-.case-info h2{font-size:28px;color:var(--brown);font-weight:700;margin-bottom:25px;padding-bottom:15px;border-bottom:3px solid var(--gold);display:inline-block}
-.case-info p{font-size:16px;color:#555;line-height:2.2;margin-bottom:20px}
-.case-info .info-card{background:var(--cream);border-radius:12px;padding:25px 30px;box-shadow:0 2px 15px rgba(0,0,0,.05);margin-bottom:20px;border-left:4px solid var(--gold)}
-.case-info .info-card h4{font-size:16px;color:var(--brown);font-weight:600;margin-bottom:8px}
-.case-info .info-card .value{font-size:15px;color:var(--brown3);font-weight:500}
-
-/* Gallery - 图片展示区 */
-.gallery{padding:60px 0 80px;background:var(--cream)}
-.gallery h2{font-size:28px;color:var(--brown);font-weight:700;margin-bottom:40px;text-align:center;letter-spacing:2px}
-.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
-.gallery-item{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s}
-.gallery-item:hover{transform:translateY(-5px);box-shadow:0 8px 30px rgba(0,0,0,.12)}
-.gallery-item-img{width:100%;height:320px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#999;background:linear-gradient(135deg,#f5f0e8,#e8dfd0)}
-.gallery-item-label{padding:20px 25px;font-size:16px;color:var(--brown);font-weight:600;border-top:2px solid var(--cream)}
+/* Full Screen Long Image - 全屏长图 */
+.case-long-image{margin-top:60px;width:100%;min-height:calc(100vh - 60px);background:linear-gradient(135deg,var(--brown) 0%,var(--brown2) 50%,var(--gold) 100%);display:flex;align-items:center;justify-content:center;position:relative}
+.case-long-image::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%232C1810" width="1920" height="1080"/><text x="960" y="540" font-family="Arial" font-size="180" fill="%23C5A258" opacity="0.1" text-anchor="middle" dominant-baseline="middle">CASE IMAGE</text></svg>') center/cover no-repeat}
+.long-image-placeholder{color:var(--white);font-size:48px;font-weight:900;letter-spacing:8px;text-shadow:0 4px 30px rgba(0,0,0,.4);z-index:1;text-align:center}
+.long-image-placeholder small{display:block;font-size:18px;font-weight:400;opacity:.7;margin-top:15px;letter-spacing:2px}
 
 /* Footer */
 .footer{background:var(--brown);color:rgba(255,255,255,.5);padding:40px 0 20px}
@@ -67,20 +42,10 @@ img{max-width:100%;display:block}
 .logo{font-size:1.2rem}
 .nav{gap:1rem}
 .nav a{font-size:.75rem}
-.page-hero{padding:50px 0}
-.page-hero h1{font-size:28px;letter-spacing:2px}
-.page-hero .industry{font-size:16px}
-.case-cover{height:300px}
-.case-cover-text{font-size:42px;letter-spacing:4px}
-.case-info{padding:50px 0}
-.case-info-grid{flex-direction:column;gap:30px}
-.case-info h2{font-size:24px}
-.case-info p{font-size:15px}
-.gallery{padding:40px 0 60px}
-.gallery h2{font-size:24px;margin-bottom:30px}
-.gallery-grid{grid-template-columns:1fr;gap:20px}
-.gallery-item-img{height:250px}
-.gallery-item-label{padding:15px 20px;font-size:15px}
+.case-long-image{min-height:calc(100vh - 50px)}
+.long-image-placeholder{font-size:28px;letter-spacing:4px}
+.long-image-placeholder small{font-size:14px}
+.footer-nav{flex-wrap:wrap;gap:1rem}
 }
 </style>
 </head>
@@ -98,44 +63,13 @@ img{max-width:100%;display:block}
 </div>
 </header>
 
-<div class="page-hero">
-<span class="tag">珠宝饰品</span>
-<h1>相知鸟精品银饰</h1>
-<div class="industry">银饰连锁品牌</div>
-</div>
-
-<div class="case-cover">
-<div class="case-cover-text">相知鸟</div>
-</div>
-
-<section class="case-info">
-<div class="container">
-<div class="case-info-grid">
-<div class="case-info-main">
-<h2>案例介绍</h2>
-<p>相知鸟精品银饰是以鸟儿为视觉锤的银饰连锁品牌。打造精品银饰的高端品牌形象，强化品牌记忆点。</p>
-<p>以鸟儿为品牌视觉符号，结合银饰的精致感，创造出优雅且富有辨识度的品牌形象，深受年轻消费者喜爱。</p>
-</div>
-<div class="case-info-side">
-<div class="info-card"><h4>品牌名称</h4><div class="value">相知鸟精品银饰</div></div>
-<div class="info-card"><h4>所属行业</h4><div class="value">珠宝饰品</div></div>
-<div class="info-card"><h4>服务项目</h4><div class="value">品牌视觉锤全案</div></div>
+<!-- Full Screen Long Image -->
+<div class="case-long-image">
+<div class="long-image-placeholder">
+相知鸟精品银饰<br>
+<small>品牌案例长图展示区</small>
 </div>
 </div>
-</div>
-</section>
-
-<section class="gallery">
-<div class="container">
-<h2>案例展示</h2>
-<div class="gallery-grid">
-<div class="gallery-item"><div class="gallery-item-img">Logo设计</div><div class="gallery-item-label">品牌Logo设计</div></div>
-<div class="gallery-item"><div class="gallery-item-img">包装设计</div><div class="gallery-item-label">产品包装设计</div></div>
-<div class="gallery-item"><div class="gallery-item-img">应用设计</div><div class="gallery-item-label">品牌应用设计</div></div>
-<div class="gallery-item"><div class="gallery-item-img">效果展示</div><div class="gallery-item-label">终端效果展示</div></div>
-</div>
-</div>
-</section>
 
 <footer class="footer">
 <div class="container">
