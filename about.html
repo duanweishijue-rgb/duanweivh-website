@@ -70,6 +70,15 @@ a{text-decoration:none;color:inherit}
 @media(max-width:768px){
 .header .container{height:68px;padding:0 1rem}
 .logo{font-size:1.69rem}
+.nav{gap:.8rem}
+.nav a{font-size:.95rem;letter-spacing:.5px}
+.page-hero{padding:50px 1rem}
+.page-hero h1{font-size:28px;letter-spacing:2px;line-height:1.4}
+.page-hero p{font-size:15px;line-height:1.8}
+.contact-grid{flex-direction:column;gap:40px}
+.footer-nav{flex-wrap:wrap;gap:1.5rem}
+}
+.logo{font-size:1.69rem}
 .nav{gap:1rem}
 .nav a{font-size:1.01rem}
 .page-hero{margin-top:50px;padding:50px 0}
@@ -164,18 +173,7 @@ a{text-decoration:none;color:inherit}
 </footer>
 
 <!-- 微信浏览器跳转提示 -->
-<script>
-(function(){
-var ua=navigator.userAgent.toLowerCase();
-if(ua.indexOf('micromessenger')!==-1){
-var tip=document.createElement('div');
-tip.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px';
-tip.innerHTML='<div style="font-size:20px;margin-bottom:20px;font-weight:bold">请在浏览器中打开</div><div style="font-size:14px;opacity:.8;line-height:1.8">点击右上角菜单<br>选择"在浏览器中打开"</div><div style="margin-top:30px;font-size:12px;opacity:.5">点击任意位置关闭此提示</div>';
-tip.onclick=function(){this.style.display='none'};
-document.body.appendChild(tip);
-}
-})();
-</script>
+
 
 </body>
 </html>

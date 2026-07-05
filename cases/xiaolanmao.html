@@ -40,6 +40,14 @@ img{max-width:100%;display:block}
 @media(max-width:768px){
 .header .container{height:68px;padding:0 1rem}
 .logo{font-size:1.69rem}
+.nav{gap:.8rem}
+.nav a{font-size:.95rem;letter-spacing:.5px}
+.case-long-image{min-height:calc(100vh - 68px)}
+.long-image-placeholder{font-size:24px;letter-spacing:3px;line-height:1.5}
+.long-image-placeholder small{font-size:14px;margin-top:10px}
+.footer-nav{flex-wrap:wrap;gap:1.5rem}
+}
+.logo{font-size:1.69rem}
 .nav{gap:1rem}
 .nav a{font-size:1.01rem}
 .case-long-image{min-height:calc(100vh - 68px)}
@@ -79,18 +87,7 @@ img{max-width:100%;display:block}
 </div>
 </footer>
 
-<script>
-(function(){
-var ua=navigator.userAgent.toLowerCase();
-if(ua.indexOf('micromessenger')!==-1){
-var tip=document.createElement('div');
-tip.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px';
-tip.innerHTML='<div style="font-size:20px;margin-bottom:20px;font-weight:bold">请在浏览器中打开</div><div style="font-size:14px;opacity:.8;line-height:1.8">点击右上角菜单<br>选择"在浏览器中打开"</div><div style="margin-top:30px;font-size:12px;opacity:.5">点击任意位置关闭此提示</div>';
-tip.onclick=function(){this.style.display='none'};
-document.body.appendChild(tip);
-}
-})();
-</script>
+
 
 </body>
 </html>
