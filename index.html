@@ -20,8 +20,8 @@ img{max-width:100%;display:block}
 .nav a{color:var(--white);font-size:1.35rem;padding:.5rem 0;transition:color .3s}
 .nav a:hover{color:var(--gold)}
 
-/* Hamburger Menu */
-.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+/* Hamburger Menu - 始终显示 */
+.hamburger{display:flex;flex-direction:column;cursor:pointer;gap:5px}
 .hamburger span{width:25px;height:3px;background:var(--gold);border-radius:2px;transition:all .3s}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.active span:nth-child(2){opacity:0}
