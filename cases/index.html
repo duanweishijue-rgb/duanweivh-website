@@ -16,9 +16,16 @@ a{text-decoration:none;color:inherit}
 .header{background:var(--brown);position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.1)}
 .header .container{display:flex;justify-content:space-between;align-items:center;height:90px}
 .logo{color:var(--gold);font-size:2.25rem;font-weight:700;letter-spacing:2px}
-.nav{display:flex;white-space:nowrap}white-space:nowrap}gap:1.5rem}
+.nav{display:none;gap:1.5rem}
 .nav a{color:var(--white);font-size:1.35rem;padding:.5rem 0;transition:color .3s}
 .nav a:hover{color:var(--gold)}
+
+/* Hamburger Menu - 仅移动端显示 */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+.hamburger span{width:25px;height:3px;background:var(--gold);border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px)}
 
 /* Page Hero */
 .page-hero{margin-top:90px;padding:60px 0;background:var(--white);text-align:center}
@@ -84,19 +91,13 @@ a{text-decoration:none;color:inherit}
 .page-hero p{font-size:15px;line-height:1.8}
 .contact-grid{flex-direction:column;gap:40px}
 .footer-nav{flex-wrap:wrap;gap:1.5rem}
-}
-.logo{font-size:1.69rem}
-.nav{gap:1rem}
-.nav a{font-size:1.01rem}
-.page-hero{margin-top:50px;padding:40px 0}
-.page-hero h1{font-size:24px}
 .cases-section{padding:40px 0}
-.cases-grid{grid-template-columns:1fr;gap:20px}
-.case-card-img{height:200px}
-.case-card-body{padding:15px}
-.case-card-body h3{font-size:18px}
-.case-card-body p{font-size:13px}
-.footer-nav{flex-wrap:wrap;gap:1rem}
+.cases-grid{grid-template-columns:1fr;gap:30px;padding:0 1rem;max-width:400px;margin:0 auto}
+.case-card{border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);background:var(--white)}
+.case-card-img{height:569px;border-radius:12px 12px 0 0}
+.case-card-body{padding:20px 15px}
+.case-card-body h3{font-size:20px;font-weight:700;margin-bottom:10px;color:var(--brown)}
+.case-card-body p{font-size:14px;line-height:1.7;color:#666}
 .full-poster{min-height:200px;height:calc(50vh - 25px)}
 .poster-content{font-size:36px;letter-spacing:6px}
 }

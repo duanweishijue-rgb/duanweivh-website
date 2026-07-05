@@ -16,9 +16,16 @@ a{text-decoration:none;color:inherit}
 .header{background:var(--brown);position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.1)}
 .header .container{display:flex;justify-content:space-between;align-items:center;height:90px}
 .logo{color:var(--gold);font-size:2.25rem;font-weight:700;letter-spacing:2px}
-.nav{display:flex;white-space:nowrap}gap:1.5rem}
+.nav{display:none;gap:1.5rem}
 .nav a{color:var(--white);font-size:1.35rem;padding:.5rem 0;transition:color .3s}
 .nav a:hover{color:var(--gold)}
+
+/* Hamburger Menu - 仅移动端显示 */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+.hamburger span{width:25px;height:3px;background:var(--gold);border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px)}
 
 /* Page Hero */
 .page-hero{margin-top:90px;padding:80px 0;background:var(--white);text-align:center}
@@ -79,21 +86,6 @@ a{text-decoration:none;color:inherit}
 .page-hero p{font-size:15px;line-height:1.8}
 .contact-grid{flex-direction:column;gap:40px}
 .footer-nav{flex-wrap:wrap;gap:1.5rem}
-}
-.logo{font-size:1.69rem}
-.nav{gap:1rem}
-.nav a{font-size:1.01rem}
-.page-hero{margin-top:50px;padding:50px 0}
-.page-hero h1{font-size:24px}
-.about-section{padding:40px 0}
-.about-grid{flex-direction:column;gap:30px}
-.about-stats{gap:20px}
-.stat-num{font-size:28px}
-.visual-card{max-width:220px}
-.method-section{padding:40px 0}
-.method-grid{grid-template-columns:1fr;gap:15px}
-.method-card{padding:20px}
-.footer-nav{flex-wrap:wrap;gap:1rem}
 }
 </style>
 </head>
