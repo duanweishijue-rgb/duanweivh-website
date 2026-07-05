@@ -15,10 +15,17 @@ img{max-width:100%;display:block}
 /* ===== Header (深咖色背景) ===== */
 .header{background:var(--brown);position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.1)}
 .header .container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:90px}
-.logo{color:var(--gold);font-size:2.25rem;font-weight:700;letter-spacing:2px}
+.logo{color:var(--gold);font-size:2.25rem;font-weight:700;letter-spacing:2px;white-space:nowrap}
 .nav{display:flex;gap:1.5rem}
 .nav a{color:var(--white);font-size:1.35rem;padding:.5rem 0;transition:color .3s}
 .nav a:hover{color:var(--gold)}
+
+/* Hamburger Menu */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+.hamburger span{width:25px;height:3px;background:var(--gold);border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px)}
 
 /* ===== Hero Carousel ===== */
 .hero{margin-top:90px;position:relative;width:100%;height:calc(100vh - 90px);min-height:400px;overflow:hidden;background:linear-gradient(135deg,#1a0f0a 0%,#3C2415 40%,#C5A258 100%)}
@@ -62,7 +69,6 @@ img{max-width:100%;display:block}
 .case-card:nth-child(6) .case-card-img{background:linear-gradient(135deg,#C5A258,#5D4037)}
 .case-card-body{padding:20px}
 .case-card-body h3{font-size:18px;color:var(--brown);font-weight:700;margin-bottom:8px;letter-spacing:1px}
-.case-card-body .industry{font-size:14px;color:var(--gold);margin-bottom:8px;display:block}
 .case-card-body p{font-size:14px;color:#666;line-height:1.6}
 .case-placeholder{display:flex;align-items:center;justify-content:center;height:320px;font-size:60px;opacity:.2}
 
@@ -79,23 +85,29 @@ img{max-width:100%;display:block}
 
 /* ===== Mobile ===== */
 @media(max-width:768px){
-.header .container{height:68px;padding:0 1rem}
-.logo{font-size:1.69rem}
-.nav{gap:.8rem}
-.nav a{font-size:.95rem;letter-spacing:.5px}
-.hero{height:calc(100vh - 68px);min-height:400px;margin-top:68px}
-.hero-slide-content h2{font-size:28px;letter-spacing:2px;line-height:1.4}
-.hero-slide-content p{font-size:15px;line-height:1.8;opacity:.9}
-.cases-section{padding:60px 0;background:var(--cream)}
-.cases-grid{grid-template-columns:1fr;gap:40px;padding:0 1rem}
-.case-card{border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.08);background:var(--white)}
-.case-card-img{height:280px;border-radius:16px 16px 0 0}
-.case-card-body{padding:25px 20px}
-.case-card-body h3{font-size:22px;font-weight:700;margin-bottom:12px;color:var(--brown)}
-.case-card-body p{font-size:15px;line-height:1.8;color:#666}
-.contact-section{padding:60px 0;background:var(--white)}
-.contact-grid{flex-direction:column;gap:40px}
-.footer-nav{flex-wrap:wrap;gap:1.5rem}
+.header .container{height:60px;padding:0 1rem}
+.logo{font-size:1.4rem}
+.nav{position:fixed;top:60px;left:-100%;width:100%;height:calc(100vh - 60px);background:var(--brown);flex-direction:column;align-items:center;justify-content:flex-start;padding-top:40px;gap:2rem;transition:left .3s ease}
+.nav.active{left:0}
+.nav a{font-size:1.2rem;color:var(--white);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,.1);width:100%;text-align:center}
+.hamburger{display:flex}
+.hero{height:calc(100vh - 60px);min-height:350px;margin-top:60px}
+.hero-slide-content h2{font-size:24px;letter-spacing:1.5px;line-height:1.4}
+.hero-slide-content p{font-size:14px;line-height:1.8;opacity:.9}
+.cases-section{padding:40px 0;background:var(--cream)}
+.cases-grid{grid-template-columns:1fr;gap:30px;padding:0 1rem;max-width:400px;margin:0 auto}
+.case-card{border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);background:var(--white)}
+.case-card-img{height:427px;border-radius:12px 12px 0 0}
+.case-card-body{padding:20px 15px}
+.case-card-body h3{font-size:20px;font-weight:700;margin-bottom:10px;color:var(--brown)}
+.case-card-body p{font-size:14px;line-height:1.7;color:#666}
+.contact-section{padding:40px 0;background:var(--white)}
+.contact-grid{flex-direction:column;gap:30px}
+.footer-nav{flex-wrap:wrap;gap:1rem}
+.footer-brand .name{font-size:28px}
+.footer-brand .desc{font-size:16px}
+.footer-nav a{font-size:18px}
+.footer-copy{font-size:14px}
 }
 </style>
 </head>
@@ -105,7 +117,12 @@ img{max-width:100%;display:block}
 <header class="header">
 <div class="container">
 <div class="logo">段位视觉锤</div>
-<nav class="nav">
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<nav class="nav" id="nav">
 <a href="./">首页</a>
 <a href="./cases/index.html">视觉锤案例</a>
 <a href="./about.html">关于我们</a>
@@ -176,13 +193,26 @@ img{max-width:100%;display:block}
 </footer>
 
 <script>
+// Hero Carousel
 var slide=0,slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dots span'),total=slides.length;
 function showSlide(n){slides[slide].classList.remove('active');dots[slide].classList.remove('active');slide=(n+total)%total;slides[slide].classList.add('active');dots[slide].classList.add('active')}
 function goSlide(n){showSlide(n)}
 setInterval(function(){showSlide(slide+1)},5000);
-</script>
 
-<!-- 微信浏览器跳转提示 -->
+// Hamburger Menu
+document.getElementById('hamburger').addEventListener('click',function(){
+this.classList.toggle('active');
+document.getElementById('nav').classList.toggle('active');
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav a').forEach(function(link){
+link.addEventListener('click',function(){
+document.getElementById('hamburger').classList.remove('active');
+document.getElementById('nav').classList.remove('active');
+});
+});
+</script>
 
 
 </body>
