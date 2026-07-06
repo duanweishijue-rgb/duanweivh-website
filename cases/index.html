@@ -34,11 +34,6 @@ img{max-width:100%;display:block}
 .page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 20px}
 .page-hero p{font-size:15px;color:#888;max-width:600px;margin:0 auto;line-height:1.8}
 
-/* Full Screen Poster - 全屏海报 */
-.full-poster{width:100%;height:calc(50vh - 30px);min-height:280px;background:linear-gradient(135deg,var(--brown) 0%,var(--brown2) 40%,var(--gold) 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.full-poster::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%232C1810" width="1920" height="1080"/><text x="960" y="540" font-family="Arial" font-size="200" fill="%23C5A258" opacity="0.1" text-anchor="middle" dominant-baseline="middle">CASE STUDIES</text></svg>') center/cover no-repeat}
-.poster-content{color:var(--white);font-size:72px;font-weight:900;letter-spacing:12px;text-shadow:0 4px 30px rgba(0,0,0,.4);z-index:1}
-
 /* Cases Section */
 .cases-section{padding:60px 0;background:var(--cream)}
 
@@ -98,8 +93,6 @@ img{max-width:100%;display:block}
 .case-card-body{padding:20px 15px}
 .case-card-body h3{font-size:20px;font-weight:700;margin-bottom:10px;color:var(--brown)}
 .case-card-body p{font-size:14px;line-height:1.7;color:#666}
-.full-poster{min-height:200px;height:calc(50vh - 25px)}
-.poster-content{font-size:36px;letter-spacing:6px}
 }
 </style>
 </head>
@@ -122,11 +115,6 @@ img{max-width:100%;display:block}
 </nav>
 </div>
 </header>
-
-<!-- Full Screen Poster - 全屏海报 -->
-<div class="full-poster">
-<div class="poster-content">品牌案例展示</div>
-</div>
 
 <!-- Cases Section -->
 <section class="cases-section">
