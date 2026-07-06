@@ -91,5 +91,21 @@ img{max-width:100%;display:block}
 
 
 
+<script>
+// Hamburger Menu
+document.getElementById('hamburger').addEventListener('click',function(){
+  this.classList.toggle('active');
+  document.getElementById('nav').classList.toggle('active');
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav a').forEach(function(link){
+  link.addEventListener('click',function(){
+    document.getElementById('hamburger').classList.remove('active');
+    document.getElementById('nav').classList.remove('active');
+  });
+});
+</script>
+
 </body>
 </html>
