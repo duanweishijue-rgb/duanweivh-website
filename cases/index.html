@@ -38,6 +38,7 @@ img{max-width:100%;display:block}
 /* Full Screen Poster - 全屏海报 */
 .full-poster{width:100%;height:calc(50vh - 30px);min-height:280px;background:linear-gradient(135deg,var(--brown) 0%,var(--brown2) 40%,var(--gold) 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .full-poster::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%232C1810" width="1920" height="1080"/><text x="960" y="540" font-family="Arial" font-size="200" fill="%23C5A258" opacity="0.1" text-anchor="middle" dominant-baseline="middle">CASE STUDIES</text></svg>') center/cover no-repeat}
+.full-poster>img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .poster-content{color:var(--white);font-size:72px;font-weight:900;letter-spacing:12px;text-shadow:0 4px 30px rgba(0,0,0,.4);z-index:1}
 
 /* Cases Section */
@@ -65,7 +66,7 @@ img{max-width:100%;display:block}
 .case-card-body{padding:20px}
 .case-card-body h3{font-size:18px;color:var(--brown);font-weight:700;margin-bottom:8px;letter-spacing:1px}
 .case-card-body p{font-size:14px;color:#666;line-height:1.6}
-.case-placeholder{display:flex;align-items:center;justify-content:center;height:320px;font-size:60px;opacity:.2}
+.case-card-img img{width:100%;height:100%;object-fit:cover}
 
 /* Footer */
 .footer{background:var(--brown);color:rgba(255,255,255,.5);padding:60px 0 30px}
@@ -126,6 +127,7 @@ img{max-width:100%;display:block}
 
 <!-- Full Screen Poster - 全屏海报 -->
 <div class="full-poster">
+<img src="../images/poster/cases-poster.jpg" alt="品牌案例展示">
 <div class="poster-content">品牌案例展示</div>
 </div>
 
@@ -135,32 +137,32 @@ img{max-width:100%;display:block}
 
 <div class="cases-grid">
 <a href="./xiaolanmao.html" class="case-card">
-<div class="case-card-img"><div class="case-placeholder"></div></div>
+<div class="case-card-img"><img src="../images/cases/xiaolanmao.jpg" alt="小蓝帽增产药"></div>
 <div class="case-card-body"><h3>小蓝帽增产药</h3><p>通过视觉锤战略，打造独特的品牌视觉识别系统，助力农业增产领域品牌快速崛起</p></div>
 </a>
 
 <a href="./pengshi.html" class="case-card">
-<div class="case-card-img"><div class="case-placeholder">⭐</div></div>
+<div class="case-card-img"><img src="../images/cases/pengshi.jpg" alt="彭世修脚"></div>
 <div class="case-card-body"><h3>彭世修脚</h3><p>以传统中医理念为基础，打造专业修脚服务品牌的视觉识别体系</p></div>
 </a>
 
 <a href="./yunlian.html" class="case-card">
-<div class="case-card-img"><div class="case-placeholder"></div></div>
+<div class="case-card-img"><img src="../images/cases/yunlian.jpg" alt="云联牧场"></div>
 <div class="case-card-body"><h3>云联牧场</h3><p>运用视觉锤理论，建立现代化畜牧品牌的视觉认知，提升品牌溢价能力</p></div>
 </a>
 
 <a href="./aihongxiang.html" class="case-card">
-<div class="case-card-img"><div class="case-placeholder"></div></div>
+<div class="case-card-img"><img src="../images/cases/aihongxiang.jpg" alt="艾红象艾灸"></div>
 <div class="case-card-body"><h3>艾红象艾灸</h3><p>以大象为视觉锤，结合艾草元素，打造艾灸品类的强势品牌识别</p></div>
 </a>
 
 <a href="./zhutaizi.html" class="case-card">
-<div class="case-card-img"><div class="case-placeholder"></div></div>
+<div class="case-card-img"><img src="../images/cases/zhutaizi.jpg" alt="猪太子教槽料"></div>
 <div class="case-card-body"><h3>猪太子教槽料</h3><p>打造高端教槽料品牌的视觉形象，在竞争激烈的饲料市场中脱颖而出</p></div>
 </a>
 
 <a href="./xiangzhiniao.html" class="case-card">
-<div class="case-card-img"><div class="case-placeholder">💎</div></div>
+<div class="case-card-img"><img src="../images/cases/xiangzhiniao.jpg" alt="相知鸟精品银饰"></div>
 <div class="case-card-body"><h3>相知鸟精品银饰</h3><p>以鸟儿为视觉锤，打造精品银饰的高端品牌形象，强化品牌记忆点</p></div>
 </a>
 </div>

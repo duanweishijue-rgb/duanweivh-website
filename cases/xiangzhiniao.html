@@ -34,6 +34,7 @@ img{max-width:100%;display:block}
 .case-long-image::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%232C1810" width="1920" height="1080"/><text x="960" y="540" font-family="Arial" font-size="180" fill="%23C5A258" opacity="0.1" text-anchor="middle" dominant-baseline="middle">CASE IMAGE</text></svg>') center/cover no-repeat}
 .long-image-placeholder{color:var(--white);font-size:48px;font-weight:900;letter-spacing:8px;text-shadow:0 4px 30px rgba(0,0,0,.4);z-index:1;text-align:center}
 .long-image-placeholder small{display:block;font-size:18px;font-weight:400;opacity:.7;margin-top:15px;letter-spacing:2px}
+.case-long-image>img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
 
 /* Footer */
 .footer{background:var(--brown);color:rgba(255,255,255,.5);padding:60px 0 30px}
@@ -83,6 +84,7 @@ img{max-width:100%;display:block}
 
 <!-- Full Screen Long Image -->
 <div class="case-long-image">
+<img src="../images/detail/xiangzhiniao.jpg" alt="相知鸟精品银饰">
 <div class="long-image-placeholder">
 相知鸟精品银饰<br>
 <small>品牌案例长图展示区</small>
