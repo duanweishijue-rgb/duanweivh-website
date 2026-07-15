@@ -8,28 +8,28 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--brown:#2C1810;--brown2:#3C2415;--brown3:#5D4037;--gold:#C5A258;--gold2:#D4AF37;--cream:#F5F0E8;--white:#fff}
-body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--cream);line-height:1.6;overflow-x:hidden}
+body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;color:var(--brown);background:var(--white);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 .container{max-width:1400px;margin:0 auto;padding:0 2rem}
 
 /* Header */
-.header{background:var(--brown);position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-.header .container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:90px}
-.logo{height:60px;width:auto}
+.header{background:var(--white);position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.header .container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:110px}
+.logo{height:80px;width:auto}
 .nav{display:flex;gap:1.5rem}
-.nav a{color:var(--white);font-size:1.35rem;padding:.5rem 0;transition:color .3s}
+.nav a{color:var(--brown);font-size:1.35rem;padding:.5rem 0;transition:color .3s}
 .nav a:hover{color:var(--gold)}
 
 /* Hamburger Menu - 仅移动端显示 */
 .hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
-.hamburger span{width:25px;height:3px;background:var(--gold);border-radius:2px;transition:all .3s}
+.hamburger span{width:25px;height:3px;background:var(--brown);border-radius:2px;transition:all .3s}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px)}
 
 /* Page Hero */
-.page-hero{margin-top:90px;padding:60px 0;background:var(--white);text-align:center}
+.page-hero{margin-top:110px;padding:60px 0;background:var(--white);text-align:center}
 .page-hero .en{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:4px;margin-bottom:10px;display:block}
 .page-hero h1{font-size:32px;color:var(--brown);font-weight:700;letter-spacing:2px;margin-bottom:15px}
 .page-hero .divider{width:40px;height:2px;background:var(--gold);margin:0 auto 20px}
@@ -42,7 +42,7 @@ img{max-width:100%;display:block}
 .poster-content{color:var(--white);font-size:72px;font-weight:900;letter-spacing:12px;text-shadow:0 4px 30px rgba(0,0,0,.4);z-index:1}
 
 /* Cases Section */
-.cases-section{padding:60px 0;background:var(--cream)}
+.cases-section{padding:60px 0;background:var(--white)}
 
 /* Case Grid - 三列网格布局 */
 .cases-grid{
@@ -82,9 +82,9 @@ img{max-width:100%;display:block}
 /* Mobile */
 @media(max-width:768px){
 .container{max-width:100%;padding:0 1rem}
-.header .container{max-width:100%;height:60px;padding:0 1rem}
-.logo{height:44px;width:auto}
-.nav{position:fixed;top:60px;left:-100%;width:100%;height:calc(100vh - 60px);background:var(--brown);flex-direction:column;align-items:center;justify-content:flex-start;padding-top:40px;gap:2rem;transition:left .3s ease}
+.header .container{max-width:100%;height:80px;padding:0 1rem}
+.logo{height:55px;width:auto}
+.nav{position:fixed;top:80px;left:-100%;width:100%;height:calc(100vh - 80px);background:var(--brown);flex-direction:column;align-items:center;justify-content:flex-start;padding-top:40px;gap:2rem;transition:left .3s ease}
 .nav.active{left:0}
 .nav a{font-size:1.2rem;color:var(--white);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,.1);width:100%;text-align:center}
 .hamburger{display:flex}
@@ -93,7 +93,7 @@ img{max-width:100%;display:block}
 .page-hero p{font-size:15px;line-height:1.8}
 .contact-grid{flex-direction:column;gap:40px}
 .footer-nav{flex-wrap:wrap;gap:1.5rem}
-.cases-section{padding:40px 0;background:var(--cream)}
+.cases-section{padding:40px 0;background:var(--white)}
 .cases-grid{grid-template-columns:1fr;gap:30px;padding:0 1rem;max-width:400px;margin:0 auto}
 .case-card{border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);background:var(--white)}
 .case-card-img{height:384px;border-radius:12px 12px 0 0}
