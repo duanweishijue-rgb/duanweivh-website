@@ -18,7 +18,7 @@
   --font-sans: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
   --font-yahei: "Microsoft YaHei", "Microsoft YaHei UI", sans-serif;
 
-  --side-w: 240px;
+  --side-w: 300px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,16 +51,17 @@ a { color: inherit; text-decoration: none; }
   background: #ffffff;   /* 侧边栏：白色 */
   display: flex;
   flex-direction: column;
-  padding: 36px 30px 28px;
+  padding: 36px 22px 28px;
   border-right: 1px solid var(--c-line);
   z-index: 10;
 }
 
 .logo {
   display: block;
-  margin-bottom: 40px;
+  margin: 0 -14px 44px;   /* LOGO 突破内边距，尽量放大显示 */
 }
 .logo-img {
+  width: 100%;
   max-width: 100%;
   height: auto;
   display: block;
@@ -473,7 +474,7 @@ a.contact-value:hover { color: var(--c-blue); }
 
 /* ============ 响应式 ============ */
 @media (max-width: 860px) {
-  :root { --side-w: 200px; }
+  :root { --side-w: 230px; }
   .panel { padding: 64px 36px 48px; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
   .about-stats { grid-template-columns: repeat(2, 1fr); gap: 30px; }
@@ -495,7 +496,8 @@ a.contact-value:hover { color: var(--c-blue); }
     border-right: none;
     border-bottom: 1px solid var(--c-line);
   }
-  .logo { margin-bottom: 0; }
+  .logo { margin-bottom: 0; margin-left: 0; margin-right: 0; }
+  .logo-img { width: auto; max-width: none; height: 40px; }
   .logo-box { width: 40px; height: 40px; font-size: 15px; }
   .logo-en { display: none; }
   .side-nav { flex-direction: row; gap: 2px; overflow-x: auto; }
