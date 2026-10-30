@@ -803,3 +803,74 @@ a.contact-value:hover { color: var(--c-blue); }
   .md-title { font-size: 22px; }
   .md-body p { font-size: 13.5px; line-height: 1.9; }
 }
+
+/* ============ 联系我们 · 咨询表单 ============ */
+.contact-form {
+  width: min(760px, 100%);
+  margin: 46px auto 0;
+  background: var(--c-panel);
+  border: 1px solid var(--c-line);
+  padding: 40px 44px 34px;
+}
+.cf-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: .05em;
+  color: var(--c-ink);
+  margin-bottom: 26px;
+}
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
+.cf-field { display: block; margin-bottom: 20px; }
+.cf-label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: .12em;
+  color: var(--c-gray);
+  margin-bottom: 9px;
+}
+.cf-label i { color: var(--c-blue); font-style: normal; }
+.cf-field input,
+.cf-field select,
+.cf-field textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--c-ink);
+  background: var(--c-panel);
+  border: 1px solid #e4e4e0;
+  border-radius: 2px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.cf-field textarea { resize: vertical; line-height: 1.9; }
+.cf-field input:focus,
+.cf-field select:focus,
+.cf-field textarea:focus {
+  border-color: var(--c-blue);
+  box-shadow: 0 0 0 3px rgba(27, 77, 177, .08);
+}
+.cf-foot { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 4px; }
+.cf-submit {
+  font-family: var(--font-yahei);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .16em;
+  color: #fff;
+  background: var(--c-blue);
+  border: none;
+  padding: 14px 40px;
+  cursor: pointer;
+  transition: background .3s ease, transform .3s ease;
+}
+.cf-submit:hover { background: var(--c-blue-deep); transform: translateY(-2px); }
+.cf-submit:disabled { background: #b9c3d6; cursor: not-allowed; transform: none; }
+.cf-status { font-size: 13px; color: var(--c-gray); }
+.cf-status.ok { color: var(--c-blue); }
+.cf-status.err { color: #c0392b; }
+.cf-tip { margin-top: 22px; font-size: 11px; letter-spacing: .1em; color: #a3a3a0; }
+@media (max-width: 760px) {
+  .contact-form { padding: 28px 22px 26px; margin-top: 34px; }
+  .cf-row { grid-template-columns: 1fr; }
+}
