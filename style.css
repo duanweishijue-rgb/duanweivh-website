@@ -576,7 +576,7 @@ a.contact-value:hover { color: var(--c-blue); }
 .bk-cover {
   transform: translateZ(20px);
   border-radius: 2px 7px 7px 2px;
-  background: linear-gradient(102deg, #ffffff 52%, #f7f7f4 86%, #ededea 100%);
+  background: linear-gradient(100deg, #ffffff 76%, #f6f6f3 94%, #eeeeeb 100%);
   box-shadow: 0 16px 30px rgba(0, 0, 0, .13);
   padding: 20px 22px 18px;
   display: flex;
@@ -629,48 +629,48 @@ a.contact-value:hover { color: var(--c-blue); }
   margin-top: 2px;
 }
 .bc-mark {
-  width: 108px; height: 108px;
-  border: 19px solid #1b4db1;
+  width: 98px; height: 98px;
+  border: 19px solid #2456e6;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  margin: auto;          /* 在 LOGO 与标题之间垂直居中 */
-  flex-shrink: 0;
+  margin: auto;
 }
 .bc-mark b {
-  width: 58px; height: 58px;
-  background: #1b4db1;
+  width: 40px; height: 40px;
+  background: #2456e6;
   border-radius: 50%;
 }
-/* 大标题：参考图样式——大号黑体特粗 */
 .bc-title {
-  font-family: var(--font-yahei);
+  font-family: var(--font-serif);
   font-weight: 900;
-  font-size: clamp(26px, 2vw, 34px);
+  font-size: clamp(26px, 2.2vw, 36px);
   color: #0c0c0c;
-  letter-spacing: .05em;
-  line-height: 1.25;
-  margin-top: auto;
+  letter-spacing: .04em;
+  margin-top: 20px;
   text-align: center;
-  white-space: nowrap;
 }
 .bc-sub {
-  font-size: 10px;
-  color: #8f8f8f;
-  letter-spacing: .14em;
-  margin-top: 8px;
+  font-family: var(--font-yahei);
+  font-size: 10.5px;
+  color: #141414;
+  font-weight: 700;
+  letter-spacing: .05em;
+  margin-top: 10px;
   line-height: 1.7;
   text-align: center;
 }
 .bc-note {
-  margin-top: 10px;
-  font-size: 8.5px;
-  color: #ababab;
-  line-height: 1.9;
-  letter-spacing: .04em;
-  text-align: justify;
+  margin-top: 6px;
+  font-family: var(--font-yahei);
+  font-size: 9px;
+  color: #141414;
+  font-weight: 700;
+  line-height: 1.85;
+  letter-spacing: .02em;
+  text-align: left;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -735,11 +735,11 @@ a.contact-value:hover { color: var(--c-blue); }
   width: 100%;
   max-width: 296px;
   aspect-ratio: 1 / 1.06;
-  background: linear-gradient(102deg, #ffffff 52%, #f7f7f4 86%, #ededea 100%);
+  background: linear-gradient(100deg, #ffffff 76%, #f6f6f3 94%, #eeeeeb 100%);
   border: 1px solid rgba(0, 0, 0, .05);
   border-radius: 2px 7px 7px 2px;
   box-shadow: 0 22px 44px rgba(0, 0, 0, .22), 0 2px 6px rgba(0, 0, 0, .06);
-  padding: 22px 24px 20px;
+  padding: 24px 26px 22px;
   display: flex;
   flex-direction: column;
   transform: rotateY(15deg) rotateX(-2deg);
@@ -796,9 +796,9 @@ a.contact-value:hover { color: var(--c-blue); }
 @media (max-width: 600px) {
   .bookshelf { gap: 34px 22px; }
   .bk-cover { padding: 12px 14px; }
-  .bc-mark { width: 46px; height: 46px; border-width: 8px; }
-  .bc-mark b { width: 24px; height: 24px; }
-  .bc-title { font-size: 18px; margin-top: 10px; }
+  .bc-mark { width: 46px; height: 46px; border-width: 9px; }
+  .bc-mark b { width: 19px; height: 19px; }
+  .bc-title { font-size: 17px; margin-top: 10px; }
   .book-modal { padding: 14px; }
   .md-title { font-size: 22px; }
   .md-body p { font-size: 13.5px; line-height: 1.9; }
