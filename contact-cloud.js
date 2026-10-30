@@ -24,7 +24,10 @@ function cloudErrorMessage(err) {
   if (code === "42P01") return "数据表尚未创建，请先在云服务里初始化 contact_messages 表。";
   if (code === "42501") return "当前身份没有写入权限，请检查该表的行级安全策略（RLS）。";
   if (code === "23505") return "这条留言已经提交过了，请勿重复提交。";
-  if (status === 401 || status === 403) return "当前域名未与云服务绑定，请在已绑定的应用域名下提交。";
+  if (status === 403)
+    return "当前访问域名未与云服务绑定，在线表单暂不可用。请发送邮件至 contact@duanweicehua.cn，或致电 138 0000 0000。";
+  if (status === 401)
+    return "云服务凭证校验未通过。请发送邮件至 contact@duanweicehua.cn，或致电 138 0000 0000。";
   return (err && err.message) || "提交失败，请稍后重试。";
 }
 
