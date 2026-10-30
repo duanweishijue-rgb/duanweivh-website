@@ -39,10 +39,7 @@ if (grid) {
   grid.innerHTML = works.map((w) => `
     <a class="work-card">
       <div class="work-frame">
-        <div class="work-thumb">${thumbSVG(w.g)}<div class="overlay"><span>查看案例</span></div></div>
-        <div class="work-meta">
-          <span class="work-name">${w.name}</span>
-        </div>
+        <div class="work-thumb"><img src="${w.img}" alt="${w.name}"><div class="overlay"><span>查看案例</span></div></div>
       </div>
     </a>
   `).join("");
