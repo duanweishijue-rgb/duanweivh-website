@@ -153,10 +153,12 @@ const flipbookEl = document.getElementById("flipbook");
 const bookCloseBtn = document.getElementById("bookClose");
 
 function coverInner(b) {
+  const n = b.title.length;
+  const tc = n <= 3 ? " t3" : n === 4 ? " t4" : "";
   return `
     <div class="bc-logo">段位<span class="bc-r">&reg;</span><em>品 牌 创 意</em></div>
     <div class="bc-mark"><b></b></div>
-    <div class="bc-title">${b.title}</div>
+    <div class="bc-title${tc}">${b.title}</div>
     <p class="bc-sub">${b.sub}</p>`;
 }
 
@@ -178,12 +180,7 @@ function openBook(i) {
   const cn = ["一", "二", "三", "四", "五", "六", "七", "八"][i] || String(i + 1);
   flipbookEl.innerHTML = `
     <div class="fb-left">
-      <div class="fb-cover">
-        <div class="bc-logo">段位<span class="bc-r">&reg;</span><em>品 牌 创 意</em></div>
-        <div class="bc-mark"><b></b></div>
-        <div class="bc-title">${b.title}</div>
-        <p class="bc-sub">${b.sub}</p>
-      </div>
+      <div class="fb-cover">${coverInner(b)}</div>
     </div>
     <div class="fb-right">
       <div class="md-no">段位方法 · 第 ${cn} 册</div>
