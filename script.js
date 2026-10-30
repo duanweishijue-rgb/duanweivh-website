@@ -4,7 +4,7 @@
 
 // ---------- 作品案例数据 ----------
 const works = [
-  { name: "小蓝帽增产药", tag: "农业", desc: "打造独特的品牌视觉识别系统，助力农业增产领域品牌快速崛起", g: 0, img: "images/cases/case-1.jpg" },
+  { name: "小蓝帽增产药", tag: "农业", desc: "打造独特的品牌视觉识别系统，助力农业增产领域品牌快速崛起", g: 0, img: "images/cases/case-1.jpg", cover: "images/cases/cover-1.jpg" },
   { name: "彭世修脚", tag: "健康", desc: "以传统中医理念为基础，打造专业修脚服务品牌的视觉识别体系", g: 1, img: "images/cases/case-2.jpg" },
   { name: "云联牧场", tag: "畜牧", desc: "建立现代化畜牧品牌的视觉认知，提升品牌溢价能力", g: 2, img: "images/cases/case-3.jpg" },
   { name: "艾红象艾灸", tag: "养生", desc: "以大象为符号结合艾草元素，打造艾灸品类的强势品牌识别", g: 3, img: "images/cases/case-4.jpg" },
@@ -39,7 +39,7 @@ if (grid) {
   grid.innerHTML = works.map((w) => `
     <a class="work-card">
       <div class="work-frame">
-        <div class="work-thumb"><img src="${w.img}" alt="${w.name}"><div class="overlay"><span>查看案例</span></div></div>
+        <div class="work-thumb"><img src="${w.cover || w.img}" alt="${w.name}"><div class="overlay"><span>查看案例</span></div></div>
       </div>
     </a>
   `).join("");
