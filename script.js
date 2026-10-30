@@ -146,8 +146,6 @@ const books = [
 const shelfEl = document.getElementById("bookshelf");
 const bookModal = document.getElementById("bookModal");
 const flipbookEl = document.getElementById("flipbook");
-const flipPrev = document.getElementById("flipPrev");
-const flipNext = document.getElementById("flipNext");
 const bookCloseBtn = document.getElementById("bookClose");
 
 function coverInner(b) {
@@ -172,65 +170,26 @@ shelfEl.innerHTML = books
   .join("");
 
 /* ---- 翻页书 ---- */
-let leaves = [];
-let turned = 0;
-
-function buildPages(b) {
-  const pages = [{ kind: "cover", title: b.title, sub: b.sub }];
-  b.paras.forEach((p) => pages.push({ kind: "body", text: p }));
-  return pages;
-}
-
-function pageHTML(page, idx, total, book) {
-  const num = `<div class="pg-num">${idx + 1} / ${total}</div>`;
-  const logo = `<div class="pg-logo">段位<sup>&reg;</sup><em>品 牌 创 意</em></div>`;
-  if (page.kind === "cover") {
-    return `
-      ${logo}
-      <div class="pg-cover-inner">
-        <div class="pg-mark"><b></b></div>
-        <div class="pg-title">${page.title}</div>
-        <p class="pg-sub">${page.sub}</p>
-      </div>
-      ${num}`;
-  }
-  return `
-    ${logo}
-    <div class="pg-no">${book.title}</div>
-    <p class="pg-body">${page.text}</p>
-    ${num}`;
-}
-
-function refresh() {
-  leaves.forEach((leaf, k) => {
-    leaf.classList.toggle("turned", k < turned);
-    leaf.style.zIndex = k < turned ? k + 1 : leaves.length - k;
-  });
-  flipPrev.classList.toggle("disabled", turned === 0);
-  flipNext.classList.toggle("disabled", turned === leaves.length);
-}
-
 function openBook(i) {
   const b = books[i];
-  const pages = buildPages(b);
-  const leafCount = Math.ceil((pages.length - 1) / 2);
-  let html = `
+  const cn = ["一", "二", "三", "四", "五", "六", "七", "八"][i] || String(i + 1);
+  flipbookEl.innerHTML = `
     <div class="fb-left">
-      <div class="fb-page">${pageHTML(pages[0], 0, pages.length, b)}</div>
+      <div class="fb-cover">
+        <div class="bc-logo">段位<span class="bc-r">&reg;</span><em>品 牌 创 意</em></div>
+        <div class="bc-mark"><b></b></div>
+        <div class="bc-title">${b.title}</div>
+        <p class="bc-sub">${b.sub}</p>
+        <p class="bc-note">${b.paras[0]}</p>
+      </div>
+    </div>
+    <div class="fb-right">
+      <div class="md-no">段位方法 · 第 ${cn} 册</div>
+      <h3 class="md-title">${b.title}</h3>
+      <p class="md-sub">${b.sub}</p>
+      <div class="md-rule"></div>
+      <div class="md-body">${b.paras.map((p) => `<p>${p}</p>`).join("")}</div>
     </div>`;
-  for (let k = 0; k < leafCount; k++) {
-    const front = pages[2 * k + 1];
-    const back = pages[2 * k + 2];
-    html += `
-      <div class="fb-leaf">
-        <div class="fb-page front">${front ? pageHTML(front, 2 * k + 1, pages.length, b) : ""}</div>
-        <div class="fb-page back">${back ? pageHTML(back, 2 * k + 2, pages.length, b) : ""}</div>
-      </div>`;
-  }
-  flipbookEl.innerHTML = html;
-  leaves = Array.from(flipbookEl.querySelectorAll(".fb-leaf"));
-  turned = 0;
-  refresh();
   bookModal.classList.add("open");
   bookModal.setAttribute("aria-hidden", "false");
 }
@@ -240,25 +199,12 @@ function closeBook() {
   bookModal.setAttribute("aria-hidden", "true");
 }
 
-function nextPage() { if (turned < leaves.length) { turned++; refresh(); } }
-function prevPage() { if (turned > 0) { turned--; refresh(); } }
-
 shelfEl.addEventListener("click", (e) => {
   const item = e.target.closest(".book3d");
   if (item) openBook(Number(item.dataset.i));
 });
-flipbookEl.addEventListener("click", (e) => {
-  const rect = flipbookEl.getBoundingClientRect();
-  if (e.clientX - rect.left > rect.width / 2) nextPage();
-  else prevPage();
-});
-flipNext.addEventListener("click", nextPage);
-flipPrev.addEventListener("click", prevPage);
 bookCloseBtn.addEventListener("click", closeBook);
 bookModal.addEventListener("click", (e) => { if (e.target === bookModal) closeBook(); });
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeBook();
-  if (!bookModal.classList.contains("open")) return;
-  if (e.key === "ArrowRight") nextPage();
-  if (e.key === "ArrowLeft") prevPage();
 });
