@@ -208,14 +208,12 @@ bookModal.addEventListener("click", (e) => { if (e.target === bookModal) closeBo
 // ---------- 案例详情（第二界面 · 图片呈现） ----------
 const caseViewer = document.getElementById("caseViewer");
 const caseImg = document.getElementById("caseImg");
-const caseTitle = document.getElementById("caseTitle");
 
 function openCase(i) {
   const w = works[i];
   if (!w || !w.img) return;
   caseImg.src = w.img;
   caseImg.alt = w.name + " 品牌案例";
-  caseTitle.textContent = w.name + " · " + w.tag;
   caseViewer.classList.add("open");
   caseViewer.setAttribute("aria-hidden", "false");
 }
