@@ -617,6 +617,7 @@ a.contact-value:hover { color: var(--c-blue); }
   font-size: 17px;
   color: #0c0c0c;
   line-height: 1.15;
+  text-align: center;
 }
 .bc-logo .bc-r { font-size: 9px; vertical-align: super; }
 .bc-logo em {
@@ -627,6 +628,8 @@ a.contact-value:hover { color: var(--c-blue); }
   letter-spacing: .42em;
   color: #0c0c0c;
   margin-top: 2px;
+  /* 末字后也有字间距，居中时会左偏，用左侧内距补回 */
+  padding-left: .42em;
 }
 .bc-mark {
   width: 98px; height: 98px;
