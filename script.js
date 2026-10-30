@@ -98,3 +98,93 @@ panels.forEach((p) => aboutObserver.observe(p, { attributes: true, attributeFilt
 
 // 首次加载若在首页则不计数；若直达 about 则计数
 if (document.getElementById("panel-about").classList.contains("active")) runCounters();
+
+/* ============ 段位方法 · 书架与翻书 ============ */
+const books = [
+  {
+    title: "洞察定位", sub: "找到品牌真正可占据的位置", paras: [
+      "定位不是一句口号，而是一个阵地。动手做创意之前，先弄清楚：这块市场里，哪个位置还没有人站，或者站得不稳。",
+      "我们从市场、竞品、用户三条线同时切入：看品类的真实格局，看对手的强弱之处，看用户嘴上说的与心里要的差距。",
+      "洞察的产出必须能指导动作——一句定位语，一组人群画像，一张竞争坐标图。含糊的结论，我们不给。"
+    ]
+  },
+  {
+    title: "策略架构", sub: "把定位搭成一座能住人的房子", paras: [
+      "定位定了方向，架构解决「往哪儿走、说什么、怎么排兵布阵」。我们为品牌搭建话语体系与价值模型，让每一个传播动作都往同一个地方使劲。",
+      "从品牌故事到口号体系，从产品线逻辑到内容支柱，策略架构是品牌的地基与梁柱——看不见，但决定能盖多高。"
+    ]
+  },
+  {
+    title: "设计表达", sub: "让策略长出看得见的样子", paras: [
+      "设计不是美化，是翻译——把策略翻译成消费者三秒就能读懂的视觉语言。",
+      "标志、色彩、字体、辅助图形，我们做减法多于做加法：克制，但每一样都有存在的理由。",
+      "目标是建立统一而有个性的识别系统，让人在货架上、在街边、在手机屏幕里，一眼认出你。"
+    ]
+  },
+  {
+    title: "落地生长", sub: "在真实场景里持续积累势能", paras: [
+      "方案不会自己落地。我们贯穿到包装、空间、传播与电商等真实场景，盯着每一个执行细节不被走样。",
+      "品牌不是一次交付，而是一段陪伴——上线只是开始，我们和客户一起复盘数据、迭代动作，让品牌随时间越站越稳。"
+    ]
+  },
+  {
+    title: "视觉锤", sub: "一记钉进心智的锤子", paras: [
+      "语言钉子要靠视觉锤来钉。我们善用六种锤：颜色锤、符号锤、包装锤、动物锤、形状锤、动态锤。",
+      "一个好锤子同时满足两个条件：与定位强关联，且能被低成本地重复。重复产生记忆，记忆产生资产。",
+      "视觉锤不是一句玄学，而是可检验的工具——放进货架、放进信息流，测一测它能不能在三秒内被记住。"
+    ]
+  },
+  {
+    title: "创意的目的", sub: "为生意服务，为段位服务", paras: [
+      "创意不为了好看，也不为了获奖。它的唯一目的，是让品牌的生意更有效，让品牌在人心中的段位更高。",
+      "我们评判创意只有两把尺子：是否贴合策略，是否便于传播。脱离这两条的精彩，我们宁可不要。"
+    ]
+  }
+];
+
+const shelfEl = document.getElementById("bookshelf");
+const bookModal = document.getElementById("bookModal");
+const openBookEl = document.getElementById("openBook");
+const bookCloseBtn = document.getElementById("bookClose");
+
+function coverHTML(b) {
+  return `
+    <div class="book-cover">
+      <div class="bc-logo">段位<span class="bc-r">&reg;</span><em>品 牌 创 意</em></div>
+      <div class="bc-mark"><b></b></div>
+      <div class="bc-title">${b.title}</div>
+      <p class="bc-sub">${b.sub}</p>
+    </div>`;
+}
+
+shelfEl.innerHTML = books
+  .map((b, i) => `<div class="book" data-i="${i}" title="点击翻阅">${coverHTML(b)}</div>`)
+  .join("");
+
+function openBook(i) {
+  const b = books[i];
+  const cn = ["一", "二", "三", "四", "五", "六"][i] || i + 1;
+  openBookEl.innerHTML = `
+    <div class="ob-cover">${coverHTML(b)}</div>
+    <div class="ob-spine"></div>
+    <div class="ob-content">
+      <span class="ob-vol">段位方法 · 第${cn}册</span>
+      <h3>${b.title}</h3>
+      <p class="ob-lead">${b.sub}</p>
+      ${b.paras.map((p, j) => `<p class="${j === b.paras.length - 1 ? "ob-out" : ""}">${p}</p>`).join("")}
+    </div>`;
+  bookModal.classList.add("open");
+  bookModal.setAttribute("aria-hidden", "false");
+}
+function closeBook() {
+  bookModal.classList.remove("open");
+  bookModal.setAttribute("aria-hidden", "true");
+}
+
+shelfEl.addEventListener("click", (e) => {
+  const item = e.target.closest(".book");
+  if (item) openBook(Number(item.dataset.i));
+});
+bookCloseBtn.addEventListener("click", closeBook);
+bookModal.addEventListener("click", (e) => { if (e.target === bookModal) closeBook(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeBook(); });
