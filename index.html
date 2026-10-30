@@ -100,12 +100,8 @@
         <div class="panel-head">
           <h2 class="panel-title">段位方法<span class="panel-en">OUR METHOD</span></h2>
         </div>
-        <div class="method-steps">
-          <div class="step"><span class="step-num">01</span><h3 class="step-title">洞察 · 定位</h3><p class="step-desc">深入市场、竞品与用户，找到品牌真正可占据的差异化位置。</p></div>
-          <div class="step"><span class="step-num">02</span><h3 class="step-title">策略 · 架构</h3><p class="step-desc">从定位出发，搭建品牌话语体系与价值模型，明确表达逻辑。</p></div>
-          <div class="step"><span class="step-num">03</span><h3 class="step-title">设计 · 表达</h3><p class="step-desc">将策略转化为克制的视觉语言，建立统一、有识别度的品牌系统。</p></div>
-          <div class="step"><span class="step-num">04</span><h3 class="step-title">落地 · 生长</h3><p class="step-desc">贯穿到产品、空间与传播，让品牌在真实场景中持续积累势能。</p></div>
-        </div>
+        <p class="shelf-tip">我们把自己的方法论做成一册一册的书——点开任意一本，即可翻阅。</p>
+        <div class="bookshelf" id="bookshelf"><!-- JS 渲染书架 --></div>
         <div class="method-quote">
           <p>「品牌的段位，不是设计出来的，是策略与时间的合力。」</p>
         </div>
@@ -134,6 +130,12 @@
       </section>
 
     </main>
+  </div>
+
+  <!-- 书籍阅读弹层 -->
+  <div class="book-modal" id="bookModal" aria-hidden="true">
+    <button class="book-close" id="bookClose" aria-label="关闭">&times;</button>
+    <div class="open-book" id="openBook"><!-- JS 填充 --></div>
   </div>
 
   <script src="script.js"></script>
