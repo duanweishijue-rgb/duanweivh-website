@@ -545,18 +545,18 @@ a.contact-value:hover { color: var(--c-blue); }
   gap: 78px 62px;
   max-width: 980px;
   margin: auto;              /* 垂直居中且溢出时可滚动 */
-  perspective: 2000px;
+  perspective: 2400px;
 }
 .book3d {
   position: relative;
   aspect-ratio: 1 / 1.06;
   transform-style: preserve-3d;
-  transform: rotateY(22deg) rotateX(-6deg);
+  transform: rotateY(17deg) rotateX(-2deg);
   transition: transform .5s cubic-bezier(.2, .8, .3, 1.1);
   cursor: pointer;
 }
 .book3d:hover {
-  transform: rotateY(6deg) rotateX(-2deg) translateY(-14px) scale(1.04);
+  transform: rotateY(4deg) rotateX(0deg) translateY(-14px) scale(1.04);
 }
 .bk-shadow {
   position: absolute;
@@ -629,32 +629,46 @@ a.contact-value:hover { color: var(--c-blue); }
   margin-top: 2px;
 }
 .bc-mark {
-  width: 74px; height: 74px;
-  border: 13px solid #1b4db1;
+  width: 104px; height: 104px;
+  border: 19px solid #1b4db1;
   border-radius: 50%;
   display: grid;
   place-items: center;
   margin: auto;
 }
 .bc-mark b {
-  width: 30px; height: 30px;
+  width: 42px; height: 42px;
   background: #1b4db1;
   border-radius: 50%;
 }
 .bc-title {
-  font-family: var(--font-yahei);
-  font-weight: 900;
-  font-size: clamp(24px, 2vw, 30px);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(26px, 2.1vw, 33px);
   color: #0c0c0c;
-  letter-spacing: .04em;
-  margin-top: 18px;
+  letter-spacing: .06em;
+  margin-top: 20px;
+  text-align: center;
 }
 .bc-sub {
   font-size: 10px;
   color: #9a9a9a;
   letter-spacing: .08em;
-  margin-top: 6px;
+  margin-top: 8px;
   line-height: 1.7;
+  text-align: center;
+}
+.bc-note {
+  margin-top: 12px;
+  font-size: 8.5px;
+  color: #c0c0c0;
+  line-height: 1.9;
+  letter-spacing: .04em;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ============ 翻书弹层 ============ */
@@ -821,7 +835,7 @@ a.contact-value:hover { color: var(--c-blue); }
 
 @media (max-width: 900px) {
   .bookshelf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 52px 34px; }
-  .book3d { transform: rotateY(14deg) rotateX(-4deg); }
+  .book3d { transform: rotateY(10deg) rotateX(0deg); }
   .flipbook { width: 92vw; height: 70vh; }
   .fb-page { padding: 30px 24px 26px; }
   .pg-title { font-size: 26px; }
