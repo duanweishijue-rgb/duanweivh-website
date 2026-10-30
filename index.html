@@ -97,14 +97,7 @@
 
       <!-- 段位方法 -->
       <section class="panel" id="panel-method">
-        <div class="panel-head">
-          <h2 class="panel-title">段位方法<span class="panel-en">OUR METHOD</span></h2>
-        </div>
-        <p class="shelf-tip">我们把自己的方法论做成一册一册的书——点开任意一本，即可翻阅。</p>
-        <div class="bookshelf" id="bookshelf"><!-- JS 渲染书架 --></div>
-        <div class="method-quote">
-          <p>「品牌的段位，不是设计出来的，是策略与时间的合力。」</p>
-        </div>
+        <div class="bookshelf" id="bookshelf"><!-- JS 渲染 3D 书架 --></div>
       </section>
 
       <!-- 联系我们 -->
@@ -132,10 +125,12 @@
     </main>
   </div>
 
-  <!-- 书籍阅读弹层 -->
+  <!-- 翻书弹层 -->
   <div class="book-modal" id="bookModal" aria-hidden="true">
     <button class="book-close" id="bookClose" aria-label="关闭">&times;</button>
-    <div class="open-book" id="openBook"><!-- JS 填充 --></div>
+    <button class="flip-nav flip-prev" id="flipPrev" aria-label="上一页">&#8249;</button>
+    <button class="flip-nav flip-next" id="flipNext" aria-label="下一页">&#8250;</button>
+    <div class="flipbook" id="flipbook"><!-- JS 渲染可翻页的书 --></div>
   </div>
 
   <script src="script.js"></script>
