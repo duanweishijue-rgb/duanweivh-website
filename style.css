@@ -98,7 +98,7 @@ a { color: inherit; text-decoration: none; }
 .side-link.active {
   color: var(--c-blue);
   font-weight: 700;
-  background: rgba(27, 77, 177, .05);
+  background: none;
 }
 .side-link.active::before {
   height: 60%;
