@@ -672,6 +672,38 @@ a.contact-value:hover { color: var(--c-blue); }
 }
 
 /* ============ 书籍详情弹层（左书 + 右简介） ============ */
+.book-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: rgba(243, 243, 240, .34);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s ease, visibility .4s;
+}
+.book-modal.open { opacity: 1; visibility: visible; }
+.book-close {
+  position: absolute;
+  top: 22px; right: 34px;
+  width: 46px; height: 46px;
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 26px;
+  line-height: 1;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+  transition: transform .25s ease, color .25s ease;
+  z-index: 5;
+}
+.book-close:hover { transform: rotate(90deg); color: var(--c-blue); }
 .flipbook {
   position: relative;
   display: flex;
