@@ -4,12 +4,12 @@
 
 // ---------- 作品案例数据 ----------
 const works = [
-  { name: "小蓝帽增产药", tag: "农业", desc: "打造独特的品牌视觉识别系统，助力农业增产领域品牌快速崛起", g: 0 },
-  { name: "彭世修脚", tag: "健康", desc: "以传统中医理念为基础，打造专业修脚服务品牌的视觉识别体系", g: 1 },
-  { name: "云联牧场", tag: "畜牧", desc: "建立现代化畜牧品牌的视觉认知，提升品牌溢价能力", g: 2 },
-  { name: "艾红象艾灸", tag: "养生", desc: "以大象为符号结合艾草元素，打造艾灸品类的强势品牌识别", g: 3 },
-  { name: "猪太子教槽料", tag: "饲料", desc: "打造高端教槽料品牌的视觉形象，在竞争激烈的饲料市场中脱颖而出", g: 4 },
-  { name: "相知鸟精品银饰", tag: "珠宝", desc: "以鸟儿为符号，打造精品银饰的高端品牌形象，强化品牌记忆点", g: 5 },
+  { name: "小蓝帽增产药", tag: "农业", desc: "打造独特的品牌视觉识别系统，助力农业增产领域品牌快速崛起", g: 0, img: "images/cases/case-1.jpg" },
+  { name: "彭世修脚", tag: "健康", desc: "以传统中医理念为基础，打造专业修脚服务品牌的视觉识别体系", g: 1, img: "images/cases/case-2.jpg" },
+  { name: "云联牧场", tag: "畜牧", desc: "建立现代化畜牧品牌的视觉认知，提升品牌溢价能力", g: 2, img: "images/cases/case-3.jpg" },
+  { name: "艾红象艾灸", tag: "养生", desc: "以大象为符号结合艾草元素，打造艾灸品类的强势品牌识别", g: 3, img: "images/cases/case-4.jpg" },
+  { name: "猪太子教槽料", tag: "饲料", desc: "打造高端教槽料品牌的视觉形象，在竞争激烈的饲料市场中脱颖而出", g: 4, img: "images/cases/case-5.jpg" },
+  { name: "相知鸟精品银饰", tag: "珠宝", desc: "以鸟儿为符号，打造精品银饰的高端品牌形象，强化品牌记忆点", g: 5, img: "images/cases/case-6.jpg" },
 ];
 
 function thumbSVG(g) {
@@ -205,6 +205,37 @@ shelfEl.addEventListener("click", (e) => {
 });
 bookCloseBtn.addEventListener("click", closeBook);
 bookModal.addEventListener("click", (e) => { if (e.target === bookModal) closeBook(); });
+// ---------- 案例详情（第二界面 · 图片呈现） ----------
+const caseViewer = document.getElementById("caseViewer");
+const caseImg = document.getElementById("caseImg");
+const caseTitle = document.getElementById("caseTitle");
+
+function openCase(i) {
+  const w = works[i];
+  if (!w || !w.img) return;
+  caseImg.src = w.img;
+  caseImg.alt = w.name + " 品牌案例";
+  caseTitle.textContent = w.name + " · " + w.tag;
+  caseViewer.classList.add("open");
+  caseViewer.setAttribute("aria-hidden", "false");
+}
+
+function closeCase() {
+  caseViewer.classList.remove("open");
+  caseViewer.setAttribute("aria-hidden", "true");
+}
+
+if (grid && caseViewer) {
+  grid.addEventListener("click", (e) => {
+    const card = e.target.closest(".work-card");
+    if (!card) return;
+    openCase([...grid.children].indexOf(card));
+  });
+  document.getElementById("caseClose").addEventListener("click", closeCase);
+  caseViewer.addEventListener("click", (e) => { if (e.target === caseViewer.querySelector(".cv-scroll")) closeCase(); });
+}
+
+// Esc 关闭（书 + 案例查看器）
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeBook();
+  if (e.key === "Escape") { closeBook(); closeCase(); }
 });
