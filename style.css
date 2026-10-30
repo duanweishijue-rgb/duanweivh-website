@@ -361,7 +361,7 @@ a { color: inherit; text-decoration: none; }
 /* 图片卡片：横版图 + 底部一条白边（参考用户草图） */
 .work-frame {
   width: 100%;
-  padding: 0 0 14px;
+  padding: 0;                /* 去掉底部白边，图片铺满卡片 */
   background: #fff;
   border: 1px solid rgba(0, 0, 0, .04);   /* 极淡描边 */
   box-shadow: 0 8px 22px rgba(0, 0, 0, .09), 0 1px 4px rgba(0, 0, 0, .04);
