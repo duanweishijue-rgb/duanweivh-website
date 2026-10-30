@@ -629,39 +629,43 @@ a.contact-value:hover { color: var(--c-blue); }
   margin-top: 2px;
 }
 .bc-mark {
-  width: 104px; height: 104px;
+  width: 108px; height: 108px;
   border: 19px solid #1b4db1;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  margin: auto;
+  margin: auto;          /* 在 LOGO 与标题之间垂直居中 */
+  flex-shrink: 0;
 }
 .bc-mark b {
-  width: 42px; height: 42px;
+  width: 58px; height: 58px;
   background: #1b4db1;
   border-radius: 50%;
 }
+/* 大标题：参考图样式——大号黑体特粗 */
 .bc-title {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: clamp(26px, 2.1vw, 33px);
+  font-family: var(--font-yahei);
+  font-weight: 900;
+  font-size: clamp(26px, 2vw, 34px);
   color: #0c0c0c;
-  letter-spacing: .06em;
-  margin-top: 20px;
+  letter-spacing: .05em;
+  line-height: 1.25;
+  margin-top: auto;
   text-align: center;
+  white-space: nowrap;
 }
 .bc-sub {
   font-size: 10px;
-  color: #9a9a9a;
-  letter-spacing: .08em;
+  color: #8f8f8f;
+  letter-spacing: .14em;
   margin-top: 8px;
   line-height: 1.7;
   text-align: center;
 }
 .bc-note {
-  margin-top: 12px;
+  margin-top: 10px;
   font-size: 8.5px;
-  color: #c0c0c0;
+  color: #ababab;
   line-height: 1.9;
   letter-spacing: .04em;
   text-align: justify;
@@ -792,9 +796,9 @@ a.contact-value:hover { color: var(--c-blue); }
 @media (max-width: 600px) {
   .bookshelf { gap: 34px 22px; }
   .bk-cover { padding: 12px 14px; }
-  .bc-mark { width: 46px; height: 46px; border-width: 9px; }
-  .bc-mark b { width: 19px; height: 19px; }
-  .bc-title { font-size: 17px; margin-top: 10px; }
+  .bc-mark { width: 46px; height: 46px; border-width: 8px; }
+  .bc-mark b { width: 24px; height: 24px; }
+  .bc-title { font-size: 18px; margin-top: 10px; }
   .book-modal { padding: 14px; }
   .md-title { font-size: 22px; }
   .md-body p { font-size: 13.5px; line-height: 1.9; }
