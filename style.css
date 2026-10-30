@@ -358,10 +358,10 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   cursor: pointer;
 }
-/* 拍立得相框式白卡片 */
+/* 图片卡片：横版图 + 底部一条白边（参考用户草图） */
 .work-frame {
   width: 100%;
-  padding: 16px 16px 20px;
+  padding: 0 0 14px;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, .04);   /* 极淡描边 */
   box-shadow: 0 8px 22px rgba(0, 0, 0, .09), 0 1px 4px rgba(0, 0, 0, .04);
@@ -373,9 +373,16 @@ a { color: inherit; text-decoration: none; }
 }
 .work-thumb {
   position: relative;
-  aspect-ratio: 4 / 5;       /* 竖版大图 */
+  aspect-ratio: 10 / 7;      /* 横版图 */
   background: #f0f0ed;
   overflow: hidden;
+}
+.work-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;   /* 取案例长图首屏 */
+  display: block;
 }
 .work-thumb svg { width: 100%; height: 100%; display: block; }
 .work-thumb .overlay {
@@ -397,20 +404,7 @@ a { color: inherit; text-decoration: none; }
   transition: transform .35s ease;
 }
 .work-card:hover .overlay span { transform: translateY(0); }
-.work-meta {
-  width: 100%;
-  display: flex;
-  justify-content: center;      /* 只保留品牌名，居中 */
-  align-items: baseline;
-  margin-top: 16px;
-}
-.work-name {
-  font-family: var(--font-serif);
-  font-size: 15px;
-  color: var(--c-black);
-  font-weight: 600;
-}
-.work-tag, .work-desc { display: none; }   /* 卡片只保留品牌名称 */
+/* 卡片不放文字（参考用户草图） */
 
 /* ============ 段位方法 ============ */
 .method-steps {
