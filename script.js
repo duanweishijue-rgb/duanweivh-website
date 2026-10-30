@@ -206,31 +206,65 @@ shelfEl.addEventListener("click", (e) => {
 bookCloseBtn.addEventListener("click", closeBook);
 bookModal.addEventListener("click", (e) => { if (e.target === bookModal) closeBook(); });
 // ---------- 案例详情（第二界面 · 图片呈现） ----------
-const caseViewer = document.getElementById("caseViewer");
-const caseImg = document.getElementById("caseImg");
+const caseViewerEl = () => document.getElementById("caseViewer");
+
+function ensureViewer() {
+  let v = caseViewerEl();
+  if (v) return v;
+  // 兜底：若页面 HTML 是旧缓存（没有查看器容器），脚本自动创建
+  v = document.createElement("div");
+  v.className = "case-viewer";
+  v.id = "caseViewer";
+  v.setAttribute("aria-hidden", "true");
+  v.innerHTML = '<div class="cv-bar"><button class="cv-close" id="caseClose" aria-label="关闭">关闭 ✕</button></div>'
+    + '<div class="cv-scroll"><img id="caseImg" alt=""></div>';
+  // 兜底样式（旧缓存 CSS 也不影响观看）
+  v.style.cssText = "position:fixed;inset:0;z-index:9999;background:#f5f5f3;";
+  const sc = v.querySelector(".cv-scroll");
+  sc.style.cssText = "position:absolute;inset:0;overflow-y:auto;display:flex;justify-content:center;padding:64px 24px 56px;";
+  const im = v.querySelector("#caseImg");
+  im.style.cssText = "width:min(860px,92vw);height:auto;align-self:flex-start;background:#fff;";
+  const cb = v.querySelector(".cv-close");
+  cb.style.cssText = "position:absolute;top:18px;right:28px;z-index:3;background:#fff;border:1px solid rgba(0,0,0,.1);padding:9px 20px;font-size:12px;letter-spacing:.18em;cursor:pointer;";
+  document.body.appendChild(v);
+  v.querySelector("#caseClose").addEventListener("click", closeCase);
+  v.querySelector(".cv-scroll").addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) closeCase();
+  });
+  return v;
+}
 
 function openCase(i) {
   const w = works[i];
   if (!w || !w.img) return;
-  caseImg.src = w.img;
-  caseImg.alt = w.name + " 品牌案例";
-  caseViewer.classList.add("open");
-  caseViewer.setAttribute("aria-hidden", "false");
+  const v = ensureViewer();
+  const img = v.querySelector("#caseImg");
+  img.src = w.img;
+  img.alt = w.name + " 品牌案例";
+  v.classList.add("open");
+  v.style.display = "block";
+  v.setAttribute("aria-hidden", "false");
 }
 
 function closeCase() {
-  caseViewer.classList.remove("open");
-  caseViewer.setAttribute("aria-hidden", "true");
+  const v = caseViewerEl();
+  if (!v) return;
+  v.classList.remove("open");
+  v.style.display = "none";
+  v.setAttribute("aria-hidden", "true");
 }
 
-if (grid && caseViewer) {
+if (grid) {
   grid.addEventListener("click", (e) => {
     const card = e.target.closest(".work-card");
     if (!card) return;
+    e.preventDefault();
     openCase([...grid.children].indexOf(card));
   });
-  document.getElementById("caseClose").addEventListener("click", closeCase);
-  caseViewer.addEventListener("click", (e) => { if (e.target === caseViewer.querySelector(".cv-scroll")) closeCase(); });
+  const closeBtn = document.getElementById("caseClose");
+  if (closeBtn) closeBtn.addEventListener("click", closeCase);
+  const scroll = document.querySelector("#caseViewer .cv-scroll");
+  if (scroll) scroll.addEventListener("click", (e) => { if (e.target === scroll) closeCase(); });
 }
 
 // Esc 关闭（书 + 案例查看器）
