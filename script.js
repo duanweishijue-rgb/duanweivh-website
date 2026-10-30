@@ -152,25 +152,12 @@ const bookModal = document.getElementById("bookModal");
 const flipbookEl = document.getElementById("flipbook");
 const bookCloseBtn = document.getElementById("bookClose");
 
-function coverInner(b) {
-  const n = b.title.length;
-  const tc = n <= 3 ? " t3" : n === 4 ? " t4" : "";
-  return `
-    <div class="bc-logo">段位<span class="bc-r">&reg;</span><em>品 牌 创 意</em></div>
-    <div class="bc-mark"><b></b></div>
-    <div class="bc-title${tc}">${b.title}</div>
-    <p class="bc-sub">${b.sub}</p>`;
-}
+const BOOK_IMG = "images/books/book.png";
 
 shelfEl.innerHTML = books
   .map((b, i) => `
     <div class="book3d" data-i="${i}">
-      <div class="bk-shadow"></div>
-      <div class="bk-back"></div>
-      <div class="bk-spine"></div>
-      <div class="bk-pages"></div>
-      <div class="bk-top"></div>
-      <div class="bk-cover">${coverInner(b)}</div>
+      <img class="bk-photo" src="${BOOK_IMG}" alt="${b.title}">
     </div>`)
   .join("");
 
@@ -180,7 +167,7 @@ function openBook(i) {
   const cn = ["一", "二", "三", "四", "五", "六", "七", "八"][i] || String(i + 1);
   flipbookEl.innerHTML = `
     <div class="fb-left">
-      <div class="fb-cover">${coverInner(b)}</div>
+      <div class="fb-cover"><img class="bk-photo" src="${BOOK_IMG}" alt="${b.title}"></div>
     </div>
     <div class="fb-right">
       <div class="md-no">段位方法 · 第 ${cn} 册</div>
