@@ -99,7 +99,8 @@ panels.forEach((p) => aboutObserver.observe(p, { attributes: true, attributeFilt
 // 首次加载若在首页则不计数；若直达 about 则计数
 if (document.getElementById("panel-about").classList.contains("active")) runCounters();
 
-/* ============ 段位方法 · 书架与翻书 ============ */
+
+/* ============ 段位方法 · 立体书架 + 可翻页的书 ============ */
 const books = [
   {
     title: "洞察定位", sub: "找到品牌真正可占据的位置", paras: [
@@ -131,7 +132,7 @@ const books = [
     title: "视觉锤", sub: "一记钉进心智的锤子", paras: [
       "语言钉子要靠视觉锤来钉。我们善用六种锤：颜色锤、符号锤、包装锤、动物锤、形状锤、动态锤。",
       "一个好锤子同时满足两个条件：与定位强关联，且能被低成本地重复。重复产生记忆，记忆产生资产。",
-      "视觉锤不是一句玄学，而是可检验的工具——放进货架、放进信息流，测一测它能不能在三秒内被记住。"
+      "视觉锤不是玄学，而是可检验的工具——放进货架、放进信息流，测一测它能不能在三秒内被记住。"
     ]
   },
   {
@@ -144,47 +145,119 @@ const books = [
 
 const shelfEl = document.getElementById("bookshelf");
 const bookModal = document.getElementById("bookModal");
-const openBookEl = document.getElementById("openBook");
+const flipbookEl = document.getElementById("flipbook");
+const flipPrev = document.getElementById("flipPrev");
+const flipNext = document.getElementById("flipNext");
 const bookCloseBtn = document.getElementById("bookClose");
 
-function coverHTML(b) {
+function coverInner(b) {
   return `
-    <div class="book-cover">
-      <div class="bc-logo">段位<span class="bc-r">&reg;</span><em>品 牌 创 意</em></div>
-      <div class="bc-mark"><b></b></div>
-      <div class="bc-title">${b.title}</div>
-      <p class="bc-sub">${b.sub}</p>
-    </div>`;
+    <div class="bc-logo">段位<span class="bc-r">&reg;</span><em>品 牌 创 意</em></div>
+    <div class="bc-mark"><b></b></div>
+    <div class="bc-title">${b.title}</div>
+    <p class="bc-sub">${b.sub}</p>`;
 }
 
 shelfEl.innerHTML = books
-  .map((b, i) => `<div class="book" data-i="${i}" title="点击翻阅">${coverHTML(b)}</div>`)
+  .map((b, i) => `
+    <div class="book3d" data-i="${i}">
+      <div class="bk-shadow"></div>
+      <div class="bk-back"></div>
+      <div class="bk-spine"></div>
+      <div class="bk-pages"></div>
+      <div class="bk-top"></div>
+      <div class="bk-cover">${coverInner(b)}</div>
+    </div>`)
   .join("");
+
+/* ---- 翻页书 ---- */
+let leaves = [];
+let turned = 0;
+
+function buildPages(b) {
+  const pages = [{ kind: "cover", title: b.title, sub: b.sub }];
+  b.paras.forEach((p) => pages.push({ kind: "body", text: p }));
+  return pages;
+}
+
+function pageHTML(page, idx, total, book) {
+  const num = `<div class="pg-num">${idx + 1} / ${total}</div>`;
+  const logo = `<div class="pg-logo">段位<sup>&reg;</sup><em>品 牌 创 意</em></div>`;
+  if (page.kind === "cover") {
+    return `
+      ${logo}
+      <div class="pg-cover-inner">
+        <div class="pg-mark"><b></b></div>
+        <div class="pg-title">${page.title}</div>
+        <p class="pg-sub">${page.sub}</p>
+      </div>
+      ${num}`;
+  }
+  return `
+    ${logo}
+    <div class="pg-no">${book.title}</div>
+    <p class="pg-body">${page.text}</p>
+    ${num}`;
+}
+
+function refresh() {
+  leaves.forEach((leaf, k) => {
+    leaf.classList.toggle("turned", k < turned);
+    leaf.style.zIndex = k < turned ? k + 1 : leaves.length - k;
+  });
+  flipPrev.classList.toggle("disabled", turned === 0);
+  flipNext.classList.toggle("disabled", turned === leaves.length);
+}
 
 function openBook(i) {
   const b = books[i];
-  const cn = ["一", "二", "三", "四", "五", "六"][i] || i + 1;
-  openBookEl.innerHTML = `
-    <div class="ob-cover">${coverHTML(b)}</div>
-    <div class="ob-spine"></div>
-    <div class="ob-content">
-      <span class="ob-vol">段位方法 · 第${cn}册</span>
-      <h3>${b.title}</h3>
-      <p class="ob-lead">${b.sub}</p>
-      ${b.paras.map((p, j) => `<p class="${j === b.paras.length - 1 ? "ob-out" : ""}">${p}</p>`).join("")}
+  const pages = buildPages(b);
+  const leafCount = Math.ceil((pages.length - 1) / 2);
+  let html = `
+    <div class="fb-left">
+      <div class="fb-page">${pageHTML(pages[0], 0, pages.length, b)}</div>
     </div>`;
+  for (let k = 0; k < leafCount; k++) {
+    const front = pages[2 * k + 1];
+    const back = pages[2 * k + 2];
+    html += `
+      <div class="fb-leaf">
+        <div class="fb-page front">${front ? pageHTML(front, 2 * k + 1, pages.length, b) : ""}</div>
+        <div class="fb-page back">${back ? pageHTML(back, 2 * k + 2, pages.length, b) : ""}</div>
+      </div>`;
+  }
+  flipbookEl.innerHTML = html;
+  leaves = Array.from(flipbookEl.querySelectorAll(".fb-leaf"));
+  turned = 0;
+  refresh();
   bookModal.classList.add("open");
   bookModal.setAttribute("aria-hidden", "false");
 }
+
 function closeBook() {
   bookModal.classList.remove("open");
   bookModal.setAttribute("aria-hidden", "true");
 }
 
+function nextPage() { if (turned < leaves.length) { turned++; refresh(); } }
+function prevPage() { if (turned > 0) { turned--; refresh(); } }
+
 shelfEl.addEventListener("click", (e) => {
-  const item = e.target.closest(".book");
+  const item = e.target.closest(".book3d");
   if (item) openBook(Number(item.dataset.i));
 });
+flipbookEl.addEventListener("click", (e) => {
+  const rect = flipbookEl.getBoundingClientRect();
+  if (e.clientX - rect.left > rect.width / 2) nextPage();
+  else prevPage();
+});
+flipNext.addEventListener("click", nextPage);
+flipPrev.addEventListener("click", prevPage);
 bookCloseBtn.addEventListener("click", closeBook);
 bookModal.addEventListener("click", (e) => { if (e.target === bookModal) closeBook(); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeBook(); });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeBook();
+  if (!bookModal.classList.contains("open")) return;
+  if (e.key === "ArrowRight") nextPage();
+  if (e.key === "ArrowLeft") prevPage();
+});
