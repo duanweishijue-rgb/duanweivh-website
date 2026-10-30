@@ -155,7 +155,8 @@ function coverInner(b) {
     <div class="bc-logo">段位<span class="bc-r">&reg;</span><em>品 牌 创 意</em></div>
     <div class="bc-mark"><b></b></div>
     <div class="bc-title">${b.title}</div>
-    <p class="bc-sub">${b.sub}</p>`;
+    <p class="bc-sub">${b.sub}</p>
+    <p class="bc-note">${b.paras[0]}</p>`;
 }
 
 shelfEl.innerHTML = books
