@@ -152,14 +152,14 @@ a { color: inherit; text-decoration: none; }
 #panel-home {
   display: flex;
   align-items: center;
-  justify-content: center;
+  overflow-y: auto;
   padding: 48px;
 }
 /* 白色画布卡片，内嵌书法主视觉 */
 .home-art {
   width: 100%;
   max-width: none;          /* 覆盖 .panel > * 的 1040px 限制 */
-  margin: 0;
+  margin: auto;             /* 垂直居中且溢出时可滚动 */
   background: #fff;
   padding: clamp(18px, 2vw, 34px);
   box-shadow: 0 18px 44px rgba(0, 0, 0, .10), 0 2px 8px rgba(0, 0, 0, .04);
@@ -333,13 +333,12 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   align-items: center;       /* 水平居中 */
-  justify-content: center;   /* 垂直居中 */
   overflow-y: auto;
 }
 .works-grid {
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto;            /* 网格整体居中 */
+  margin: auto 0;            /* 有剩余空间时垂直居中，溢出时可正常滚动到顶部 */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 36px 28px;
@@ -538,15 +537,15 @@ a.contact-value:hover { color: var(--c-blue); }
 #panel-method {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 .bookshelf {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 78px 62px;
   max-width: 980px;
-  margin: 0 auto;
-  perspective: 1600px;
+  margin: auto;              /* 垂直居中且溢出时可滚动 */
+  perspective: 2000px;
 }
 .book3d {
   position: relative;
@@ -589,7 +588,7 @@ a.contact-value:hover { color: var(--c-blue); }
   top: 0; bottom: 0; left: 0;
   width: 26px;
   transform-origin: left center;
-  transform: translateZ(13px) rotateY(90deg);
+  transform: translateZ(-13px) rotateY(90deg);
   background: linear-gradient(90deg, #d9d9d4, #f4f4f1 70%);
 }
 .bk-pages {
@@ -597,7 +596,7 @@ a.contact-value:hover { color: var(--c-blue); }
   top: 5px; bottom: 5px; right: 0;
   width: 26px;
   transform-origin: right center;
-  transform: translateZ(13px) rotateY(-90deg);
+  transform: translateZ(-13px) rotateY(-90deg);
   background: repeating-linear-gradient(180deg, #ffffff 0 2px, #dcdcd6 2px 3px);
 }
 .bk-top {
@@ -605,7 +604,7 @@ a.contact-value:hover { color: var(--c-blue); }
   top: 0; left: 0; right: 0;
   height: 26px;
   transform-origin: top center;
-  transform: translateZ(13px) rotateX(-90deg);
+  transform: translateZ(-13px) rotateX(-90deg);
   background: repeating-linear-gradient(90deg, #ffffff 0 2px, #dcdcd6 2px 3px);
 }
 .bc-logo {
