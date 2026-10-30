@@ -59,7 +59,6 @@ a { color: inherit; text-decoration: none; }
 .logo {
   display: block;
   width: 72%;
-  max-width: 200px;
   margin: 0 auto 40px;    /* LOGO 在侧边栏内水平居中 */
 }
 .logo-img {
@@ -73,12 +72,15 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 2px;
+  /* 25.25% = LOGO 居中左留白 14% + LOGO 图片左侧透明边距缩放后的 11.25%
+     → 导航文字左边缘与 LOGO「段位」二字的左边缘精确对齐（任意侧栏宽度均成立） */
+  padding: 0 5% 0 25.25%;
 }
 .side-link {
   position: relative;
   display: block;
-  padding: 13px 14px;
-  text-align: center;               /* 导航文字居中 */
+  padding: 13px 0;
+  text-align: left;                 /* 参照 LOGO 左对齐 */
   font-family: var(--font-yahei);   /* 微软雅黑 */
   font-size: 16px;
   font-weight: 500;                 /* 中性字重，不再偏细 */
@@ -90,10 +92,9 @@ a { color: inherit; text-decoration: none; }
 .side-link::before {
   content: "";
   position: absolute;
-  left: 50%; bottom: 7px;
+  left: 0; bottom: 7px;
   width: 0; height: 2px;
   background: var(--c-blue);
-  transform: translateX(-50%);
   transition: width .25s ease;
 }
 .side-link:hover { color: var(--c-blue); }
@@ -103,7 +104,7 @@ a { color: inherit; text-decoration: none; }
   background: none;
 }
 .side-link.active::before {
-  width: 26px;    /* 当前项：文字下方居中短横线 */
+  width: 20px;    /* 当前项：文字左下方短横线 */
 }
 
 .side-intro {
@@ -516,12 +517,12 @@ a.contact-value:hover { color: var(--c-blue); }
     border-right: none;
     border-bottom: 1px solid var(--c-line);
   }
-  .logo { margin-bottom: 0; margin-left: 0; margin-right: 0; }
+  .logo { margin-bottom: 0; margin-left: 0; margin-right: 0; width: auto; }
   .logo-img { width: auto; max-width: none; height: 40px; }
   .logo-box { width: 40px; height: 40px; font-size: 15px; }
   .logo-en { display: none; }
-  .side-nav { flex-direction: row; gap: 2px; overflow-x: auto; }
-  .side-link { padding: 8px 10px; border-left: none; border-bottom: 2px solid transparent; }
+  .side-nav { flex-direction: row; gap: 2px; overflow-x: auto; padding: 0; }
+  .side-link { padding: 8px 10px; text-align: left; border-left: none; border-bottom: 2px solid transparent; }
   .side-link.active { padding-left: 10px; border-bottom-color: var(--c-blue); }
   .side-link::before { display: none; }
   .side-link .en { display: none; }
