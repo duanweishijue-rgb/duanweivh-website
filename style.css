@@ -544,12 +544,12 @@ a.contact-value:hover { color: var(--c-blue); }
   position: relative;
   aspect-ratio: 1 / 1.06;
   transform-style: preserve-3d;
-  transform: rotateY(17deg) rotateX(-2deg);
+  transform: rotateY(10deg) rotateX(-1.5deg);
   transition: transform .5s cubic-bezier(.2, .8, .3, 1.1);
   cursor: pointer;
 }
 .book3d:hover {
-  transform: rotateY(4deg) rotateX(0deg) translateY(-14px) scale(1.04);
+  transform: rotateY(2deg) rotateX(0deg) translateY(-12px) scale(1.03);
 }
 .bk-shadow {
   position: absolute;
@@ -607,53 +607,59 @@ a.contact-value:hover { color: var(--c-blue); }
 .bc-logo {
   font-family: var(--font-yahei);
   font-weight: 900;
-  font-size: 18px;
+  font-size: 21px;
   color: #0c0c0c;
   line-height: 1.15;
   text-align: left;          /* 参考图：Logo 居左上 */
 }
-.bc-logo .bc-r { font-size: 9px; vertical-align: super; }
+.bc-logo .bc-r { font-size: 10px; vertical-align: super; }
 .bc-logo em {
   display: block;
   font-style: normal;
   font-weight: 700;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .42em;
   color: #0c0c0c;
   margin-top: 2px;
 }
+/* 参考图：粗环 + 大实心圆点的蓝靶心 */
 .bc-mark {
-  width: 106px; height: 106px;
+  width: 118px; height: 118px;
   border: 21px solid #2456e6;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  margin: auto;
-  margin-top: 14px;
+  margin: 18px auto 0;
+  flex: none;
 }
 .bc-mark b {
-  width: 40px; height: 40px;
+  width: 55px; height: 55px;
   background: #2456e6;
   border-radius: 50%;
 }
+/* 参考图：特大号粗宋体书名，几乎撑满封面宽度 */
 .bc-title {
   font-family: var(--font-serif);
   font-weight: 900;
-  font-size: clamp(28px, 2.4vw, 40px);
+  font-size: clamp(30px, 3vw, 48px);
   color: #0c0c0c;
-  letter-spacing: .06em;
-  margin-top: 24px;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  margin-top: auto;          /* 书名沉底，贴近参考图 */
   text-align: center;
+  line-height: 1.15;
 }
+.bc-title.t4 { font-size: clamp(36px, 3.5vw, 55px); }
+.bc-title.t3 { font-size: clamp(42px, 4.3vw, 68px); }
 .bc-sub {
   font-family: var(--font-yahei);
-  font-size: 10.5px;
+  font-size: 10px;
   color: #2456e6;             /* 参考图：蓝色小字 */
   font-weight: 700;
-  letter-spacing: .05em;
+  letter-spacing: .04em;
   margin-top: 12px;
-  line-height: 1.8;
-  text-align: center;
+  line-height: 1.9;
+  text-align: left;           /* 参考图：左对齐 */
 }
 .bc-note {
   margin-top: 6px;
@@ -737,7 +743,7 @@ a.contact-value:hover { color: var(--c-blue); }
   padding: 24px 26px 22px;
   display: flex;
   flex-direction: column;
-  transform: rotateY(15deg) rotateX(-2deg);
+  transform: rotateY(10deg) rotateX(-1.5deg);
   transform-style: preserve-3d;
 }
 
@@ -791,9 +797,11 @@ a.contact-value:hover { color: var(--c-blue); }
 @media (max-width: 600px) {
   .bookshelf { gap: 34px 22px; }
   .bk-cover { padding: 12px 14px; }
-  .bc-mark { width: 46px; height: 46px; border-width: 9px; }
-  .bc-mark b { width: 19px; height: 19px; }
-  .bc-title { font-size: 17px; margin-top: 10px; }
+  .bc-mark { width: 60px; height: 60px; border-width: 11px; }
+  .bc-mark b { width: 28px; height: 28px; }
+  .bc-title { font-size: 18px; }
+  .bc-title.t4 { font-size: 22px; }
+  .bc-title.t3 { font-size: 27px; }
   .book-modal { padding: 14px; }
   .md-title { font-size: 22px; }
   .md-body p { font-size: 13.5px; line-height: 1.9; }
