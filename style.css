@@ -671,176 +671,91 @@ a.contact-value:hover { color: var(--c-blue); }
   overflow: hidden;
 }
 
-/* ============ 翻书弹层 ============ */
-.book-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  background: rgba(243, 243, 240, .34);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .4s ease, visibility .4s;
-}
-.book-modal.open { opacity: 1; visibility: visible; }
-.book-close {
-  position: absolute;
-  top: 22px; right: 34px;
-  width: 46px; height: 46px;
-  border: none;
-  background: #fff;
-  border-radius: 50%;
-  font-size: 26px;
-  line-height: 1;
-  color: #333;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
-  transition: transform .25s ease, color .25s ease;
-}
-.book-close:hover { transform: rotate(90deg); color: var(--c-blue); }
-.flip-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 52px; height: 52px;
-  border: none;
-  background: #fff;
-  border-radius: 50%;
-  font-size: 30px;
-  line-height: 1;
-  color: #2c2c2c;
-  cursor: pointer;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, .16);
-  transition: opacity .25s ease, transform .25s ease, color .25s ease;
-  z-index: 5;
-}
-.flip-prev { left: max(18px, 3vw); }
-.flip-next { right: max(18px, 3vw); }
-.flip-nav:hover { color: var(--c-blue); transform: translateY(-50%) scale(1.08); }
-.flip-nav.disabled { opacity: .25; pointer-events: none; }
-
+/* ============ 书籍详情弹层（左书 + 右简介） ============ */
 .flipbook {
   position: relative;
-  width: min(900px, 88vw);
-  height: min(560px, 74vh);
-  perspective: 2400px;
-  box-shadow: 0 40px 90px rgba(0, 0, 0, .3);
+  display: flex;
+  width: min(940px, 90vw);
+  max-height: 78vh;
+  background: #fff;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, .28);
   transform: scale(.88) translateY(24px);
   transition: transform .5s cubic-bezier(.2, .9, .25, 1.15);
 }
 .book-modal.open .flipbook { transform: scale(1) translateY(0); }
-.flipbook::after {
-  content: "";
-  position: absolute;
-  left: 50%; top: 0; bottom: 0;
-  width: 30px;
-  margin-left: -15px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .16) 50%, rgba(0, 0, 0, 0));
-  pointer-events: none;
-  z-index: 40;
-}
+
+/* 左侧：立体书封面 */
 .fb-left {
-  position: absolute;
-  left: 0; top: 0;
-  width: 50%; height: 100%;
+  flex: 0 0 42%;
+  padding: 40px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(158deg, #f7f7f4, #ebebe8);
+  border-right: 1px solid #e8e8e4;
+  perspective: 1500px;
 }
-.fb-leaf {
-  position: absolute;
-  right: 0; top: 0;
-  width: 50%; height: 100%;
-  transform-origin: left center;
-  transform-style: preserve-3d;
-  transition: transform .85s cubic-bezier(.3, .85, .3, 1.05);
-}
-.fb-leaf.turned { transform: rotateY(-180deg); }
-.fb-page {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  background: #fff;
-  padding: 46px 42px 38px;
-  overflow-y: auto;
+.fb-cover {
+  width: 100%;
+  max-width: 296px;
+  aspect-ratio: 1 / 1.06;
+  background: linear-gradient(102deg, #ffffff 52%, #f7f7f4 86%, #ededea 100%);
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: 2px 7px 7px 2px;
+  box-shadow: 0 22px 44px rgba(0, 0, 0, .22), 0 2px 6px rgba(0, 0, 0, .06);
+  padding: 22px 24px 20px;
   display: flex;
   flex-direction: column;
+  transform: rotateY(15deg) rotateX(-2deg);
+  transform-style: preserve-3d;
 }
-.fb-page.back { transform: rotateY(180deg); }
-.pg-logo {
-  font-family: var(--font-yahei);
-  font-weight: 900;
-  font-size: 14px;
-  color: #0c0c0c;
+
+/* 右侧：简介 */
+.fb-right {
+  flex: 1;
+  padding: 52px 48px;
+  overflow-y: auto;
 }
-.pg-logo em {
-  display: block;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 8px;
-  letter-spacing: .42em;
-  color: #999;
-  margin-top: 2px;
-}
-.pg-cover-inner {
-  margin: auto 0;
-  text-align: center;
-}
-.pg-mark {
-  width: 86px; height: 86px;
-  border: 15px solid #1b4db1;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 26px;
-}
-.pg-mark b { width: 34px; height: 34px; background: #1b4db1; border-radius: 50%; }
-.pg-title {
-  font-family: var(--font-yahei);
-  font-weight: 900;
-  font-size: 34px;
-  color: #0c0c0c;
-  letter-spacing: .05em;
-}
-.pg-sub {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #9a9a9a;
-  letter-spacing: .1em;
-  line-height: 1.8;
-}
-.pg-no {
+.md-no {
   font-size: 11px;
   letter-spacing: .28em;
   color: var(--c-blue);
   margin-bottom: 16px;
 }
-.pg-body {
-  font-size: 15px;
+.md-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 32px;
+  color: #0c0c0c;
+  letter-spacing: .06em;
+}
+.md-sub {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #9a9a9a;
+  letter-spacing: .1em;
+}
+.md-rule {
+  width: 46px; height: 2px;
+  background: var(--c-blue);
+  margin: 24px 0 26px;
+}
+.md-body p {
+  font-size: 14.5px;
   line-height: 2.05;
   color: #333;
-  letter-spacing: .01em;
+  margin-bottom: 20px;
 }
-.pg-num {
-  margin-top: auto;
-  padding-top: 20px;
-  font-size: 11px;
-  color: #b5b5b5;
-  letter-spacing: .2em;
-  text-align: center;
-}
+.md-body p:last-child { margin-bottom: 0; }
 
 @media (max-width: 900px) {
   .bookshelf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 52px 34px; }
   .book3d { transform: rotateY(10deg) rotateX(0deg); }
-  .flipbook { width: 92vw; height: 70vh; }
-  .fb-page { padding: 30px 24px 26px; }
-  .pg-title { font-size: 26px; }
-  .pg-mark { width: 62px; height: 62px; border-width: 11px; margin-bottom: 18px; }
-  .flip-nav { width: 44px; height: 44px; font-size: 26px; }
+  .flipbook { width: 94vw; flex-direction: column; max-height: 86vh; }
+  .fb-left { flex: none; padding: 28px 22px; border-right: none; border-bottom: 1px solid #e8e8e4; }
+  .fb-cover { max-width: 240px; }
+  .fb-right { padding: 30px 26px 34px; }
+  .md-title { font-size: 26px; }
 }
 @media (max-width: 600px) {
   .bookshelf { gap: 34px 22px; }
@@ -849,6 +764,6 @@ a.contact-value:hover { color: var(--c-blue); }
   .bc-mark b { width: 19px; height: 19px; }
   .bc-title { font-size: 17px; margin-top: 10px; }
   .book-modal { padding: 14px; }
-  .pg-title { font-size: 22px; }
-  .pg-body { font-size: 13.5px; line-height: 1.9; }
+  .md-title { font-size: 22px; }
+  .md-body p { font-size: 13.5px; line-height: 1.9; }
 }
