@@ -42,9 +42,7 @@ if (grid) {
         <div class="work-thumb">${thumbSVG(w.g)}<div class="overlay"><span>查看案例</span></div></div>
         <div class="work-meta">
           <span class="work-name">${w.name}</span>
-          <span class="work-tag">${w.tag}</span>
         </div>
-        <p class="work-desc">${w.desc}</p>
       </div>
     </a>
   `).join("");
