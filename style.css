@@ -528,9 +528,9 @@ a.contact-value:hover { color: var(--c-blue); }
 .bookshelf {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 78px 62px;
-  max-width: 980px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px 60px;
+  max-width: 1020px;
   margin: auto;              /* 垂直居中且溢出时可滚动 */
   perspective: 2400px;
 }
@@ -777,7 +777,7 @@ a.contact-value:hover { color: var(--c-blue); }
 .md-body p:last-child { margin-bottom: 0; }
 
 @media (max-width: 900px) {
-  .bookshelf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 52px 34px; }
+  .bookshelf { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 30px; }
   .book3d { transform: none; }
   .flipbook { width: 94vw; flex-direction: column; max-height: 86vh; }
   .fb-left { flex: none; padding: 28px 22px; border-right: none; border-bottom: 1px solid #e8e8e4; }
