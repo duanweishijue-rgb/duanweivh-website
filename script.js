@@ -72,7 +72,33 @@ document.querySelectorAll("[data-goto]").forEach((b) => {
 document.querySelector(".logo")?.addEventListener("click", (e) => {
   e.preventDefault();
   showPanel("home");
+  closeNav();
 });
+
+// ---------- 移动端汉堡导航 ----------
+const sidebarEl = document.querySelector(".sidebar");
+const navToggleEl = document.getElementById("navToggle");
+
+function closeNav() {
+  if (!sidebarEl) return;
+  sidebarEl.classList.remove("nav-open");
+  navToggleEl?.setAttribute("aria-expanded", "false");
+}
+
+if (navToggleEl && sidebarEl) {
+  navToggleEl.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = sidebarEl.classList.toggle("nav-open");
+    navToggleEl.setAttribute("aria-expanded", open ? "true" : "false");
+    navToggleEl.setAttribute("aria-label", open ? "关闭导航菜单" : "打开导航菜单");
+  });
+  // 点页面其他区域关闭菜单
+  document.addEventListener("click", (e) => {
+    if (sidebarEl.classList.contains("nav-open") && !sidebarEl.contains(e.target)) closeNav();
+  });
+}
+// 选完导航项自动收起菜单
+navLinks.forEach((l) => l.addEventListener("click", closeNav));
 
 // ---------- 数字滚动（进入关于我们时触发）----------
 const counters = document.querySelectorAll("[data-count]");
