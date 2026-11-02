@@ -15,6 +15,7 @@ const works = [
   { name: "葆莲灯", tag: "大健康", desc: "以莲瓣光形为母题，为草本护眼贴打造清新可信的品类识别", g: 8, img: "images/cases/case-9.jpg", cover: "images/cases/cover-9.jpg" },
   { name: "英小伴AI伴学机", tag: "教育", desc: "AI 伴学机品牌形象打造，让英语学习更高效", g: 9, img: "images/cases/cover-10.jpg", cover: "images/cases/cover-10.jpg" },
   { name: "壮八哥微生物菌肥", tag: "肥料", desc: "以书法体品牌字打造菌肥品类的记忆符号，让渠道一眼认准", g: 10, img: "images/cases/cover-11.jpg", cover: "images/cases/cover-11.jpg" },
+  { name: "葆葫芦", tag: "大健康", desc: "以葫芦为符号承载人参泡脚保健液的养生联想，让传统滋补看得见", g: 11, img: "images/cases/cover-12.jpg", cover: "images/cases/cover-12.jpg" },
 ];
 
 function thumbSVG(g) {
