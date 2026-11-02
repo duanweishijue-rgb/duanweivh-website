@@ -14,6 +14,7 @@ const works = [
   { name: "蓝蜜蜂", tag: "蜂蜜", desc: "用反常识的蓝色蜜蜂符号，在琥珀色货架上一眼跳出，替真蜜作证", g: 7, img: "images/cases/case-8.jpg" },
   { name: "葆莲灯", tag: "大健康", desc: "以莲瓣光形为母题，为草本护眼贴打造清新可信的品类识别", g: 8, img: "images/cases/case-9.jpg", cover: "images/cases/cover-9.jpg" },
   { name: "英小伴AI伴学机", tag: "教育", desc: "AI 伴学机品牌形象打造，让英语学习更高效", g: 9, img: "images/cases/cover-10.jpg", cover: "images/cases/cover-10.jpg" },
+  { name: "壮八哥微生物菌肥", tag: "肥料", desc: "以书法体品牌字打造菌肥品类的记忆符号，让渠道一眼认准", g: 10, img: "images/cases/cover-11.jpg", cover: "images/cases/cover-11.jpg" },
 ];
 
 function thumbSVG(g) {
