@@ -917,3 +917,231 @@ a.contact-value:hover { color: var(--c-blue); }
   box-shadow: 0 24px 60px rgba(0, 0, 0, .14), 0 2px 8px rgba(0, 0, 0, .05);
   background: #fff;
 }
+
+/* ============================================
+   移动端适配（手机 / 平板竖屏）
+   桌面为「左固定栏 + 右内容区」；手机改为
+   「顶部固定条 + 汉堡下拉导航 + 单列内容」
+   ============================================ */
+.nav-toggle { display: none; }
+
+@media (max-width: 760px) {
+  /* ---------- 骨架：顶部条 + 内容区 ---------- */
+  .app {
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;            /* 适配手机浏览器地址栏 */
+  }
+  body { overflow: hidden; }
+
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 56px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 14px;
+    background: #fff;
+    border-right: none;
+    border-bottom: 1px solid var(--c-line);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
+    z-index: 200;
+  }
+
+  /* LOGO 缩小置于左上（内联样式需 !important 覆盖） */
+  .logo { width: auto; margin: 0; }
+  .logo-img {
+    width: auto !important;
+    height: 28px !important;
+    max-width: 60vw;
+  }
+
+  /* 汉堡按钮 */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px; height: 42px;
+    padding: 0 9px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--c-ink);
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .25s ease;
+  }
+  .sidebar.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .sidebar.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .sidebar.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* 导航：下拉全宽菜单 */
+  .side-nav {
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 4px 18px 16px;
+    background: #fff;
+    border-bottom: 1px solid var(--c-line);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, .10);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .28s ease, transform .28s ease, visibility .28s;
+    z-index: 199;
+    max-height: calc(100dvh - 56px);
+    overflow-y: auto;
+  }
+  .sidebar.nav-open .side-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .side-link {
+    padding: 15px 2px;
+    font-size: 16px;
+    letter-spacing: .08em;
+    border-bottom: 1px solid #f1f1ee;
+  }
+  .side-link:last-child { border-bottom: none; }
+  .side-link::before { display: none; }
+  .side-link.active { color: var(--c-blue); }
+
+  /* 侧栏文字只在展开菜单里出现，放在底部 */
+  .side-intro, .side-copy {
+    display: none;
+  }
+
+  /* 内容区：顶栏之下整屏滚动 */
+  .content {
+    height: calc(100vh - 56px);
+    height: calc(100dvh - 56px);
+    margin-top: 56px;
+    overflow: hidden;
+  }
+  .panel {
+    padding: 22px 16px 40px;
+    transform: translateY(10px);
+  }
+  .panel > * { max-width: 100%; }
+  .panel-head { margin-bottom: 26px; }
+  .panel-title { font-size: 24px; }
+
+  /* ---------- 首页 ---------- */
+  #panel-home { padding: 14px 12px 26px; }
+  .home-art { padding: 12px; box-shadow: 0 10px 26px rgba(0, 0, 0, .10); }
+
+  /* ---------- 关于我们 ---------- */
+  .about-wrap { max-width: 100%; }
+  .about-h1 { font-size: 22px; }
+  .about-sub { font-size: 15px; line-height: 1.8; }
+  .about-row { flex-direction: column; gap: 16px; margin-top: 30px; }
+  .about-txt h3 { font-size: 16px; }
+  .about-txt p { font-size: 14px; line-height: 1.95; margin-top: 10px; }
+  .about-pic { width: 100%; min-height: 150px; }
+
+  /* ---------- 作品案例：单列大图 ---------- */
+  #panel-works { padding: 20px 14px 34px; }
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ---------- 段位方法：单列大书 ---------- */
+  #panel-method { padding: 20px 14px 34px; align-items: flex-start; }
+  .bookshelf {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .book3d:hover { transform: none; }
+
+  /* ---------- 联系我们 ---------- */
+  .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+  .contact-lead { font-size: 20px; }
+  .contact-desc { font-size: 14px; max-width: 100%; }
+  .contact-item { padding: 15px 0; }
+  .contact-label { width: 52px; font-size: 12px; }
+  .contact-value { font-size: 15px; word-break: break-all; }
+
+  .contact-form {
+    width: 100%;
+    padding: 22px 16px 20px;
+    margin-top: 26px;
+  }
+  .cf-title { font-size: 18px; margin-bottom: 18px; }
+  .cf-row { grid-template-columns: 1fr; }
+  .cf-field { margin-bottom: 16px; }
+  .cf-label { font-size: 12px; margin-bottom: 7px; }
+  /* 16px 以上可避免 iOS 聚焦时页面自动放大 */
+  .cf-field input,
+  .cf-field select,
+  .cf-field textarea { font-size: 16px; padding: 12px 12px; }
+  .cf-foot { gap: 14px; }
+  .cf-submit { width: 100%; padding: 15px 0; letter-spacing: .12em; }
+  .cf-status { font-size: 13px; }
+
+  /* ---------- 书籍详情弹层 ---------- */
+  .book-modal { padding: 10px; align-items: flex-start; }
+  .flipbook {
+    width: 100%;
+    max-height: calc(100dvh - 20px);
+    flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .fb-left { flex: none; padding: 18px; }
+  .fb-cover { max-width: 210px; margin: 0 auto; }
+  .fb-right { padding: 22px 18px 26px; overflow-y: visible; }
+  .md-title { font-size: 22px; }
+  .md-sub { font-size: 12px; }
+  .md-body p { font-size: 14px; line-height: 1.95; margin-bottom: 16px; }
+  .book-close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 22px; }
+
+  /* ---------- 案例查看器（第二界面） ---------- */
+  .cv-bar { padding: 12px 14px; }
+  .cv-close {
+    padding: 10px 18px;
+    font-size: 13px;
+    letter-spacing: .12em;
+  }
+  .cv-scroll {
+    padding: 56px 8px 24px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cv-scroll img { width: 100%; box-shadow: 0 12px 30px rgba(0, 0, 0, .12); }
+}
+
+/* ---------- 小屏手机（≤420px）微调 ---------- */
+@media (max-width: 420px) {
+  .logo-img { height: 24px !important; }
+  .panel { padding: 18px 13px 34px; }
+  .panel-title { font-size: 21px; }
+  .about-h1 { font-size: 20px; }
+  .about-sub { font-size: 14px; }
+  .contact-lead { font-size: 18px; }
+  .bookshelf { gap: 20px; }
+  .home-art { padding: 9px; }
+}
+
+/* ---------- 触屏设备：去掉依赖 hover 的效果 ---------- */
+@media (hover: none) {
+  .work-card:hover .work-frame { transform: none; }
+  .work-card:hover .overlay { opacity: 0; }
+  .work-card:active .work-frame { transform: scale(.985); }
+  .book3d:hover { transform: none; }
+}
