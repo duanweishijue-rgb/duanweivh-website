@@ -918,6 +918,48 @@ a.contact-value:hover { color: var(--c-blue); }
   background: #fff;
 }
 
+/* ---------- 案例查看器：底部返回栏 + 结束提示 ---------- */
+.cv-foot {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 4;
+  display: none;                 /* 仅移动端显示 */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 12px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(180deg, rgba(245, 245, 243, 0) 0%, rgba(245, 245, 243, .92) 38%, rgba(245, 245, 243, .98) 100%);
+}
+.cv-foot button {
+  font-family: var(--font-yahei);
+  font-size: 13px;
+  letter-spacing: .06em;
+  color: var(--c-ink);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .12);
+  padding: 11px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .08);
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+.cv-foot button:active { transform: translateY(1px); }
+.cv-back {
+  color: #fff !important;
+  background: var(--c-blue) !important;
+  border-color: var(--c-blue) !important;
+  font-weight: 700;
+}
+.case-end {
+  width: min(860px, 92vw);
+  margin: 22px auto 0;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: .08em;
+  color: #9a9a9a;
+  display: none;                 /* 仅移动端显示 */
+}
+
 /* ============================================
    移动端适配（手机 / 平板竖屏）
    桌面为「左固定栏 + 右内容区」；手机改为
@@ -1120,10 +1162,12 @@ a.contact-value:hover { color: var(--c-blue); }
     letter-spacing: .12em;
   }
   .cv-scroll {
-    padding: 56px 8px 24px;
+    padding: 56px 8px 96px;      /* 底部留出返回栏空间 */
     -webkit-overflow-scrolling: touch;
   }
   .cv-scroll img { width: 100%; box-shadow: 0 12px 30px rgba(0, 0, 0, .12); }
+  .cv-foot { display: flex; }
+  .case-end { display: block; }
 }
 
 /* ---------- 小屏手机（≤420px）微调 ---------- */
