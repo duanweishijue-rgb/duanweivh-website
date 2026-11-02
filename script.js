@@ -220,6 +220,8 @@ bookModal.addEventListener("click", (e) => { if (e.target === bookModal) closeBo
 // ---------- 案例详情（第二界面 · 图片呈现） ----------
 const caseViewerEl = () => document.getElementById("caseViewer");
 
+let curCase = -1;   // 当前查看的案例序号
+
 function ensureViewer() {
   let v = caseViewerEl();
   if (v) return v;
@@ -229,7 +231,13 @@ function ensureViewer() {
   v.id = "caseViewer";
   v.setAttribute("aria-hidden", "true");
   v.innerHTML = '<div class="cv-bar"><button class="cv-close" id="caseClose" aria-label="关闭">关闭 ✕</button></div>'
-    + '<div class="cv-scroll"><img id="caseImg" alt=""></div>';
+    + '<div class="cv-scroll"><img id="caseImg" alt="">'
+    + '<p class="case-end">已看完全部内容 · 右滑返回，或用下方按钮切换案例</p></div>'
+    + '<div class="cv-foot">'
+    + '<button class="cv-nav" id="casePrev" aria-label="上一个案例">← 上一个</button>'
+    + '<button class="cv-back" id="caseBack" aria-label="返回案例列表">返回案例列表</button>'
+    + '<button class="cv-nav" id="caseNext" aria-label="下一个案例">下一个 →</button>'
+    + '</div>';
   // 兜底样式（旧缓存 CSS 也不影响观看）
   v.style.cssText = "position:fixed;inset:0;z-index:9999;background:#f5f5f3;";
   const sc = v.querySelector(".cv-scroll");
@@ -243,7 +251,45 @@ function ensureViewer() {
   v.querySelector(".cv-scroll").addEventListener("click", (e) => {
     if (e.target === e.currentTarget) closeCase();
   });
+  bindCaseFoot(v);
   return v;
+}
+
+// 底部返回栏：上一个 / 返回列表 / 下一个
+function bindCaseFoot(v) {
+  const back = v.querySelector("#caseBack");
+  const prev = v.querySelector("#casePrev");
+  const next = v.querySelector("#caseNext");
+  if (back) back.addEventListener("click", (e) => { e.stopPropagation(); closeCase(); });
+  if (prev) prev.addEventListener("click", (e) => { e.stopPropagation(); stepCase(-1); });
+  if (next) next.addEventListener("click", (e) => { e.stopPropagation(); stepCase(1); });
+  bindSwipe(v, () => closeCase(), () => stepCase(1));
+}
+
+// 切换案例（循环）
+function stepCase(d) {
+  if (curCase < 0) return;
+  const n = works.length;
+  openCase((curCase + d + n) % n);
+  const sc = document.querySelector("#caseViewer .cv-scroll");
+  if (sc) sc.scrollTop = 0;
+}
+
+// 手势：右滑返回，左滑看下一个
+function bindSwipe(el, onRight, onLeft) {
+  let x0 = 0, y0 = 0, t0 = 0;
+  el.addEventListener("touchstart", (e) => {
+    const t = e.touches[0];
+    x0 = t.clientX; y0 = t.clientY; t0 = Date.now();
+  }, { passive: true });
+  el.addEventListener("touchend", (e) => {
+    const t = e.changedTouches[0];
+    const dx = t.clientX - x0, dy = t.clientY - y0;
+    if (Date.now() - t0 > 600) return;                 // 慢速拖动不算
+    if (Math.abs(dx) < 80 || Math.abs(dx) < Math.abs(dy) * 2) return;  // 需明显横向滑动
+    if (dx > 0 && onRight) onRight();
+    if (dx < 0 && onLeft) onLeft();
+  }, { passive: true });
 }
 
 function openCase(i) {
@@ -253,9 +299,12 @@ function openCase(i) {
   const img = v.querySelector("#caseImg");
   img.src = w.img;
   img.alt = w.name + " 品牌案例";
+  curCase = i;
   v.classList.add("open");
   v.style.display = "block";
   v.setAttribute("aria-hidden", "false");
+  const sc = v.querySelector(".cv-scroll");
+  if (sc) sc.scrollTop = 0;
 }
 
 function closeCase() {
@@ -277,7 +326,11 @@ if (grid) {
   if (closeBtn) closeBtn.addEventListener("click", closeCase);
   const scroll = document.querySelector("#caseViewer .cv-scroll");
   if (scroll) scroll.addEventListener("click", (e) => { if (e.target === scroll) closeCase(); });
+  const viewer = caseViewerEl();
+  if (viewer) bindCaseFoot(viewer);
 }
+// 书籍弹层同样支持右滑关闭
+if (bookModal) bindSwipe(bookModal, closeBook, null);
 
 // Esc 关闭（书 + 案例查看器）
 document.addEventListener("keydown", (e) => {
