@@ -62,19 +62,20 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto 40px;    /* LOGO 在侧边栏内水平居中 */
 }
 .logo-img {
-  width: 100%;
+  width: 165px;
   max-width: 100%;
   height: auto;
   display: block;
+  margin: 0 auto;         /* 新 LOGO（段位·定位落地）居中显示 */
 }
 
 .side-nav {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  /* 25.25% = LOGO 居中左留白 14% + LOGO 图片左侧透明边距缩放后的 11.25%
-     → 导航文字左边缘与 LOGO「段位」二字的左边缘精确对齐（任意侧栏宽度均成立） */
-  padding: 0 5% 0 25.25%;
+  /* 22.5% = LOGO(165px) 居中后左缘 (300-165)/2 = 67.5px
+     → 导航文字左边缘与新 LOGO「段」字左缘精确对齐 */
+  padding: 0 5% 0 22.5%;
 }
 .side-link {
   position: relative;
@@ -999,6 +1000,7 @@ a.contact-value:hover { color: var(--c-blue); }
     width: auto !important;
     height: 28px !important;
     max-width: 60vw;
+    margin: 0 !important;   /* 顶条内靠左，不吃 auto 边距 */
   }
 
   /* 汉堡按钮 */
