@@ -998,7 +998,7 @@ a.contact-value:hover { color: var(--c-blue); }
   .logo { width: auto; margin: 0; }
   .logo-img {
     width: auto !important;
-    height: 28px !important;
+    height: 34px !important;
     max-width: 60vw;
     margin: 0 !important;   /* 顶条内靠左，不吃 auto 边距 */
   }
@@ -1174,7 +1174,7 @@ a.contact-value:hover { color: var(--c-blue); }
 
 /* ---------- 小屏手机（≤420px）微调 ---------- */
 @media (max-width: 420px) {
-  .logo-img { height: 24px !important; }
+  .logo-img { height: 30px !important; }
   .panel { padding: 18px 13px 34px; }
   .panel-title { font-size: 21px; }
   .about-h1 { font-size: 20px; }
