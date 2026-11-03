@@ -19,7 +19,7 @@ const works = [
 ];
 
 function thumbSVG(g) {
-  const grays = ["#1b4db1", "#0c0c0c", "#e8e8e4", "#143a86", "#d9d9d4", "#2a5fc0", "#8c2f24", "#2b6cb0", "#a8741f"];
+  const grays = ["#cc003d", "#0c0c0c", "#e8e8e4", "#a30031", "#d9d9d4", "#2a5fc0", "#8c2f24", "#2b6cb0", "#a8741f"];
   const shapes = [
     '<circle cx="50%" cy="50%" r="30%" fill="%C%" />',
     '<polygon points="50%,14% 88%,80% 12%,80%" fill="%C%" />',
