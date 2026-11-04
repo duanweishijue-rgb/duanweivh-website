@@ -159,14 +159,19 @@ a { color: inherit; text-decoration: none; }
   overflow-y: auto;
   padding: 48px;
 }
-/* 首页主视觉：左文右图（按 025.jpg 排版重建，标题用图上特粗宋体） */
+/* 首页主视觉：025 整图直出（用户指定原样展示，不做 HTML 重排） */
 .home-hero {
   width: 100%;
   max-width: none;
   margin: auto;
-  display: flex;
-  align-items: center;
-  gap: clamp(20px, 3vw, 60px);
+}
+.hero-full {
+  width: 100%;
+  height: auto;
+  max-height: calc(100dvh - 96px);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 .hh-copy { flex: 1.15; min-width: 0; }
 .hh-title {
