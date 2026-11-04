@@ -159,16 +159,65 @@ a { color: inherit; text-decoration: none; }
   overflow-y: auto;
   padding: 48px;
 }
-/* 首页主视觉图（铺满、无白边、无阴影） */
-.home-art {
+/* 首页主视觉：左文右图（按 025.jpg 排版重建，标题用图上特粗宋体） */
+.home-hero {
   width: 100%;
-  max-width: none;          /* 覆盖 .panel > * 的 1040px 限制 */
-  margin: auto;             /* 垂直居中且溢出时可滚动 */
-  background: #fff;
-  padding: 0;
-  box-shadow: none;
+  max-width: none;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 60px);
 }
-.home-art img {
+.hh-copy { flex: 1.15; min-width: 0; }
+.hh-title {
+  font-family: var(--font-serif);
+  font-weight: 900;                       /* 特粗宋体，同图上标题 */
+  font-size: clamp(42px, 4.8vw, 88px);
+  letter-spacing: .02em;
+  line-height: 1.15;
+  color: var(--c-black);
+  margin: 0;
+  white-space: nowrap;
+}
+.hh-title em { font-style: normal; color: var(--c-blue); }   /* 「成果」红 */
+.hh-lead {
+  margin-top: 20px;
+  font-size: 15px;
+  color: var(--c-ink);
+  line-height: 1.95;
+  max-width: 540px;
+}
+.hh-block { margin-top: clamp(30px, 3.4vw, 52px); }
+.hh-block h3 {
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: clamp(22px, 2.1vw, 36px);
+  letter-spacing: .02em;
+  color: var(--c-black);
+  margin: 0;
+}
+.hh-block h3 em { font-style: normal; color: var(--c-blue); }
+.hh-block p {
+  margin-top: 12px;
+  font-size: 14.5px;
+  color: var(--c-ink);
+  line-height: 1.95;
+  max-width: 540px;
+}
+.hh-line {
+  border: none;
+  border-top: 1px solid #d9d9d4;
+  margin: clamp(36px, 4vw, 60px) 0 0;
+  max-width: 620px;
+}
+.hh-person {
+  flex: 0 0 auto;
+  width: 42%;
+  max-width: 620px;
+  margin: 0;
+  align-self: center;
+}
+.hh-person img {
   width: 100%;
   height: auto;
   display: block;
@@ -1083,7 +1132,9 @@ a.contact-value:hover { color: var(--c-blue); }
 
   /* ---------- 首页 ---------- */
   #panel-home { padding: 14px 12px 26px; }
-  .home-art { padding: 0; box-shadow: none; }
+  .home-hero { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hh-title { white-space: normal; }
+  .hh-person { width: 86%; max-width: 430px; margin: 0 auto; align-self: center; }
 
   /* ---------- 关于我们 ---------- */
   .about-wrap { max-width: 100%; }
@@ -1181,7 +1232,7 @@ a.contact-value:hover { color: var(--c-blue); }
   .about-sub { font-size: 14px; }
   .contact-lead { font-size: 18px; }
   .bookshelf { gap: 20px; }
-  .home-art { padding: 0; }
+  .hh-person { width: 92%; }
 }
 
 /* ---------- 触屏设备：去掉依赖 hover 的效果 ---------- */
